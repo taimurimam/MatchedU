@@ -1,0 +1,277 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "-" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ / %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ / %2$@"
+          }
+        }
+      }
+    },
+    "About me" : {
+
+    },
+    "About Me" : {
+
+    },
+    "Add New" : {
+
+    },
+    "Already have an account?" : {
+
+    },
+    "Camera" : {
+      "comment" : " Action sheet text `Camera` option"
+    },
+    "Cancel" : {
+
+    },
+    "cancel_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annullamento"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отмена"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İptal"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скасувати"
+          }
+        }
+      }
+    },
+    "Choose" : {
+      "comment" : "Action sheet title"
+    },
+    "Congratulations" : {
+
+    },
+    "Date of Birth" : {
+
+    },
+    "Don’t have an account?" : {
+
+    },
+    "Done" : {
+
+    },
+    "Forgot Password?" : {
+
+    },
+    "I agree all" : {
+
+    },
+    "interaction_instructions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bewegen und skalieren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move and scale"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mover y escalar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déplacer et dimensionner"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muoversi e scalare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перемещение и масштабирование"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taşıyın ve ölçeklendirin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переміщення та масштабування"
+          }
+        }
+      }
+    },
+    "Interest" : {
+
+    },
+    "let us know about your self." : {
+
+    },
+    "Login" : {
+
+    },
+    "My Story" : {
+
+    },
+    "Ok" : {
+
+    },
+    "Personal Information" : {
+
+    },
+    "Photo Album" : {
+
+    },
+    "Photo Library" : {
+      "comment" : "Action sheet text for `Photo Library` option"
+    },
+    "Please Enter your email, We will send OTP to your email." : {
+
+    },
+    "Please reset your password" : {
+
+    },
+    "Re-send code in" : {
+
+    },
+    "Region %lld" : {
+
+    },
+    "Save" : {
+
+    },
+    "save_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Risparmiare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydet"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти"
+          }
+        }
+      }
+    },
+    "Select Source of Message" : {
+
+    },
+    "Signup" : {
+
+    },
+    "Terms and conditions" : {
+
+    },
+    "We have send you the verification code on" : {
+
+    },
+    "You have updated your password successfully. " : {
+
+    }
+  },
+  "version" : "1.0"
+}

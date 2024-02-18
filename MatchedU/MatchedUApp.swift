@@ -8,10 +8,16 @@
 import SwiftUI
 
 @main
-struct MatchedUApp: App {
+struct MatchedUApp: App { 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                if loggedinUser.id.count > 0{
+                    ProfileView()
+                }else{
+                    LoginView()
+                }
+            }
         }
     }
 }

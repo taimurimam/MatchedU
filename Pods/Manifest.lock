@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.6.4)
+  - AlertToast (1.3.9)
+  - Kingfisher (7.9.1)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlertToast
+  - Kingfisher (~> 7.0)
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlertToast
+    - Kingfisher
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  AlertToast: e8db15da727beff75500bcf33a78cd617f408fa1
+  Kingfisher: 1d14e9f59cbe19389f591c929000332bf70efd32
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: bab8978b5158c52faf387de1002d847cf728dc7e
+
+COCOAPODS: 1.15.2
