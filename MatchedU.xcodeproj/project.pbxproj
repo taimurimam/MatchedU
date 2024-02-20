@@ -73,6 +73,8 @@
 		B57606592B847BA7005082A5 /* FeedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57606582B847BA7005082A5 /* FeedItemView.swift */; };
 		B576065B2B847BC6005082A5 /* FeedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576065A2B847BC6005082A5 /* FeedProfileView.swift */; };
 		B576065D2B8488CE005082A5 /* FeedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576065C2B8488CE005082A5 /* FeedDetails.swift */; };
+		B57606602B84A6AB005082A5 /* SeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576065F2B84A6AB005082A5 /* SeachView.swift */; };
+		B57606622B84A763005082A5 /* btnSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57606612B84A763005082A5 /* btnSearch.swift */; };
 		B586847F2B7EFEF300798DC3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586847E2B7EFEF300798DC3 /* ProfileView.swift */; };
 		B58684812B7F07A000798DC3 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58684802B7F07A000798DC3 /* ProfileHeader.swift */; };
 		B58684832B7F171B00798DC3 /* ProfileStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58684822B7F171B00798DC3 /* ProfileStoryView.swift */; };
@@ -200,6 +202,8 @@
 		B57606582B847BA7005082A5 /* FeedItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemView.swift; sourceTree = "<group>"; };
 		B576065A2B847BC6005082A5 /* FeedProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedProfileView.swift; sourceTree = "<group>"; };
 		B576065C2B8488CE005082A5 /* FeedDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetails.swift; sourceTree = "<group>"; };
+		B576065F2B84A6AB005082A5 /* SeachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachView.swift; sourceTree = "<group>"; };
+		B57606612B84A763005082A5 /* btnSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = btnSearch.swift; sourceTree = "<group>"; };
 		B58519212B7C935F00A40B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B586847E2B7EFEF300798DC3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B58684802B7F07A000798DC3 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 				B533815A2B7B16AA00BB9BCB /* ForgetPassword */,
 				B5FEC1432B7B052F00897E42 /* LoginView.swift */,
 				B533819A2B7B1C5E00BB9BCB /* SignUpView.swift */,
+				B576065E2B84A69D005082A5 /* SearchView */,
 				B586847D2B7EFEDF00798DC3 /* ProfileView */,
 				B533819C2B7B624400BB9BCB /* HomeVC */,
 			);
@@ -446,6 +451,7 @@
 			children = (
 				B53381752B7B174300BB9BCB /* NoticeActionButton.swift */,
 				B53381762B7B174300BB9BCB /* BtnDone.swift */,
+				B57606612B84A763005082A5 /* btnSearch.swift */,
 				B53381782B7B174300BB9BCB /* Large_Blue_Button.swift */,
 				B53381792B7B174300BB9BCB /* DeleteButton.swift */,
 				B533817A2B7B174300BB9BCB /* BackButton.swift */,
@@ -511,6 +517,14 @@
 				B55ED7572B7C763600B6BD96 /* Interests_signIn.swift */,
 			);
 			path = Interests;
+			sourceTree = "<group>";
+		};
+		B576065E2B84A69D005082A5 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				B576065F2B84A6AB005082A5 /* SeachView.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 		B586847D2B7EFEDF00798DC3 /* ProfileView */ = {
@@ -917,8 +931,10 @@
 				B533812C2B7B0C7800BB9BCB /* NavigationExtention.swift in Sources */,
 				B58684812B7F07A000798DC3 /* ProfileHeader.swift in Sources */,
 				B53381612B7B16AA00BB9BCB /* ForgetPassword.swift in Sources */,
+				B57606602B84A6AB005082A5 /* SeachView.swift in Sources */,
 				B58684852B7F258600798DC3 /* EditProfie.swift in Sources */,
 				B53381622B7B16AA00BB9BCB /* OTPverification.swift in Sources */,
+				B57606622B84A763005082A5 /* btnSearch.swift in Sources */,
 				B57606592B847BA7005082A5 /* FeedItemView.swift in Sources */,
 				B533814A2B7B0D8A00BB9BCB /* ToastView.swift in Sources */,
 				B57606572B847AFC005082A5 /* Feed_Model.swift in Sources */,

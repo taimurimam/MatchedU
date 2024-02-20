@@ -78,7 +78,6 @@ struct CreatStory: View {
                     )
                 } // End Image Picker
                 
-                
                 Button{
                     addStoryButtonPressed()
                 }label: {

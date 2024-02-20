@@ -16,15 +16,21 @@ struct FeedItemView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             FeedProfileView(feed_model: feed_model)
-            Asyn_ImageView_demo(url: feed_model.feed_img , height: 225 , cornerRedious: 0)
-                .scaledToFill()
-                .clipped()
-            Text(feed_model.feedText)
-                .padding(.horizontal)
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(Color.app_black)
-                .lineSpacing(6)
-                .font(.app_body_Font(type: .lite, size: 17))
+            NavigationLink(destination: FeedDetails(feed_Model: feed_model)){
+                VStack(alignment: .leading, spacing: 8) {
+                    if feed_model.isImage{ // if feed image contain on feed.
+                        Asyn_ImageView_demo(url: feed_model.feed_img , height: 225 , cornerRedious: 0)
+                            .scaledToFill()
+                            .clipped()
+                    }
+                    Text(feed_model.feedText)
+                        .padding(.horizontal)
+                        .multilineTextAlignment(.leading)
+                        .foregroundStyle(Color.app_black)
+                        .lineSpacing(6)
+                        .font(.app_body_Font(type: .lite, size: 17))
+                }
+            }
             HStack {
                 // Like button and count
                 Button(action: {
@@ -38,6 +44,7 @@ struct FeedItemView: View {
                     .padding(.trailing , 5)
                     .foregroundStyle(Color.primary_color)
                     .font(.appFont(type: .medium, size: 16))
+                
                 // Comment button and count
                 /*
                 Button(action: {
@@ -54,7 +61,7 @@ struct FeedItemView: View {
                  */
 
                 Spacer()
-
+/*
                 // Bookmark button
                 Button(action: {
                     // Handle bookmark action
@@ -71,8 +78,10 @@ struct FeedItemView: View {
                         .imageScale(.medium)
                         .foregroundColor(.green)
                 }
+                */
             }
             .padding(.horizontal)
+ 
              Divider()
                 .padding(.top)
         }

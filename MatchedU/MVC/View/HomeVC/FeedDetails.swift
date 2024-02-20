@@ -22,10 +22,12 @@ struct FeedDetails: View {
             Color.app_white
                 .ignoresSafeArea()
             ZStack{
-                Asyn_ImageView(url: feed_Model.feed_img , width: 270 , height: 480 , cornerRedious: 0)
-                    .frame( height: 480)
-                    .frame(maxWidth: .infinity)
-                    .clipped()
+                if feed_Model.isImage{
+                    Asyn_ImageView(url: feed_Model.feed_img , width: 270 , height: 480 , cornerRedious: 0)
+                        .frame( height: 480)
+                        .frame(maxWidth: .infinity)
+                        .clipped()
+                }
                 VStack{
                     Spacer()
                     LinearGradient(gradient: Gradient(colors: [.app_black.opacity(0.0), .app_black.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
@@ -34,7 +36,7 @@ struct FeedDetails: View {
                 .ignoresSafeArea()
                 VStack{
                     HStack{
-                        FeedProfileView(feed_model: feed_Model , showOptionButton: !feed_Model.isMyStory , isBackButton: true)
+                        FeedProfileView(feed_model: feed_Model , showOptionButton: feed_Model.isMyStory , isBackButton: true)
                         Spacer()
                         if feed_Model.isMyStory{
                             Button{
@@ -49,10 +51,13 @@ struct FeedDetails: View {
                     Spacer()
                     Text(feed_Model.feedText)
                         .font(.app_body_Font(type: .Regular, size: 17))
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(feed_Model.isImage ? Color.white : .app_black)
                         .padding(.horizontal)
                         .lineSpacing(6)
                         .padding(.bottom , 30)
+                    if !feed_Model.isImage{
+                        Spacer()
+                    }
                 }
             }
             .navigationBarHidden(true)

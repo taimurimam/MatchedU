@@ -24,6 +24,7 @@ struct ProfileImage: View {
                     .background(Color.primary_color)
                     .cornerRadius(width/2)
                     .padding(.leading , leading_padding)
+                
             }
         }
     }

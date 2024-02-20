@@ -28,6 +28,24 @@ struct iconButtonModifier : ViewModifier{
     }
 }
 
+struct craetFeedButtonModifier : ViewModifier{
+    func body(content: Content) -> some View {
+        content
+        
+            .frame(width: 60 , height: 60)
+            .background(Color.primary_color)
+            .clipShape(Circle())
+            .padding()
+            .padding(.bottom)
+            .foregroundStyle(Color.app_white)
+            .font(.appFont(type: .Bold, size: 27))
+            .padding(.trailing , 5)
+            .shadow( color: .primary_color.opacity(0.3),  radius: 15 , x:8 , y: 12)
+
+    }
+}
+
+
 struct profileSectionHeaderModifier : ViewModifier{
     func body(content: Content) -> some View {
         content
@@ -91,7 +109,11 @@ struct inputDescriptionFieldModifier : ViewModifier{
 
 
 extension  View{
-    //profileSectionHeaderModifier
+    //craetFeedButtonModifier
+    func btnCreatPostStyle()->some View{
+        modifier(craetFeedButtonModifier())
+    }
+
     func profileSectionTitleStyle()->some View{
         modifier(profileSectionHeaderModifier())
     }
