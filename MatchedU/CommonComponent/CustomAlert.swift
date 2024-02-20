@@ -11,6 +11,7 @@ enum CustomAlertType : Int{
     case AccountCreated = 0
     case forgetPassword_EmailSend
     case profileUpdated
+    case storyDeleted
 }
 
 struct CustomAlertMode {
@@ -45,6 +46,9 @@ struct customAlertUI: View {
     var message = ""
     var title = ""
     var customAlertModel : CustomAlertMode{
+        if alerttype == .profileUpdated{
+            return CustomAlertMode(title: title , description: message , logo: "tick_mark")
+        }else
         if alerttype == .AccountCreated{
             return CustomAlertMode(title: "Congratulation!" , description:  "Your account has been created, We Have Send Confimation To Your Email Address." , logo: "tick_mark", alertType: alerttype)
         }else
@@ -55,9 +59,11 @@ struct customAlertUI: View {
     
     @Binding var isHide : Bool
     @State var isNavigateToLogin = false
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ZStack(alignment:.topTrailing){
-           
+            
         VStack {
             ZStack{
                 Color.primary_color
@@ -76,7 +82,6 @@ struct customAlertUI: View {
                     .padding(.horizontal)
                     .font(.appFont(type: .Bold, size: 19))
                     .padding(.bottom , 5)
-                    
                 
                 Text(customAlertModel.description)
                     .multilineTextAlignment(.center)
@@ -94,26 +99,33 @@ struct customAlertUI: View {
         .cornerRadius(20)
         .padding()
         .padding(.horizontal)
+            if alerttype == .storyDeleted{
+                CloseButton()
+                    .onTapGesture {
+                        dismiss()
+                    }
+            }else
             if alerttype != .AccountCreated{
-                Image(systemName: "xmark")
-                    .padding(.trailing , 60)
-                    .padding(.top , 40)
-                    .foregroundStyle(Color.app_white)
+                CloseButton()
                     .onTapGesture {
                         isHide.toggle()
                     }
             }else
             {
                 NavigationLink(destination: LoginView()){
-                    Image(systemName: "xmark")
-                        .padding(.trailing , 60)
-                        .padding(.top , 40)
-                        .foregroundStyle(Color.app_white)
-//                        .onTapGesture {
-//                          //  isHide.toggle()
-//                    }
+                    CloseButton()
                 }
             }
        }
+    }
+}
+
+
+struct CloseButton : View {
+    var body: some View {
+        Image(systemName: "xmark")
+            .padding(.trailing , 60)
+            .padding(.top , 40)
+            .foregroundStyle(Color.app_white)
     }
 }

@@ -14,7 +14,8 @@ struct BackButton: View {
         Button{
             dismiss()
         }label: {
-            Image("back_btn")
+            Image("arrow-left")
+                .btnActionStyle()
         }
     }
 }

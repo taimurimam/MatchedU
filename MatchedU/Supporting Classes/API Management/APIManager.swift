@@ -7,6 +7,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PKHUD
 //import PKHUD
 
 var finalHeader = HTTPHeaders()
@@ -36,9 +37,7 @@ struct APIManager
         if loggedinUser.access_token.count > 0 {
             headerTemp = HTTPHeaders()
         }
-        finalHeader = headerTemp
-        let isDynamicAPI = !strUrl.contains(strBaseUrl)
-        
+        finalHeader = headerTemp 
         AF.upload(multipartFormData: { multipartFormData in
             if let imageData = image.jpegData(compressionQuality: 0.3) {
                 multipartFormData.append(imageData, withName: strImageName, fileName: "\(strImageName).jpeg", mimeType: "image/png")
@@ -58,12 +57,8 @@ struct APIManager
     
     static func postMultipartDataWithMultipleImage(urlString strUrl: String, withParams params:[String:Any]? = nil, imageFiles arrImages: [UIImage], arrImageNames: [String], onCompletion: @escaping (_ respM: ResponseModel) -> Void)
     {
-        var headerTemp: HTTPHeaders = [.authorization(bearerToken: loggedinUser.access_token)]
-        if loggedinUser.access_token.count > 0 {
-            headerTemp = HTTPHeaders()
-        }
-        finalHeader = headerTemp
-        
+      //  var headerTemp: HTTPHeaders = getHttpHeader()
+       
         AF.upload(multipartFormData: { multipartFormData in
             for index in 0...(arrImages.count - 1)
             {
@@ -82,7 +77,7 @@ struct APIManager
                     multipartFormData.append(Data("\(value)".utf8), withName: key)
                 }
             }
-        }, to: URL(string: strUrl)!, method: .post, headers: headerTemp)
+        }, to: URL(string: strUrl)!, method: .post, headers: getHttpHeader())
         .validate()
         .responseData { response in
             self.handleResponse(response: response, urlString: strUrl, onCompletion: onCompletion)
@@ -207,10 +202,10 @@ func getHeader() -> [String : String]
 
 func showHud(_ strMsg: String = strPleaseWait)
 {
-  //  HUD.show(HUDContentType.label(strMsg))
+    HUD.show(HUDContentType.label(strMsg))
 }
 
 func hideHud()
 {
-   // HUD.hide(animated: true)
+    HUD.hide(animated: true)
 }

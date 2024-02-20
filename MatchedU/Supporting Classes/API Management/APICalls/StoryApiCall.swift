@@ -26,7 +26,7 @@ struct StoryApiCall{
     func DeleteStory( story_id : String  ,  onCompletion: @escaping (_ _response : ResponseModel  ) -> Void) {
         showHud()
         let params = [
-            "id" : story_id ,
+            "document_id" : story_id ,
         ]
         APIManager.callWith( method: .post  , urlString: UserAPIs.deleteStory , withParams:params ) { responseModel in
             hideHud()

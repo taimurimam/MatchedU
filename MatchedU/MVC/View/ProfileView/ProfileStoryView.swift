@@ -57,17 +57,7 @@ struct StoryCard: View {
                     Asyn_ImageView(url: storyModel.imgUrl , width: 270 , height: 200 , cornerRedious: 12)
                         .frame(width: 270 , height: 200)
                         .clipped()
-                        .cornerRadius(12)
-                    if isEditable{
-                        NavigationLink(destination: CreatStory()){
-                            Image("edit")
-                                .frame(width: 40 , height: 40)
-                                .background(.red.opacity(0.87))
-                                .clipShape(Circle())
-                                .padding()
-                                .shadow( color: .black.opacity(0.1),  radius: 10 , x:4 , y: 8)
-                        }
-                    }
+                        .cornerRadius(12) 
                 }
             }
         }

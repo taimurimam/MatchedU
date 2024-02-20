@@ -29,6 +29,7 @@ struct EditProfie: View {
     @State private var sourceType = UIImagePickerController.SourceType.photoLibrary
     @State private var showImageCropper: Bool = false
     @State private var selectedImage: UIImage?
+    @State private var isProfileEditedAlert = false
     
     
     var body: some View {
@@ -172,6 +173,9 @@ struct EditProfie: View {
             }
             .edgesIgnoringSafeArea(.bottom)
             .navigationBarHidden(true)
+            if isProfileEditedAlert{
+                customAlertUI(alerttype: .profileUpdated, message: "Your profile has been updated", title: "Updated", isHide: $isProfileEditedAlert)
+            }
         }
     }
     
@@ -194,9 +198,30 @@ struct EditProfie: View {
             "qualification" : school_collage
         ] as [String : Any]
         
-        UserApiCall().editProfile(params: params) { _response, isSuccess in
-            if isSuccess{
-                
+        var images = [UIImage]()
+        var filename = [String]()
+        
+        if profile_photo != nil{
+            images.append(profile_photo!)
+            filename.append("image")
+        }
+        
+        if cover_photo != nil{
+            images.append(cover_photo!)
+            filename.append("cover_image")
+        }
+        
+//        UserApiCall().editProfileAndprofileImage(params:params , images: images, imageFileName: filename) { _response, isSuccess in
+//            if isSuccess{
+//                print("Profile Updated")
+//            }else{
+//                print(_response.strResMsg)
+//            }
+//        }
+//        
+        UserApiCall().editProfile(params: params) { _response in
+            if _response.isSuccess{
+                isProfileEditedAlert.toggle() 
             }else{
                 
             }

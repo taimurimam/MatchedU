@@ -1,28 +1,28 @@
 //
-//  StoryDetails.swift
+//  FeedDetails.swift
 //  MatchedU
 //
-//  Created by Taimur imam on 18/02/24.
+//  Created by Taimur imam on 20/02/24.
 //
 
 import SwiftUI
 import SwiftyJSON
 import AlertToast
 
-struct StoryDetails: View {
+struct FeedDetails: View {
     
-    var storyModel = StoryModel(from: JSON())
+    var feed_Model = Feed_Model(from: JSON())
     @State private var isAlertToast = false
     @State private var toastMessage = ""
     @State private var showAlert = false
     @State private var deleteConfirmAlert = false
-
+    
     var body: some View {
         ZStack{
             Color.app_white
                 .ignoresSafeArea()
             ZStack{
-                Asyn_ImageView(url: storyModel.imgUrl , width: 270 , height: 480 , cornerRedious: 0)
+                Asyn_ImageView(url: feed_Model.feed_img , width: 270 , height: 480 , cornerRedious: 0)
                     .frame( height: 480)
                     .frame(maxWidth: .infinity)
                     .clipped()
@@ -33,26 +33,27 @@ struct StoryDetails: View {
                 }
                 .ignoresSafeArea()
                 VStack{
+                    HStack{
+                        FeedProfileView(feed_model: feed_Model , showOptionButton: !feed_Model.isMyStory , isBackButton: true)
+                        Spacer()
+                        if feed_Model.isMyStory{
+                            Button{
+                                showAlert.toggle()
+                            }label: {
+                                Image("trash")
+                                    .btnActionStyle()
+                                    .padding(.top)
+                            }
+                        }
+                    }.offset(y:-30)
                     Spacer()
-                    Text(storyModel.title)
-                        .font(.appFont(type: .Regular, size: 18))
+                    Text(feed_Model.feedText)
+                        .font(.app_body_Font(type: .Regular, size: 17))
                         .foregroundStyle(Color.white)
+                        .padding(.horizontal)
+                        .lineSpacing(6)
                         .padding(.bottom , 30)
                 }
-            }
-            VStack{
-                ZStack(alignment: .trailing){
-                    HeaderView(title: "Story")
-                    if storyModel.isMyStory{
-                        Button{
-                            showAlert.toggle()
-                        }label: {
-                            Image("trash")
-                                .btnActionStyle()
-                        }
-                    }
-                }
-                Spacer()
             }
             .navigationBarHidden(true)
             .toast(isPresenting: $isAlertToast){
@@ -61,17 +62,17 @@ struct StoryDetails: View {
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Confirmation"),
-                    message: Text("Are you sure you want to delete this story?"),
+                    message: Text("Are you sure you want to delete this post?"),
                     primaryButton: .default(Text("Delete")) {
                         // Perform deletion action here
-                        letsDeleteTheStory()
+                        letsDeleteThepost()
                     },
                     secondaryButton: .cancel()
                 )
             }
             
             if deleteConfirmAlert{
-                CustomAlert(isHide: $deleteConfirmAlert , message: "Your story has been deleted", title: "Deleted", alerttype: .storyDeleted)
+                CustomAlert(isHide: $deleteConfirmAlert , message: "Your post has been deleted", title: "Deleted", alerttype: .storyDeleted)
             }
         }
     }
@@ -79,8 +80,8 @@ struct StoryDetails: View {
     
     //MARK: - All Functions will be here
     
-    func letsDeleteTheStory(){
-        StoryApiCall().DeleteStory(story_id: storyModel.id) { _response in
+    func letsDeleteThepost(){
+        FeedApiCall().deleteFeed(feed_id: feed_Model.id) { _response in
             if _response.isSuccess{
                 deleteConfirmAlert.toggle()
             }else
@@ -90,10 +91,8 @@ struct StoryDetails: View {
             }
         }
     }
-    
-    
 }
 
 #Preview {
-    StoryDetails()
+    FeedDetails()
 }

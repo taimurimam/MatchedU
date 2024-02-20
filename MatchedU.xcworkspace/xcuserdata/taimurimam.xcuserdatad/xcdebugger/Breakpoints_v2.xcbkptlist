@@ -3,4 +3,54 @@
    uuid = "D0904481-FC77-457B-B7D9-8287A315DA66"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BAF4B69-E78D-4B54-B84A-A5E271C5C817"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MatchedU/Supporting Classes/API Management/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "handleResponse(response:urlString:onCompletion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8BAF4B69-E78D-4B54-B84A-A5E271C5C817 - 2cd24ee0d759a9b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MatchedU.APIManager.handleResponse(response: Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;, urlString: Swift.String, onCompletion: (MatchedU.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/Supporting%20Classes/API%20Management/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "1692">
+               </Location>
+               <Location
+                  uuid = "8BAF4B69-E78D-4B54-B84A-A5E271C5C817 - 2cd24ee0d759a996"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MatchedU.APIManager.handleResponse(response: Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;, urlString: Swift.String, onCompletion: (MatchedU.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/Supporting%20Classes/API%20Management/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "1840">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

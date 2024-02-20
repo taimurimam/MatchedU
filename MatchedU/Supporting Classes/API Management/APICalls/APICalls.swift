@@ -47,6 +47,7 @@ struct UserApiCall{
             let isSuccess = responseModel.isSuccess
             onCompletion(responseModel  ,isSuccess)
         }
+        
     }
     
     // Creat New Account
@@ -91,7 +92,6 @@ struct UserApiCall{
         let params = [
             "user_id" : user_id
         ]
-        
         APIManager.callWith(  method: .post , urlString: UserAPIs.profileDetails , withParams: params) { responseModel in
             hideHud()
             let isSuccess = responseModel.isSuccess
@@ -100,12 +100,20 @@ struct UserApiCall{
     }
     
     // Creat New Account
-    func editProfile( params : Dictionary< String, Any>,  onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
-        showHud()
-        APIManager.callWith(  method: .post , urlString: UserAPIs.profileEdit , withParams: params) { responseModel in
+    func editProfile( params : Dictionary< String, Any>,  onCompletion: @escaping ( _ _response : ResponseModel ) -> Void) {
+        showHud() 
+        APIManager.callWith(urlString: UserAPIs.profileEdit , withParams: params) { respM in
+            onCompletion(respM)
             hideHud()
-            let isSuccess = responseModel.isSuccess
-            onCompletion(responseModel, isSuccess)
+        }
+    }
+    
+    
+    func editProfileAndprofileImage( params : Dictionary< String, Any> , images : [UIImage] , imageFileName : [String] ,  onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
+        
+        APIManager.postMultipartDataWithMultipleImage(urlString:UserAPIs.profileEdit , withParams: params , imageFiles: images, arrImageNames: imageFileName) { respM in
+            let isSuccess = respM.isSuccess
+            onCompletion(respM, isSuccess)
         }
     }
     

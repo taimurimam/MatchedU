@@ -20,6 +20,9 @@
         }
       }
     },
+    "%lld" : {
+
+    },
     "About me" : {
 
     },
@@ -30,6 +33,12 @@
 
     },
     "Already have an account?" : {
+
+    },
+    "Are you sure you want to delete this post?" : {
+
+    },
+    "Are you sure you want to delete this story?" : {
 
     },
     "Camera" : {
@@ -94,10 +103,16 @@
     "Choose" : {
       "comment" : "Action sheet title"
     },
+    "Confirmation" : {
+
+    },
     "Congratulations" : {
 
     },
     "Date of Birth" : {
+
+    },
+    "Delete" : {
 
     },
     "Don’t have an account?" : {
@@ -107,6 +122,9 @@
 
     },
     "Forgot Password?" : {
+
+    },
+    "Hi! %@" : {
 
     },
     "I agree all" : {

@@ -14,6 +14,7 @@ struct HeaderView: View {
     var hideBackBtn = false
     var isEdItButton = false
     var profileImage = false
+    var isSearchButton =  false
     
     var titleColor : Color = .app_black
     var body: some View{
@@ -23,6 +24,10 @@ struct HeaderView: View {
                     BackButton() 
                 }
                 Spacer()
+                if isSearchButton{
+                    Image("search")
+                        .btnActionStyle()
+                }
                 if isEdItButton{
                     NavigationLink(destination: EditProfie()) {
                         Image("edit")
@@ -44,13 +49,13 @@ struct HeaderView: View {
             }.padding(.top , isiPad ? 20 : 0)
             if !title.isEmpty{
                 Text(title)
-                    .font(.appFont(type: .Regular, size: 19))
+                    .font(.appFont(type: .Regular, size: 22))
                     .foregroundColor(titleColor)
                     .padding(.bottom)
             }
             Spacer()
         }
-        .frame(height: isiPad ? 64 : 54)
+        .frame(height: isiPad ? 64 : 44)
         .background(Color.clear)
        // .shadow(color: .black.opacity(0.05), radius: 1 , x: 0.0 , y: 2.5)
     }

@@ -29,8 +29,15 @@ struct UserAPIs {
     static let addNewInterest = getUrl("add-interes")
     //add-customer-document
     static let addStory = getUrl("add-customer-document")
-    static let deleteStory = getUrl("delete-document")
-
+    static let deleteStory = getUrl("customer-document-delete")
     
 }
 
+
+struct FeedAPIs {
+    static let addFeed = getUrl("add-feed")
+    static let feedList = getUrl("feed-list")
+    static let deleteFeed = getUrl("feed-delete")
+    
+
+}

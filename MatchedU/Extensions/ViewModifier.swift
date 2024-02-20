@@ -15,6 +15,18 @@ struct inputFieldModifier : ViewModifier{
             .cornerRadius(28)
     }
 }
+struct iconButtonModifier : ViewModifier{
+    func body(content: Content) -> some View {
+        content
+        
+            .frame(width: 40 , height: 40)
+            .background(.white)
+            .clipShape(Circle())
+            .padding()
+            .shadow( color: .black.opacity(0.1),  radius: 10 , x:4 , y: 8)
+            .padding(.bottom)
+    }
+}
 
 struct profileSectionHeaderModifier : ViewModifier{
     func body(content: Content) -> some View {
@@ -83,6 +95,11 @@ extension  View{
     func profileSectionTitleStyle()->some View{
         modifier(profileSectionHeaderModifier())
     }
+    func btnActionStyle()->some View{
+        modifier(iconButtonModifier())
+    }
+
+    
 
     func inputFieldStyle()->some View{
         modifier(inputFieldModifier())
