@@ -14,7 +14,7 @@ import SwiftyJSON
 
 struct UserModel {
     var id: String
-    var name, username, email, country_code, phone_number , dob , bio , collage , graduation_year: String
+    var name, username, email, country_code, phone_number , dob , bio , collage , graduation_year , linkdin_url: String
     var access_token: String
     var profile_image: String
     var tags: [Any]
@@ -35,6 +35,7 @@ struct UserModel {
         self.bio = json["about_me"].stringValue
         self.collage = json["qualification"].stringValue
         self.graduation_year = json["qualification_year"].stringValue
+        self.linkdin_url = json["linkedin_url"].stringValue
         self.stories = json["user_document"].arrayValue.map { StoryModel(from: $0 )}
     }
 }

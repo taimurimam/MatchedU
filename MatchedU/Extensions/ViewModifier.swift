@@ -100,7 +100,7 @@ struct inputDescriptionFieldModifier : ViewModifier{
             .frame(height: 75)
             .frame(maxWidth: .infinity)
             .foregroundColor(.app_black)
-            .font(.app_body_Font(type: .Regular, size: 17))
+            .font(.app_body_Font(type: .Regular, size: 18))
             .padding(.horizontal)
             .multilineTextAlignment(.leading)
     }

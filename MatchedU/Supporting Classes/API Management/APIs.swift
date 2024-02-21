@@ -8,6 +8,10 @@ import Foundation
 
 var strBaseUrl: String {
     "https://smartappsplanet.com/matchedu/api/"
+    
+}
+var mediaBaseUrl : String{
+    "https://smartappsplanet.com/matchedu/"
 }
 
 var strPrivacyPolicy = "https://www.sample.com/privacypolicy"

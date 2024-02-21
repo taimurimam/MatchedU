@@ -18,6 +18,7 @@ struct StoryApiCall{
         ]
         APIManager.postMultipartData(urlString: UserAPIs.addStory , withParams: params, imageFile: img, strImageName: "doc_image") { responseModel in
             onCompletion(responseModel)
+            hideHud()
         }
     }
     

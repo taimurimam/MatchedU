@@ -20,11 +20,11 @@ struct Asyn_ImageView_demo: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(height: CGFloat( height))
+                        .frame(maxHeight: CGFloat( height))
                         .frame(width: UIScreen.main.bounds.width)
+                        .frame(maxWidth: UIScreen.main.bounds.width)
                         .clipped()
                         .cornerRadius(CGFloat(cornerRedious))
-
                 } placeholder: {
                     ProgressView()
                 }

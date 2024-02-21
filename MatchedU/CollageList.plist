@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Babson college</string>
+	<string>Harvard University</string>
+	<string>Tufts University</string>
+	<string>Northeastern University</string>
+	<string>Wellesley college</string>
+	<string>Boston College</string>
+	<string>Boston University</string>
+	<string>Massachusetts Institute of Technology</string>
+	<string>Brandeis University</string>
+	<string>University of Massachusetts-Amherst</string>
+	<string>Simmons University</string>
+	<string>Clark University</string>
+	<string>University of Massachusetts-Dartmouth</string>
+	<string>Holyoke Community College</string>
+	<string>Northern Essex Community College</string>
+	<string>Bristol Community College</string>
+	<string>Massasoit Community College</string>
+	<string>North Shore Community College</string>
+	<string>Bunker Hill Community College</string>
+	<string>Middlesex Community College</string>
+	<string>Roxbury Community College</string>
+	<string>Cape Cod Community College</string>
+	<string>Greenfield Community College</string>
+	<string>Mount Wachusett Community College</string>
+	<string>Berkshire Community College</string>
+	<string>Springfield Technical Community College</string>
+	<string>Massbay Community College</string>
+	<string>Quinsigamond Community College</string>
+	<string>Amherst college</string>
+	<string>Smith college</string>
+	<string>Mount Holyoke College</string>
+	<string>Wheaton College</string>
+	<string>Hampshire College</string>
+	<string>Bentley University</string>
+	<string>Emerson College</string>
+	<string>Curry College</string>
+	<string>Framingham State University</string>
+	<string>Lesley College</string>
+	<string>Stonehill College</string>
+	<string>Princeton University</string>
+	<string>Yale University</string>
+	<string>Brown University</string>
+	<string>Columbia University</string>
+	<string>Cornell University</string>
+	<string>Fordham University</string>
+	<string>New York University</string>
+	<string>University at Buffalo</string>
+	<string>Stony Brook University</string>
+	<string>University of Rochester</string>
+	<string>Syracuse University</string>
+	<string>Binghamton University</string>
+	<string>City College</string>
+	<string>University at Albany</string>
+	<string>Adelphi University</string>
+	<string>St. Johns University</string>
+	<string>Pace University</string>
+	<string>Barnard College</string>
+	<string>Vassar College</string>
+	<string>Colgate University</string>
+	<string>Skidmore college</string>
+	<string>Purchase College</string>
+	<string>University of Connecticut</string>
+	<string>Lehigh University</string>
+	<string>Baruch College</string>
+	<string>Marist College</string>
+	<string>Geneseo</string>
+	<string>Manhattan College</string>
+	<string>John Jay College</string>
+	<string>Hunter College</string>
+	<string>New York Institute of Technology</string>
+	<string>Fairfield University</string>
+	<string>University of Hartford</string>
+	<string>University of Bridgeport</string>
+	<string>Wesleyan University</string>
+	<string>Trinity College</string>
+	<string>Connecticut College</string>
+	<string>University of New Haven</string>
+	<string>Post University</string>
+</array>
+</plist>

@@ -40,8 +40,9 @@ extension Color {
     }
     
     public static var off_white: Color {
-        return  Color(UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0))
+        return  Color(UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0))
     }
+    
     
     public static var app_white: Color {
         return  Color(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0))

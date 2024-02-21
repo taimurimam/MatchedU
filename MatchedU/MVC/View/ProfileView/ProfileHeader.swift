@@ -12,12 +12,12 @@ struct ProfileHeader: View {
     let utl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.uXPJDoBupEgP_0cg3PZqwwHaD2%26pid%3DApi&f=1&ipt=2eefdc8fcab4b9538698aa641cf149d914f80d9a3a7da831a8fec233f453f38d&ipo=images"
     
     @Binding var userModel : UserModel
-    
+    var isBackButton = true
     var body: some View {
         ZStack(alignment:.bottom){
             ProfileCoverPhoto(url: utl)
             VStack{
-                HeaderView(title: "Profile" , hideBackBtn: true, isEdItButton: true , titleColor : .app_white)
+                HeaderView(title: "Profile" , hideBackBtn: !isBackButton, isEdItButton: true , titleColor : .app_white)
                     .padding(.top , 54)
                     .foregroundStyle(Color.app_white)
                 Spacer()

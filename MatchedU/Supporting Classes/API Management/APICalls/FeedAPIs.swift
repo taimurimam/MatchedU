@@ -16,7 +16,7 @@ struct FeedApiCall{
             "user_id" : loggedinUser.id ,
             "feed_title" : feedTitle
         ]
-        APIManager.postMultipartData(urlString: FeedAPIs.addFeed , withParams: params, imageFile: img, strImageName: "doc_image") { responseModel in
+        APIManager.postMultipartData(urlString: FeedAPIs.addFeed , withParams: params, imageFile: img, strImageName: "feed_image") { responseModel in
             hideHud()
             onCompletion(responseModel)
         }
@@ -24,7 +24,6 @@ struct FeedApiCall{
       
     // Get Feed List
     func getFeedList(page: String , onCompletion: @escaping (_ _response : ResponseModel ) -> Void) {
-        showHud()
         let params = [
             "page" : page
         ]

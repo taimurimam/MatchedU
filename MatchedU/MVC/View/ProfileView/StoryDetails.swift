@@ -63,7 +63,6 @@ struct StoryDetails: View {
                     title: Text("Confirmation"),
                     message: Text("Are you sure you want to delete this story?"),
                     primaryButton: .default(Text("Delete")) {
-                        // Perform deletion action here
                         letsDeleteTheStory()
                     },
                     secondaryButton: .cancel()

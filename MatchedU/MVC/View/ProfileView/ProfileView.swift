@@ -7,7 +7,6 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var userModel : UserModel = loggedinUser
-    @State private var stories = [StoryModel]()
     var body: some View {
         ZStack{
             Color.white
@@ -62,7 +61,6 @@ struct ProfileView: View {
                userModel = UserModel(from: _response.completeJsonResp["data"]["user_data"])
                UserDefaults.saveJSON(_response.completeJsonResp["data"]["user_data"] , .userDetails)
             }else{
-                print("")
             }
         }
     }

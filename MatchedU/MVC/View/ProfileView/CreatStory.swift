@@ -129,7 +129,9 @@ struct CreatStory: View {
                 toastMessage = "Your story has been created."
                 isToast_Success.toggle()
             }else{
-                
+                toastMessage = _response.strResMsg 
+                isToast_Success.toggle()
+
             }
         }
     }

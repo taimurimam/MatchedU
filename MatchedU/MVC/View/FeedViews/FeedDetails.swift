@@ -17,6 +17,8 @@ struct FeedDetails: View {
     @State private var showAlert = false
     @State private var deleteConfirmAlert = false
     
+    let feedDeleted: (_ deletedFeed: Feed_Model ) -> Void
+    
     var body: some View {
         ZStack{
             Color.app_white
@@ -36,7 +38,7 @@ struct FeedDetails: View {
                 .ignoresSafeArea()
                 VStack{
                     HStack{
-                        FeedProfileView(feed_model: feed_Model , showOptionButton: feed_Model.isMyStory , isBackButton: true)
+                        FeedProfileView(feed_model: feed_Model , showOptionButton: !feed_Model.isMyStory , isBackButton: true )
                         Spacer()
                         if feed_Model.isMyStory{
                             Button{
@@ -79,7 +81,7 @@ struct FeedDetails: View {
             if deleteConfirmAlert{
                 CustomAlert(isHide: $deleteConfirmAlert , message: "Your post has been deleted", title: "Deleted", alerttype: .storyDeleted)
             }
-        }
+        } 
     }
     
     
@@ -89,6 +91,7 @@ struct FeedDetails: View {
         FeedApiCall().deleteFeed(feed_id: feed_Model.id) { _response in
             if _response.isSuccess{
                 deleteConfirmAlert.toggle()
+                feedDeleted(feed_Model)
             }else
             {
                 toastMessage = _response.strResMsg
@@ -99,5 +102,7 @@ struct FeedDetails: View {
 }
 
 #Preview {
-    FeedDetails()
+    FeedDetails( feedDeleted: {deletedFeed in
+        
+    })
 }

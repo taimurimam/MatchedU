@@ -21,6 +21,7 @@ struct EditProfie: View {
     @State var graduation_year = loggedinUser.graduation_year
     @State var email = loggedinUser.email
     @State var imageSelectionFor = Photo_Select_for.profile
+    @State var linkdin_url = loggedinUser.linkdin_url
     
     @State private var profile_photo:UIImage?
     @State private var cover_photo:UIImage?
@@ -30,6 +31,7 @@ struct EditProfie: View {
     @State private var showImageCropper: Bool = false
     @State private var selectedImage: UIImage?
     @State private var isProfileEditedAlert = false
+    @State private var isCollageList = false
     
     
     var body: some View {
@@ -114,8 +116,18 @@ struct EditProfie: View {
                         InputField(text: $email , inputFieldType: .email, placeholder: "Email")
                             .allowsHitTesting(false) 
                         //  InputDate(birthDate: $dateOfBirth)
-                        InputField(text: $school_collage , inputFieldType: .email, placeholder: "School/Collage")
+                        ZStack{
+                            InputField(text: $school_collage , inputFieldType: .email, placeholder: "School/Collage")
+                                .allowsTightening(false)
+                            HStack{
+                                Color.white.opacity(0.01)
+                                    .onTapGesture {
+                                        isCollageList.toggle()
+                                    }
+                            }
+                        }
                         InputField(text: $graduation_year , inputFieldType: .email, placeholder: "Graduation year")
+                        InputField(text: $linkdin_url , inputFieldType: .text, placeholder: "Linkdin Profile link")
                         Button{
                             editProfileApiCall()
                         }label: {
@@ -164,10 +176,13 @@ struct EditProfie: View {
                         imageToCrop: profile_photo!,
                         maskShape: .circle
                     ) { croppedImage in
-                        print("Image Cropped...")
                         profile_photo = croppedImage
                     }
                 }
+                
+                .fullScreenCover(isPresented: $isCollageList, content: {
+                    CollageSelectionView( selectedCollage: $school_collage)
+                })
 
                 Spacer()
             }
@@ -191,6 +206,7 @@ struct EditProfie: View {
     func editProfileApiCall(){
         let params = [
             "user_id" : loggedinUser.id,
+            "linkedin_url" : linkdin_url,
             "name" : Name ,
             "about_me" : bio ,
             "qualification_year" : graduation_year ,

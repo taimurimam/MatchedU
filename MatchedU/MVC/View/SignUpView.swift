@@ -158,7 +158,6 @@ struct SignUpView: View {
                 }
             }else{
                 print("Account faild")
-                print(_response.strResMsg)
                 waringMessage = _response.strResMsg
                 showToast.toggle()
             }

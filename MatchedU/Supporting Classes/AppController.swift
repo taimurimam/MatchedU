@@ -26,7 +26,6 @@ class AppController
     var userM: UserModel {
         get {
             let json = UserDefaults.getJSON(forKey: .userDetails)
-            print(json) 
             return UserModel(from: json)
         }
         set {

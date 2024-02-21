@@ -12,7 +12,7 @@ struct InputTextEditor: View {
         return text.isEmpty ? Color.placeholder : Color.app_black
     }
     @Binding var text : String
-    
+    var hight = 75 
     var body: some View {
         ZStack(alignment: .bottom){
             VStack{
@@ -23,7 +23,7 @@ struct InputTextEditor: View {
                             .foregroundColor(.placeholder)
                         Spacer()
                     }
-                    .frame(height: 75)
+                    .frame(height: CGFloat(hight))
                 }
             TextEditor(text: $text)
                 .inputDescriptionFieldStyle()
@@ -37,7 +37,7 @@ struct InputTextEditor: View {
 
 struct InputTextEditor_Previews: PreviewProvider {
     static var previews: some View {
-        InputTextEditor(text: .constant("dsnsfs shjbfsd bfdsbf dsijf sdfj dsicfsdcf s dcds ifnds iufhdsiufsd fijds"))
+        InputTextEditor(text: .constant(""))
     }
 }
 

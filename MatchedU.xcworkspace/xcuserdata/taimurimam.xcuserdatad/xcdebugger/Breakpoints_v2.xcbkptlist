@@ -52,5 +52,69 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67405745-C3AE-49B3-B50B-19FE3613590E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MatchedU/Supporting Classes/API Management/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "postMultipartData(urlString:withParams:imageFile:strImageName:onCompletion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "67405745-C3AE-49B3-B50B-19FE3613590E - 9a6fe26fbd8ae8c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MatchedU.APIManager.postMultipartData(urlString: Swift.String, withParams: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, imageFile: __C.UIImage, strImageName: Swift.String, onCompletion: (MatchedU.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/Supporting%20Classes/API%20Management/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "67405745-C3AE-49B3-B50B-19FE3613590E - b3552a90b71eb755"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in static MatchedU.APIManager.postMultipartData(urlString: Swift.String, withParams: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, imageFile: __C.UIImage, strImageName: Swift.String, onCompletion: (MatchedU.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/Supporting%20Classes/API%20Management/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "073F48B0-EC8E-4B4D-BDC1-338F2CE8C7A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MatchedU/Supporting Classes/API Management/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "callWith(method:urlString:withParams:onCompletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct BackButton: View {
+    var isDownBackBtn = false
     @Environment(\.dismiss) var dismiss
-
     var body: some View {
         Button{
             dismiss()
         }label: {
-            Image("arrow-left")
-                .btnActionStyle()
+            if isDownBackBtn{
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.app_black)
+                    .font(.app_body_Font(type: .Regular, size: 22))
+                    .btnActionStyle()
+            }else{
+                Image("arrow-left")
+                    .btnActionStyle()
+            }
         }
     }
 }

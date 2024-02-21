@@ -15,13 +15,14 @@ struct HeaderView: View {
     var isEdItButton = false
     var profileImage = false
     var isSearchButton =  false
+    var isDownBackBtn = false
     
     var titleColor : Color = .app_black
     var body: some View{
         ZStack{
-            HStack{
+            HStack{ // chevron.down
                 if !hideBackBtn{
-                    BackButton() 
+                    BackButton(isDownBackBtn: isDownBackBtn)
                 }
                 Spacer()
                 if isSearchButton{
