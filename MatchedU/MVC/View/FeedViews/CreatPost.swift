@@ -19,7 +19,6 @@ struct CreatPost: View {
     @State private var isToast_Success = false
     @State private var selectedImage: UIImage?
     let newPostSend:() -> Void
-    
     var isPostButtonActive :Bool{
         if !text.isEmpty || selectedImage != nil
         {
@@ -27,42 +26,65 @@ struct CreatPost: View {
         }else{
             return false
         }
+        
     }
     
     var body: some View {
         ZStack{
-            Color.app_white
+            Color.off_white
                 .ignoresSafeArea()
             VStack{
-                HeaderView(title:"Creat Post" , isDownBackBtn: true)
-                VStack(spacing: 30){
-                    InputTextEditor(text: $text , hight: 100)
+                ZStack(alignment: . trailing){
+                    HeaderView(title:"Creat Post" , isDownBackBtn: true)
+                    Button{
+                        if isPostButtonActive{
+                            createPost()
+                        }
+                    }label: {
+                        Post_Button(title: "Post")
+                            .padding(.horizontal)
+                    }
+                }
+                VStack(spacing: 10){
+                    postInputText(text: $text)
                     if selectedImage == nil{ // Image icon
                         Image(systemName: "photo.artframe")
                             .foregroundColor(.primary_color)
                             .font(.appFont(type: .Regular, size: 104))
+                            .frame(maxWidth: UIScreen.main.bounds.width  - 40.0)
+                            .frame(height: 180)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(12)
+                            .padding(.leading , 50)
                             .onTapGesture {
                                 showImagePickerOptions.toggle()
                             }
                     }else{ // Seleceted image
-                        Image(uiImage: selectedImage ?? UIImage())
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: CGFloat(Int(UIScreen.main.bounds.width)))
-                            .frame(height: 260)
-                            .clipped()
-                            .padding(.bottom)
-                            .onTapGesture {
-                                showImagePickerOptions.toggle()
-                            }
+                        ZStack(alignment:.topTrailing){
+                            Image(uiImage: selectedImage ?? UIImage())
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(maxWidth: UIScreen.main.bounds.width  - 40.0)
+                                .frame(height: 180)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(12)
+                                .padding(.leading , 50)
+                                .clipped()
+                                .onTapGesture {
+                                    showImagePickerOptions.toggle()
+                                }
+                            Image(systemName: "xmark.circle")
+                                .btnActionStyle()
+                                .foregroundStyle(Color.app_black)
+                                .padding(.trailing , 5)
+                                .onTapGesture {
+                                    selectedImage = nil
+                                }
+                        }
                     }
-                    Button{
-                        createPost()
-                    }label: {
-                        Large_Blue_Button(title: "Post")
-                            .padding(.horizontal)
-                    }
-                    .padding(.top , 30)
+                    
                     Spacer()
                 }.padding(.horizontal)
                     .padding(.top,30)
@@ -100,6 +122,9 @@ struct CreatPost: View {
                 AlertToast(type: .regular, title: toastMessage)
             }
             
+            .gesture(DragGesture().onChanged({ _ in
+                hideKeyboard()
+            }))
         }
     }
     
@@ -116,11 +141,46 @@ struct CreatPost: View {
             }
         }
     }
-    
 }
 
 #Preview {
     CreatPost {
         
+    }
+}
+
+
+struct postInputText : View {
+    @Binding var text : String
+    @FocusState private var isEditing : Bool
+    
+    var body: some View {
+        HStack(alignment:.top){
+            ProfileImage(url: loggedinUser.profile_image , width: 30)
+                .padding(.top)
+            ZStack(alignment:.topLeading){
+                TextEditor(text: $text)
+                    .padding(10)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 120)
+                    .background(Color.app_white)
+                    .cornerRadius(12)
+                    .foregroundColor(.black)
+                    .font(.app_body_Font(type: .Regular, size: 18))
+                    .lineSpacing(6) 
+                    .scrollContentBackground(.hidden)
+                    .focused($isEditing)
+                
+                if text.isEmpty{
+                    Text("whats going on......")
+                        .padding()
+                        .foregroundColor(.black.opacity(0.7))
+                        .font(.app_body_Font(type: .Regular, size: 18))
+                }
+            }
+        }
+        .onAppear(){
+            isEditing = true
+        }
     }
 }

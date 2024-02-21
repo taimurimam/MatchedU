@@ -1,7 +1,6 @@
 //
 //  ProfileStoryView.swift
 //  MatchedU
-//
 //  Created by Taimur imam on 16/02/24.
 
 import SwiftUI

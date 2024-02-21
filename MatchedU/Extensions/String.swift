@@ -29,8 +29,26 @@ extension String {
         }
         return result
     }
+         //linkedin
+
+    var isValidLinkDinLink : Bool{
+        let arr = self.components(separatedBy: ".")
+        if arr.contains("linkedin"){
+            return isValidURL
+        }else{
+            return false
+        }
+    }
     
-    
+    var isValidURL: Bool {
+           let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+           if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
+               // it is a link, if the match covers the whole string
+               return match.range.length == self.utf16.count
+           } else {
+               return false
+           }
+       }
     // MARK:- Trimming the whitespace from a string and check empty of string
     public var isBlank: Bool
     {
@@ -85,11 +103,6 @@ extension String {
         
         return nil
     }
-    func isValidURL() -> Bool {
-        if let url = URL(string: self) {
-            return UIApplication.shared.canOpenURL(url)
-        }
-        return false
-    }
+    
 }
 

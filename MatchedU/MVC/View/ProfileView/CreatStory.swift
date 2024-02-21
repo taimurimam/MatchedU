@@ -21,87 +21,113 @@ struct CreatStory: View {
     @State private var isToast_Success = false
 
     @State private var storyTitle = ""
+    var isPostButtonActive :Bool{
+        if !storyTitle.isEmpty || selectedImage != nil
+        {
+            return true
+        }else{
+            return false
+        }
+    }
     
     var body: some View {
         ZStack{
-            Color.app_white
+            Color.off_white
                 .ignoresSafeArea()
-            VStack(alignment:.center){
-                HeaderView(title: "Creat Story")
-                VStack(alignment: .center , spacing: 20){
-                    InputField(text: $storyTitle, placeholder: "Story Title")
-                        .padding(.top , 20)
-                    ZStack(alignment:.center){
-                        if (selectedImage != nil ){ // if user select image then image need to display
+            VStack{
+                ZStack(alignment: . trailing){
+                    HeaderView(title:"Creat Post")
+                    Button{
+                        if isPostButtonActive{
+                            addStoryButtonPressed()
+                        }
+                    }label: {
+                        Post_Button(title: "Add Story")
+                            .padding(.horizontal)
+                    }
+                }
+                VStack(spacing: 10){
+                    postInputText(text: $storyTitle)
+                    if selectedImage == nil{ // Image icon
+                        Image(systemName: "photo.artframe")
+                            .foregroundColor(.primary_color)
+                            .font(.appFont(type: .Regular, size: 104))
+                            .frame(maxWidth: UIScreen.main.bounds.width  - 40.0)
+                            .frame(height: 180)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(12)
+                            .padding(.leading , 50)
+                            .onTapGesture {
+                                showImagePickerOptions.toggle()
+                            }
+                    }else{ // Seleceted image
+                        ZStack(alignment:.topTrailing){
                             Image(uiImage: selectedImage ?? UIImage())
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(width: CGFloat(Int(UIScreen.main.bounds.width)) - 50 , height: 240)
+                                .frame(maxWidth: UIScreen.main.bounds.width  - 40.0)
+                                .frame(height: 180)
+                                .padding()
+                                .background(Color.white)
                                 .cornerRadius(12)
+                                .padding(.leading , 50)
                                 .clipped()
-                                .padding(.bottom)
-                        }
-                        VStack{
-                            PlusButton()
                                 .onTapGesture {
-                                    selectImage()
-                            }
+                                    showImagePickerOptions.toggle()
+                                }
+                            Image(systemName: "xmark.circle")
+                                .btnActionStyle()
+                                .foregroundStyle(Color.app_black)
+                                .padding(.trailing , 5)
+                                .onTapGesture {
+                                    selectedImage = nil
+                                }
                         }
                     }
-                    .frame(height: 240)
-                }
-                .frame( height: 350)
-                .frame(maxWidth: .infinity)
-                .background(Color.white)
-                .cornerRadius(12)
-                .shadow(color: .app_black.opacity(0.1), radius: 10 , x: 4 , y: 8)
-                .padding(.horizontal)
-                
-                // Select Image Picker option
-                .actionSheet(isPresented: $showImagePickerOptions) {
-                    SwiftUI.ActionSheet(
-                        title: Text(""),
-                        message: Text("Select Source of Message"),
-                        buttons: [
-                            .default(Text("Camera")) {
-                                // Handle action for Option 1
-                                sourceType = .camera
-                                showImagePicker.toggle()
-                            },
-                            .default(Text("Photo Album")) {
-                                sourceType = .savedPhotosAlbum
-                                showImagePicker.toggle()
-                            },
-                            .cancel(), // Adds a cancel button
-                            // You can add more buttons as needed
-                        ]
-                    )
-                } // End Image Picker
-                
-                Button{
-                    addStoryButtonPressed()
-                }label: {
-                    Large_Blue_Button(title: "Add Story")
-                        .padding(.horizontal)
-                }
-                .padding(.top , 30)
-                
-                // Show Image Picker
-                .sheet(isPresented: $showImagePicker) {
-                    ProfileImagePicker( image: $selectedImage , isShown: $showImagePicker, isProfileCropView: $showImagePicker , photo_for: .cover , sourceType: sourceType)
-                        .onDisappear{
-                        }
-                }
-                Spacer()
+                    
+                    Spacer()
+                }.padding(.horizontal)
+                    .padding(.top,30)
             }
-        .navigationBarHidden(true)
-        .toast(isPresenting: $isToast){
-            AlertToast(type: .regular, title: toastMessage)
+            .navigationBarHidden(true)
+            // Show Image Picker
+            .sheet(isPresented: $showImagePicker) {
+                ProfileImagePicker( image: $selectedImage , isShown: $showImagePicker, isProfileCropView: $showImagePicker , photo_for: .cover , sourceType: sourceType)
+                    .onDisappear{
+                    }
             }
-        .toast(isPresenting: $isToast_Success){
-            AlertToast(type: .regular, title: toastMessage)
+            
+            // Select Image Picker option
+            .actionSheet(isPresented: $showImagePickerOptions) {
+                SwiftUI.ActionSheet(
+                    title: Text(""),
+                    message: Text("Select Source of Message"),
+                    buttons: [
+                        .default(Text("Camera")) {
+                            // Handle action for Option 1
+                            sourceType = .camera
+                            showImagePicker.toggle()
+                        },
+                        .default(Text("Photo Album")) {
+                            sourceType = .savedPhotosAlbum
+                            showImagePicker.toggle()
+                        },
+                        .cancel(), // Adds a cancel button
+                        // You can add more buttons as needed
+                    ]
+                )
+            } // End Image Picker
+            .toast(isPresenting: $isToast){
+                AlertToast(type: .regular, title: toastMessage)
+                }
+            .toast(isPresenting: $isToast_Success){
+                AlertToast(type: .regular, title: toastMessage)
+                }
             }
-        }
+            .gesture(DragGesture().onChanged({ _ in
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }))
         Spacer()
     }
     

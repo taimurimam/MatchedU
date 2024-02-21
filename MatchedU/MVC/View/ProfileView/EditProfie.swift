@@ -9,6 +9,7 @@ enum Photo_Select_for : Int {
     case cover
 }
 import SwiftUI
+import AlertToast
 struct EditProfie: View {
     let utl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.uXPJDoBupEgP_0cg3PZqwwHaD2%26pid%3DApi&f=1&ipt=2eefdc8fcab4b9538698aa641cf149d914f80d9a3a7da831a8fec233f453f38d&ipo=images"
     
@@ -33,6 +34,8 @@ struct EditProfie: View {
     @State private var isProfileEditedAlert = false
     @State private var isCollageList = false
     
+    @State private var toastMessage = ""
+    @State private var isToastMessage = false
     
     var body: some View {
         ZStack{
@@ -129,7 +132,12 @@ struct EditProfie: View {
                         InputField(text: $graduation_year , inputFieldType: .email, placeholder: "Graduation year")
                         InputField(text: $linkdin_url , inputFieldType: .text, placeholder: "Linkdin Profile link")
                         Button{
-                            editProfileApiCall()
+                            if !linkdin_url.isEmpty && !linkdin_url.isValidLinkDinLink{
+                                toastMessage = "You have entered wrong Linkedin url, Please provide valid one."
+                                isToastMessage.toggle() 
+                            }else{
+                                editProfileApiCall()
+                            }
                         }label: {
                             Large_Blue_Button(title: "Update info")
                                 .padding(.horizontal)
@@ -179,6 +187,11 @@ struct EditProfie: View {
                         profile_photo = croppedImage
                     }
                 }
+                
+                .toast(isPresenting: $isToastMessage){
+                    AlertToast(type: .regular, title: toastMessage)
+                }
+
                 
                 .fullScreenCover(isPresented: $isCollageList, content: {
                     CollageSelectionView( selectedCollage: $school_collage)

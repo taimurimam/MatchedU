@@ -14,7 +14,7 @@ struct ProfileImage: View {
     var body: some View {
         VStack{
             if !url.isEmpty{
-                Asyn_profile_ImageView(url: url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
+                Asyn_profile_ImageView(url:  url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
                     .padding(.leading , leading_padding)
             }else{
                 Image(systemName: "person.circle")

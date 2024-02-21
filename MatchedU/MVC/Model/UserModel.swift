@@ -18,14 +18,13 @@ struct UserModel {
     var access_token: String
     var profile_image: String
     var tags: [Any]
-    var stories : [StoryModel]
-    
+    var stories : [StoryModel] 
     init(from json: JSON)
     {
         self.id = json["id"].stringValue
         self.name = json["name"].stringValue
         self.email = json["email"].stringValue
-        self.username = json["username"].stringValue
+        self.username = mediaBaseUrl + json["username"].stringValue
         self.country_code = json["country_code"].stringValue
         self.phone_number = json["phone_number"].stringValue
         self.access_token = json["api_token"].stringValue
