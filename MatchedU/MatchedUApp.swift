@@ -13,7 +13,8 @@ struct MatchedUApp: App {
         WindowGroup {
             NavigationView{
                 if loggedinUser.id.count > 0{
-                    FeedList()
+                //    FeedList()
+                    Tabbar(logedinUser: LogedInUser())
                 }else{
                     LoginView()
                 }

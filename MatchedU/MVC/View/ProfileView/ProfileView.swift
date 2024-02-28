@@ -19,7 +19,7 @@ struct ProfileView: View {
             VStack(spacing: 25){
                 ZStack(alignment: .topTrailing){
                     NavigationLink(destination: LoginView() , isActive:$isLoggedOut ){}
-                    ProfileHeader(userModel: userModel, show_confirmationAlert: $show_confirmationAlert)
+                    ProfileHeader(userModel: userModel , show_confirmationAlert: $show_confirmationAlert)
                     if userModel.id == loggedinUser.id || user_id.isEmpty{
                         NavigationLink(destination: EditProfie( userModel: $userModel )) {
                         Image("edit")

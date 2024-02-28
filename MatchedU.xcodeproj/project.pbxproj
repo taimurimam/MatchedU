@@ -13,6 +13,10 @@
 		B5153D212B8EE7B500439EC2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D202B8EE7B500439EC2 /* Notifications.swift */; };
 		B5153D232B8EE92400439EC2 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D222B8EE92400439EC2 /* NotificationCell.swift */; };
 		B5153D252B8EF1A300439EC2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D242B8EF1A300439EC2 /* Notification.swift */; };
+		B5153D2B2B8F2F2100439EC2 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D272B8F2F2100439EC2 /* Tabbar.swift */; };
+		B5153D2C2B8F2F2100439EC2 /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D282B8F2F2100439EC2 /* TabBarIcon.swift */; };
+		B5153D2D2B8F2F2100439EC2 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D292B8F2F2100439EC2 /* TabBarView.swift */; };
+		B5153D2E2B8F2F2100439EC2 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D2A2B8F2F2100439EC2 /* ViewRouter.swift */; };
 		B53381292B7B0C7800BB9BCB /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381242B7B0C7800BB9BCB /* FontExtensions.swift */; };
 		B533812A2B7B0C7800BB9BCB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381252B7B0C7800BB9BCB /* ColorExtension.swift */; };
 		B533812C2B7B0C7800BB9BCB /* NavigationExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381272B7B0C7800BB9BCB /* NavigationExtention.swift */; };
@@ -144,6 +148,10 @@
 		B5153D202B8EE7B500439EC2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		B5153D222B8EE92400439EC2 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		B5153D242B8EF1A300439EC2 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		B5153D272B8F2F2100439EC2 /* Tabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		B5153D282B8F2F2100439EC2 /* TabBarIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarIcon.swift; sourceTree = "<group>"; };
+		B5153D292B8F2F2100439EC2 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		B5153D2A2B8F2F2100439EC2 /* ViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B53381242B7B0C7800BB9BCB /* FontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		B53381252B7B0C7800BB9BCB /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B53381272B7B0C7800BB9BCB /* NavigationExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationExtention.swift; sourceTree = "<group>"; };
@@ -318,6 +326,17 @@
 			path = Notifiactions;
 			sourceTree = "<group>";
 		};
+		B5153D262B8F2F2100439EC2 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B5153D272B8F2F2100439EC2 /* Tabbar.swift */,
+				B5153D282B8F2F2100439EC2 /* TabBarIcon.swift */,
+				B5153D292B8F2F2100439EC2 /* TabBarView.swift */,
+				B5153D2A2B8F2F2100439EC2 /* ViewRouter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		B53381232B7B0C7800BB9BCB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +352,7 @@
 		B533812E2B7B0D8A00BB9BCB /* Supporting Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B5153D262B8F2F2100439EC2 /* TabBar */,
 				B586848A2B7F59D700798DC3 /* SwiftyCrop */,
 				B533812F2B7B0D8A00BB9BCB /* Constants.swift */,
 				B595C2912B845904002625DD /* Utilities.swift */,
@@ -947,8 +967,10 @@
 				B533818A2B7B174400BB9BCB /* InputDate.swift in Sources */,
 				B53381852B7B174400BB9BCB /* CountryPickerView.swift in Sources */,
 				B533819B2B7B1C5E00BB9BCB /* SignUpView.swift in Sources */,
+				B5153D2D2B8F2F2100439EC2 /* TabBarView.swift in Sources */,
 				B53381952B7B174400BB9BCB /* InputTextEditor.swift in Sources */,
 				B595C2702B80D3CD002625DD /* FeedList.swift in Sources */,
+				B5153D2E2B8F2F2100439EC2 /* ViewRouter.swift in Sources */,
 				B595C2722B81E3EE002625DD /* StoryDetails.swift in Sources */,
 				B53381482B7B0D8A00BB9BCB /* TextModifier.swift in Sources */,
 				B53381872B7B174400BB9BCB /* CountryModel.swift in Sources */,
@@ -1019,7 +1041,9 @@
 				B53381492B7B0D8A00BB9BCB /* KFImageView.swift in Sources */,
 				B53381472B7B0D8A00BB9BCB /* UserDefaults.swift in Sources */,
 				B533812D2B7B0C7800BB9BCB /* ViewModifier.swift in Sources */,
+				B5153D2B2B8F2F2100439EC2 /* Tabbar.swift in Sources */,
 				B58684962B7F59D700798DC3 /* SwiftyCropConfiguration.swift in Sources */,
+				B5153D2C2B8F2F2100439EC2 /* TabBarIcon.swift in Sources */,
 				B533815F2B7B16AA00BB9BCB /* ResetPassword.swift in Sources */,
 				B58EE2CF2B859FAB00DF05D8 /* CreatPost.swift in Sources */,
 				B533812A2B7B0C7800BB9BCB /* ColorExtension.swift in Sources */,

@@ -63,3 +63,7 @@ struct UserModel {
         self.stories = json["user_document"].arrayValue.map { StoryModel(from: $0 )}
     }
 }
+
+class LogedInUser : ObservableObject{
+    @Published var user = loggedinUser
+}

@@ -4,6 +4,25 @@
 //  Created by Taimur imam on 04/09/23.
 
 import SwiftUI
+
+struct genderBtnModifier : ViewModifier{
+    var isSelected = false
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .padding(.horizontal , 10)
+            .frame(maxWidth: .infinity)
+            .background(isSelected ? Color.primary_color : Color.app_white)
+            .clipShape(Capsule())
+            .foregroundStyle(isSelected ?  Color.app_white : Color.app_black)
+            .font(.app_body_Font(type: .Regular, size: 18))
+            .overlay(
+                    RoundedRectangle(cornerRadius: 28)
+                        .stroke(isSelected ? Color.app_white :  Color.app_black, lineWidth: 1.5)
+            )    }
+}
+
+
 struct inputFieldModifier : ViewModifier{
     func body(content: Content) -> some View {
         content
@@ -110,9 +129,15 @@ struct inputDescriptionFieldModifier : ViewModifier{
 
 extension  View{
     //craetFeedButtonModifier
+    
     func btnCreatPostStyle()->some View{
         modifier(craetFeedButtonModifier())
     }
+    
+    func genderBtnStyle(isSelected : Bool)->some View{
+        modifier(genderBtnModifier(isSelected: isSelected))
+    }
+
 
     func profileSectionTitleStyle()->some View{
         modifier(profileSectionHeaderModifier())

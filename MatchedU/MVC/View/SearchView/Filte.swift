@@ -66,32 +66,12 @@ struct FilterView: View {
                         .font(.app_body_Font(type: .Regular , size: 18))
                     HStack(spacing: 20){
                         Text("Male")
-                            .padding()
-                            .padding(.horizontal , 10)
-                            .frame(maxWidth: .infinity)
-                            .background(gender == .Male ? Color.primary_color : Color.app_white)
-                            .clipShape(Capsule())
-                            .foregroundStyle(gender == .Male ?  Color.app_white : Color.app_black)
-                            .font(.app_body_Font(type: .Regular, size: 18))
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 28)
-                                        .stroke(gender == .Male ? Color.app_white :  Color.app_black, lineWidth: 1.5)
-                            )
+                            .genderBtnStyle(isSelected: gender == .Male ? true : false)
                             .onTapGesture {
                                 gender = .Male
                             }
                         Text("Female")
-                            .padding()
-                            .padding(.horizontal , 10)
-                            .frame(maxWidth: .infinity)
-                            .background(gender == .Female ? Color.primary_color : Color.app_white)
-                            .clipShape(Capsule())
-                            .foregroundStyle(gender == .Female ?  Color.app_white : Color.app_black)
-                            .font(.app_body_Font(type: .Regular, size: 18))
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 28)
-                                        .stroke(gender == .Female ? Color.app_white :  Color.app_black, lineWidth: 1.5)
-                            )
+                            .genderBtnStyle(isSelected: gender == .Female ? true : false)
                             .onTapGesture {
                                 gender = .Female
                             }
