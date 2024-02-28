@@ -131,6 +131,8 @@ struct CreatPost: View {
     //MARK - All function will be go here
     
     func createPost(){
+        hideKeyboard()
+
         FeedApiCall().creatNewFeed(feedTitle: text, img: selectedImage ?? UIImage()) { _response in
             if _response.isSuccess{
                 newPostSend()

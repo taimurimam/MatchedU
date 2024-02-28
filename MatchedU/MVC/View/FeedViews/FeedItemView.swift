@@ -13,7 +13,6 @@ struct FeedItemView: View {
     var feed_model : Feed_Model
     let feedDeleted: (_ deletedFeed: Feed_Model ) -> Void
 
-    @State var likeCount = 12
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             FeedProfileView(feed_model: feed_model) 
@@ -35,61 +34,44 @@ struct FeedItemView: View {
                         .font(.app_body_Font(type: .lite, size: 17))
                 }
             }
-            HStack {
-                // Like button and count
+            
+            HStack (spacing: 20){
                 Button(action: {
-                    likeCount += 1
+                    acceptRejectApiCall(type: "1")
                 }) {
-                    Image(systemName: "hand.thumbsup")
+                    Image("accept")
                         .foregroundStyle(Color.primary_color)
                         .font(.appFont(type: .Regular, size: 22))
                  }
-                Text("\(likeCount)")
-                    .padding(.trailing , 5)
-                    .foregroundStyle(Color.primary_color)
-                    .font(.appFont(type: .medium, size: 16))
                 
-                // Comment button and count
-                /*
                 Button(action: {
-                    // Handle comment action
+                    acceptRejectApiCall(type: "2")
                 }) {
-                    HStack{
-                        Image("comments")
-                            .padding(.leading , 5)
-                        Text(feed_model.comment_count)
-                            .foregroundStyle(Color.primary_color)
-                            .font(.appFont(type: .medium, size: 13))
-                    }
-                }
-                 */
-
-                Spacer()
-/*
-                // Bookmark button
-                Button(action: {
-                    // Handle bookmark action
-                }) {
-                    Image("bookmark_active")
-                        .padding(.trailing , 5) 
-                }
-
-                // Share button
-                Button(action: {
-                    // Handle share action
-                }) {
-                    Image("share")
-                        .imageScale(.medium)
-                        .foregroundColor(.green)
-                }
-                */
+                    Image("reject")
+                        .foregroundStyle(Color.primary_color)
+                        .font(.appFont(type: .Regular, size: 22))
+                 }
             }
             .padding(.horizontal)
- 
              Divider()
                 .padding(.top)
         }
     }
+ 
+    //MARK: - All Function will be here ..........
+    
+    func acceptRejectApiCall(type: String){
+        FeedApiCall().likeFeed(feed_id: feed_model.id, type: type) { _response in
+            if _response.isSuccess {
+                if type == "2"{
+                    self.feedDeleted(feed_model)
+                }
+            }else{
+                print("some issue happned")
+            }
+        }
+    }
+    
 }
 
 #Preview {

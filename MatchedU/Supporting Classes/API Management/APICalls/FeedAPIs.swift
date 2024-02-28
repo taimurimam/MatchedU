@@ -25,6 +25,7 @@ struct FeedApiCall{
     // Get Feed List
     func getFeedList(page: String , onCompletion: @escaping (_ _response : ResponseModel ) -> Void) {
         let params = [
+            "user_id" : loggedinUser.id ,
             "page" : page
         ]
         APIManager.callWith(urlString: FeedAPIs.feedList , withParams: params) { respM in
@@ -45,8 +46,17 @@ struct FeedApiCall{
         }
     }
     
-    
-    
-    
-    
+    // Like Feed by feedId
+    func likeFeed(feed_id: String ,  type : String , onCompletion: @escaping (_ _response : ResponseModel ) -> Void) {
+        showHud()
+        let params = [
+            "feed_id" : feed_id ,
+            "user_id" : loggedinUser.id,
+            "type" : type
+        ]
+        APIManager.callWith(urlString: FeedAPIs.likeFeed , withParams: params) { respM in
+            hideHud()
+            onCompletion(respM)
+        }
+    }
 }

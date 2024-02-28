@@ -9,13 +9,23 @@ import SwiftUI
 
 struct PlusButton: View {
 
+    var width = 60.0
+    var fontSize = 34
     var body: some View {
         Image(systemName: "plus")
             .foregroundStyle(Color.white)
-            .font(.appFont(type: .Bold, size: 34))
-            .frame(width: 60 , height: 60)
+            .font(.appFont(type: .Bold, size: fontSize))
+            .frame(width: width , height: width)
             .background(Color.primary_color)
             .clipShape(Circle())
             .shadow(color: .black.opacity(0.2), radius: 30 , x: 4 , y: 10)
+    }
+}
+
+struct BtnCreatStory : View {
+    var body: some View {
+        NavigationLink(destination: CreatStory()) {
+            PlusButton(width: 40 , fontSize: 23)
+        }
     }
 }

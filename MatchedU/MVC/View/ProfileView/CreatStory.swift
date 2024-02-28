@@ -36,7 +36,7 @@ struct CreatStory: View {
                 .ignoresSafeArea()
             VStack{
                 ZStack(alignment: . trailing){
-                    HeaderView(title:"Creat Post")
+                    HeaderView(title:"Creat Story")
                     Button{
                         if isPostButtonActive{
                             addStoryButtonPressed()
@@ -150,6 +150,7 @@ struct CreatStory: View {
     
     
     func creatStory(){
+        hideKeyboard()
         StoryApiCall().creatNewStory(storyTitle: storyTitle, img: selectedImage!) { _response in
             if _response.isSuccess{
                 toastMessage = "Your story has been created."

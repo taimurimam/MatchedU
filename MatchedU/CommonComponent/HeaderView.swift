@@ -17,6 +17,7 @@ struct HeaderView: View {
     var isSearchButton =  false
     var isDownBackBtn = false
     
+    
     var titleColor : Color = .app_black
     var body: some View{
         ZStack{
@@ -30,13 +31,7 @@ struct HeaderView: View {
                         .btnActionStyle()
                 }
                 if isEdItButton{
-                    NavigationLink(destination: EditProfie()) {
-                        Image("edit")
-                            .frame(width: 30 , height: 30)
-                            .clipShape(Circle())
-                            .padding(.trailing)
-                            .padding(.bottom)
-                    }
+                   
                 }
                 if !icon.isEmpty{
                     Button{

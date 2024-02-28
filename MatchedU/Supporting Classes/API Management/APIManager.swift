@@ -55,6 +55,39 @@ struct APIManager
         }
     }
     
+    
+    
+    static func putMultipartDataWithMultipleImage(urlString strUrl: String, withParams params:[String:Any]? = nil, imageFiles arrImages: [UIImage], arrImageNames: [String], onCompletion: @escaping (_ responseModel: ResponseModel) -> Void)
+        {
+            
+            AF.upload(multipartFormData: { multipartFormData in
+                if arrImages.count>0 {
+                    for index in 0...(arrImages.count - 1)
+                    {
+                        let strName = arrImageNames[index]
+                        let image = arrImages[index]
+                        let strFileName = strName.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
+                        
+                        if let imageData = image.jpegData(compressionQuality: 0.3) {
+                            multipartFormData.append(imageData, withName: strName, fileName: "\(strFileName).jpeg", mimeType: "image/png")
+                        }
+                    }
+                }
+                if params != nil
+                {
+                    for (key, value) in params! {
+                        multipartFormData.append(Data("\(value)".utf8), withName: key)
+                    }
+                }
+            }, to: URL(string: strUrl)!, method: .post, headers: getHttpHeader())
+            .validate()
+            .responseData { response in
+                self.handleResponse(response: response, urlString: strUrl, onCompletion: onCompletion)
+            }
+        }
+
+    
+    
     static func postMultipartDataWithMultipleImage(urlString strUrl: String, withParams params:[String:Any]? = nil, imageFiles arrImages: [UIImage], arrImageNames: [String], onCompletion: @escaping (_ respM: ResponseModel) -> Void)
     {
       //  var headerTemp: HTTPHeaders = getHttpHeader()

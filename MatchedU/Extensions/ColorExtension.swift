@@ -9,9 +9,14 @@ import SwiftUI
 extension Color {
   //  rgba(216, 216, 216, 1)
    // rgba(133, 133, 133, 1)
+
     public static var text_secondary_color: Color {
         return  Color(UIColor(red: 133/255, green: 133/255, blue: 133/255, alpha: 1.0))
     }
+    public static var filterBackGround: Color {
+        return  Color(UIColor(red: 43/255, green: 55/255, blue: 71/255, alpha: 0.3))
+    }
+
 
     public static var button_shado: Color {
         return  Color(UIColor(red: 100/255, green: 137/255, blue: 185/255, alpha: 0.4))

@@ -90,6 +90,7 @@
 		B586849B2B7F68A300798DC3 /* CreatStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586849A2B7F68A300798DC3 /* CreatStory.swift */; };
 		B586849D2B7F800500798DC3 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586849C2B7F800500798DC3 /* CustomAlert.swift */; };
 		B58EE2CF2B859FAB00DF05D8 /* CreatPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58EE2CE2B859FAB00DF05D8 /* CreatPost.swift */; };
+		B5905A492B8DF5F700531D21 /* Filte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5905A482B8DF5F700531D21 /* Filte.swift */; };
 		B595C2692B807642002625DD /* StoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C2682B807642002625DD /* StoryModel.swift */; };
 		B595C26B2B807F9C002625DD /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C26A2B807F9C002625DD /* PlusButton.swift */; };
 		B595C26E2B80C67E002625DD /* StoryApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C26D2B80C67E002625DD /* StoryApiCall.swift */; };
@@ -98,6 +99,7 @@
 		B595C2902B84517C002625DD /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B595C28F2B84517C002625DD /* PKHUD */; };
 		B595C2922B845904002625DD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C2912B845904002625DD /* Utilities.swift */; };
 		B595C2942B846DB0002625DD /* FeedAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C2932B846DB0002625DD /* FeedAPIs.swift */; };
+		B5A7BB3B2B8DCFC400099FA1 /* SearchProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7BB3A2B8DCFC400099FA1 /* SearchProfileCell.swift */; };
 		B5E7B5612B85E7F8003DC53D /* CollageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7B5602B85E7F8003DC53D /* CollageSelectionView.swift */; };
 		B5E7B5652B85F2EC003DC53D /* CollageList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5E7B5642B85F2EC003DC53D /* CollageList.plist */; };
 		B5FEC1422B7B052F00897E42 /* MatchedUApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FEC1412B7B052F00897E42 /* MatchedUApp.swift */; };
@@ -223,6 +225,7 @@
 		B586849A2B7F68A300798DC3 /* CreatStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatStory.swift; sourceTree = "<group>"; };
 		B586849C2B7F800500798DC3 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		B58EE2CE2B859FAB00DF05D8 /* CreatPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatPost.swift; sourceTree = "<group>"; };
+		B5905A482B8DF5F700531D21 /* Filte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filte.swift; sourceTree = "<group>"; };
 		B595C2682B807642002625DD /* StoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryModel.swift; sourceTree = "<group>"; };
 		B595C26A2B807F9C002625DD /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		B595C26D2B80C67E002625DD /* StoryApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryApiCall.swift; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 		B595C2712B81E3EE002625DD /* StoryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetails.swift; sourceTree = "<group>"; };
 		B595C2912B845904002625DD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B595C2932B846DB0002625DD /* FeedAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIs.swift; sourceTree = "<group>"; };
+		B5A7BB3A2B8DCFC400099FA1 /* SearchProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProfileCell.swift; sourceTree = "<group>"; };
 		B5E7B5602B85E7F8003DC53D /* CollageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageSelectionView.swift; sourceTree = "<group>"; };
 		B5E7B5642B85F2EC003DC53D /* CollageList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CollageList.plist; sourceTree = "<group>"; };
 		B5FEC13E2B7B052F00897E42 /* MatchedU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchedU.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -530,6 +534,8 @@
 			isa = PBXGroup;
 			children = (
 				B576065F2B84A6AB005082A5 /* SeachView.swift */,
+				B5A7BB3A2B8DCFC400099FA1 /* SearchProfileCell.swift */,
+				B5905A482B8DF5F700531D21 /* Filte.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -958,6 +964,7 @@
 				B58684952B7F59D700798DC3 /* CropViewModel.swift in Sources */,
 				B53381822B7B174400BB9BCB /* ImagePicker.swift in Sources */,
 				B58684992B7F59D700798DC3 /* SwiftyCrop.swift in Sources */,
+				B5905A492B8DF5F700531D21 /* Filte.swift in Sources */,
 				B53381462B7B0D8A00BB9BCB /* UserDefaultsKeys.swift in Sources */,
 				B586849B2B7F68A300798DC3 /* CreatStory.swift in Sources */,
 				B53381572B7B116500BB9BCB /* UserModel.swift in Sources */,
@@ -977,6 +984,7 @@
 				B533814D2B7B0D8A00BB9BCB /* ResponseModel.swift in Sources */,
 				B533818C2B7B174400BB9BCB /* BtnDone.swift in Sources */,
 				B53381912B7B174400BB9BCB /* LargeButtonWhite.swift in Sources */,
+				B5A7BB3B2B8DCFC400099FA1 /* SearchProfileCell.swift in Sources */,
 				B533814F2B7B0D8A00BB9BCB /* APIManager.swift in Sources */,
 				B53381842B7B174400BB9BCB /* HeaderView.swift in Sources */,
 				B58684972B7F59D700798DC3 /* MaskShape.swift in Sources */,

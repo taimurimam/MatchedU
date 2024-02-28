@@ -61,6 +61,17 @@ struct UserApiCall{
     }
     //
     
+    // Creat New Account
+    func getUserList( params : Dictionary< String, Any>,  onCompletion: @escaping ( _ _response : ResponseModel ) -> Void) {
+        showHud()
+        APIManager.callWith(  method: .post , urlString: UserAPIs.userList , withParams: params) { responseModel in
+            hideHud()
+            onCompletion(responseModel)
+        }
+    }
+    //
+    
+    
     func getAllInterest(  onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
         showHud()
         APIManager.callWith(  method: .post , urlString: UserAPIs.interestList) { responseModel in
@@ -111,10 +122,14 @@ struct UserApiCall{
     
     func editProfileAndprofileImage( params : Dictionary< String, Any> , images : [UIImage] , imageFileName : [String] ,  onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
         
-        APIManager.postMultipartDataWithMultipleImage(urlString:UserAPIs.profileEdit , withParams: params , imageFiles: images, arrImageNames: imageFileName) { respM in
+        APIManager.putMultipartDataWithMultipleImage(urlString:UserAPIs.profileEdit , withParams: params , imageFiles: images, arrImageNames: imageFileName) { respM in
             let isSuccess = respM.isSuccess
             onCompletion(respM, isSuccess)
         }
+        
+//        APIManager.postMultipartData(urlString: UserAPIs.profileEdit , withParams: params, imageFile: images[0], strImageName: imageFileName[0]) { respM in
+//            
+//        }
     }
     
     

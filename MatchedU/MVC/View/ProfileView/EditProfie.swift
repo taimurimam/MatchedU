@@ -10,10 +10,9 @@ enum Photo_Select_for : Int {
 }
 import SwiftUI
 import AlertToast
+import SwiftyJSON
+
 struct EditProfie: View {
-    let utl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.uXPJDoBupEgP_0cg3PZqwwHaD2%26pid%3DApi&f=1&ipt=2eefdc8fcab4b9538698aa641cf149d914f80d9a3a7da831a8fec233f453f38d&ipo=images"
-    
-    let img_url = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.BOgoQKyG0N_RfsRhyzwp_QHaFj%26pid%3DApi&f=1&ipt=73c6a6a41a38b121c18d783c2b1332acd80f3bed23da816cd3335fcede218dd8&ipo=images"
     
     @State var Name = loggedinUser.name
     @State var bio = loggedinUser.bio
@@ -23,7 +22,7 @@ struct EditProfie: View {
     @State var email = loggedinUser.email
     @State var imageSelectionFor = Photo_Select_for.profile
     @State var linkdin_url = loggedinUser.linkdin_url
-    
+    @Binding var userModel : UserModel
     @State private var profile_photo:UIImage?
     @State private var cover_photo:UIImage?
     @State var showImagePickerOptions = false
@@ -42,7 +41,15 @@ struct EditProfie: View {
             Color.app_white
                 .ignoresSafeArea()
             VStack{
-                HeaderView(title: "Edit Profile")
+                ZStackLayout(alignment: .trailing){
+                    HeaderView(title: "Edit Profile")
+                    Button{
+                        UpdateButtonPressed()
+                    }label: {
+                        Post_Button(title: "Save")
+                            .padding(.horizontal)
+                    }
+                }
                 KeyboardDismissingScrollView{
                 ZStack(alignment:.bottomLeading){
                     // Cover Photo
@@ -54,7 +61,7 @@ struct EditProfie: View {
                                 .frame(width: UIScreen.main.bounds.width, height: 240)
                                 .clipped()
                         }else{
-                            ProfileCoverPhoto(url: utl)
+                            ProfileCoverPhoto(url: userModel.cover_image)
                                 .shadow(color: .black.opacity(0.1), radius: 10 , x: 4 , y: 8)
                         }
                         Button{
@@ -83,7 +90,7 @@ struct EditProfie: View {
                                     Circle().stroke(.white, lineWidth: 3.0)
                                 )
                         }else{
-                            ProfileImage(url: img_url , width: 100, leading_padding: 0)
+                            ProfileImage(url: userModel.profile_image , width: 100, leading_padding: 0)
                                 .shadow(color: .black.opacity(0.3), radius: 10 , x: 4 , y: 8)
                                 .overlay(
                                     Circle().stroke(.white, lineWidth: 3.0)
@@ -101,8 +108,7 @@ struct EditProfie: View {
                     }
                 }
                     
-                    ProfileStoryView(isEditable: true, arrStory: loggedinUser.stories  )
-                        .padding(.top , 50)
+                
                     
                     VStack( alignment:.leading ,  spacing: 20){
                         Text("About me")
@@ -110,6 +116,7 @@ struct EditProfie: View {
                             .profileSectionTitleStyle()
                         InputTextEditor(text: $bio)
                     }
+                    .padding(.top , 50)
                     
                     VStack( alignment:.leading ,  spacing: 20){
                         Text("Personal Information")
@@ -131,18 +138,9 @@ struct EditProfie: View {
                         }
                         InputField(text: $graduation_year , inputFieldType: .email, placeholder: "Graduation year")
                         InputField(text: $linkdin_url , inputFieldType: .text, placeholder: "Linkdin Profile link")
-                        Button{
-                            if !linkdin_url.isEmpty && !linkdin_url.isValidLinkDinLink{
-                                toastMessage = "You have entered wrong Linkedin url, Please provide valid one."
-                                isToastMessage.toggle() 
-                            }else{
-                                editProfileApiCall()
-                            }
-                        }label: {
-                            Large_Blue_Button(title: "Update info")
-                                .padding(.horizontal)
-                                .padding(.bottom , 25)
-                        }
+                        ProfileStoryView( userModel: $userModel)
+                        
+                        
                     }
                     .padding(.top)
                 }
@@ -205,9 +203,27 @@ struct EditProfie: View {
                 customAlertUI(alerttype: .profileUpdated, message: "Your profile has been updated", title: "Updated", isHide: $isProfileEditedAlert)
             }
         }
+        .task {
+            Name = userModel.name
+             bio = userModel.bio
+            dateOfBirth = userModel.dob
+            school_collage = userModel.collage
+            graduation_year = userModel.graduation_year
+            email = userModel.email
+            linkdin_url = userModel.linkdin_url
+        }
     }
     
     // All Functions Will be here.......
+    
+    func UpdateButtonPressed(){
+        if !linkdin_url.isEmpty && !linkdin_url.isValidLinkDinLink{
+            toastMessage = "You have entered wrong Linkedin url, Please provide valid one."
+            isToastMessage.toggle()
+        }else{
+            editProfileApiCall()
+        }
+    }
     
     func imageSelectionTapped(imageFor : Photo_Select_for){
         self.imageSelectionFor = imageFor
@@ -217,42 +233,33 @@ struct EditProfie: View {
     // Call API to update all edited information....
     
     func editProfileApiCall(){
+        hideKeyboard()
+
         let params = [
             "user_id" : loggedinUser.id,
             "linkedin_url" : linkdin_url,
             "name" : Name ,
+            "gender" : "Male" ,
             "about_me" : bio ,
             "qualification_year" : graduation_year ,
             "tag" : ["cricket" , "footbal" , "politics"],
             "qualification" : school_collage
         ] as [String : Any]
-        
         var images = [UIImage]()
         var filename = [String]()
-        
         if profile_photo != nil{
             images.append(profile_photo!)
             filename.append("image")
         }
-        
         if cover_photo != nil{
             images.append(cover_photo!)
             filename.append("cover_image")
         }
-        
-//        UserApiCall().editProfileAndprofileImage(params:params , images: images, imageFileName: filename) { _response, isSuccess in
-//            if isSuccess{
-//                print("Profile Updated")
-//            }else{
-//                print(_response.strResMsg)
-//            }
-//        }
-//        
-        UserApiCall().editProfile(params: params) { _response in
-            if _response.isSuccess{
-                isProfileEditedAlert.toggle() 
+        UserApiCall().editProfileAndprofileImage(params:params , images: images, imageFileName: filename) { _response, isSuccess in
+            if isSuccess{
+                print("Profile Updated")
             }else{
-                
+                print(_response.strResMsg)
             }
         }
     }
@@ -261,5 +268,5 @@ struct EditProfie: View {
 }
 
 #Preview {
-    EditProfie()
+    EditProfie( userModel: .constant(UserModel(from: JSON())))
 }

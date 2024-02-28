@@ -121,7 +121,19 @@
     "Done" : {
 
     },
+    "Female" : {
+
+    },
+    "Filter out the students  on the bases of college, interests and gender" : {
+
+    },
+    "Filters" : {
+
+    },
     "Forgot Password?" : {
+
+    },
+    "Gender" : {
 
     },
     "Hi! %@" : {
@@ -186,13 +198,16 @@
     "Interest" : {
 
     },
+    "Interests" : {
+
+    },
     "let us know about your self." : {
 
     },
     "Login" : {
 
     },
-    "My Story" : {
+    "Male" : {
 
     },
     "Ok" : {
@@ -281,13 +296,22 @@
     "Signup" : {
 
     },
+    "Story" : {
+
+    },
     "Terms and conditions" : {
+
+    },
+    "visit" : {
 
     },
     "We have send you the verification code on" : {
 
     },
     "whats going on......" : {
+
+    },
+    "X Clear all" : {
 
     },
     "You have updated your password successfully. " : {

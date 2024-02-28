@@ -17,7 +17,6 @@ struct FeedProfileView: View {
         HStack {
             // Left side: Profile details
             HStack(spacing: 8) {
-                
                 if isBackButton{
                     BackButton()
                         .padding(.top)
@@ -39,7 +38,7 @@ struct FeedProfileView: View {
                 .padding(.leading , 5) 
             }
             .padding(.leading , isBackButton ? 5 : 25)
-
+            
             Spacer()
             if showOptionButton{
                 // Right side: More button

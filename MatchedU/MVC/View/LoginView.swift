@@ -44,7 +44,7 @@ struct LoginView: View {
                 }
                 .padding(.horizontal , 5)
                 .padding(.top , 60)
-                NavigationLink(destination: ProfileView() , isActive:$isLogInSucced ){}
+                NavigationLink(destination: FeedList() , isActive:$isLogInSucced ){}
                 
                 Button{
                     logInButtonPressed()
@@ -78,6 +78,7 @@ struct LoginView: View {
     //MARK: - All Functions
     
     func logInButtonPressed(){
+        hideKeyboard()
         if !email.isitValidEmail{
             waringMessage = "Email is not valid"
             isTostPopUp.toggle()
@@ -95,6 +96,7 @@ struct LoginView: View {
     }
     
     func letsLogIn(){
+        
         UserApiCall().Login(email: email.lowercased(), password: password) { response , isSuccess in
             if isSuccess{
                 UserDefaults.saveJSON(response.completeJsonResp["data"], .userDetails)

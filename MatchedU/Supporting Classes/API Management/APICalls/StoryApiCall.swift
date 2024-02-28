@@ -16,7 +16,7 @@ struct StoryApiCall{
             "user_id" : loggedinUser.id ,
             "doc_title" : storyTitle
         ]
-        APIManager.postMultipartData(urlString: UserAPIs.addStory , withParams: params, imageFile: img, strImageName: "doc_image") { responseModel in
+        APIManager.postMultipartData(urlString: StoryApi.addStory , withParams: params, imageFile: img, strImageName: "doc_image") { responseModel in
             onCompletion(responseModel)
             hideHud()
         }
@@ -29,11 +29,26 @@ struct StoryApiCall{
         let params = [
             "document_id" : story_id ,
         ]
-        APIManager.callWith( method: .post  , urlString: UserAPIs.deleteStory , withParams:params ) { responseModel in
+        APIManager.callWith( method: .post  , urlString: StoryApi.deleteStory , withParams:params ) { responseModel in
             hideHud()
             onCompletion(responseModel )
         }
     }
     
-     
+    //n Like Story
+    
+    func storyLiked( story_id : String  ,  onCompletion: @escaping (_ _response : ResponseModel  ) -> Void) {
+       // showHud()
+        let params = [
+            "document_id" : story_id ,
+            "user_id" : loggedinUser.id,
+            "type" : "1"
+        ]
+        APIManager.callWith( method: .post  , urlString: StoryApi.likeStory , withParams:params ) { responseModel in
+            hideHud()
+            onCompletion(responseModel )
+        }
+    }
+    
+    
 }

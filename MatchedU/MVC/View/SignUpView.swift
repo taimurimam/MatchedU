@@ -111,7 +111,7 @@ struct SignUpView: View {
     //MARK: - All Functions will be call here
     
     func signupPressed(){
-        print(formattedDate)
+        hideKeyboard()
         if !isTermsAccepted{
             waringMessage = "To create an account you have to agree on our tems and conditions"
             showToast.toggle()
