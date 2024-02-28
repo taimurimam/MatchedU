@@ -6,17 +6,20 @@
 import SwiftUI
 import SwiftyJSON
 
-
 struct ProfileView: View {
    @State private var userModel : UserModel = UserModel(from: JSON())
    @State var user_id = ""
+   @State  var show_confirmationAlert = false
+    @State var isLoggedOut = false
+    
     var body: some View {
         ZStack{
             Color.white
                 .ignoresSafeArea()
             VStack(spacing: 25){
                 ZStack(alignment: .topTrailing){
-                    ProfileHeader(userModel: userModel)
+                    NavigationLink(destination: LoginView() , isActive:$isLoggedOut ){}
+                    ProfileHeader(userModel: userModel, show_confirmationAlert: $show_confirmationAlert)
                     if userModel.id == loggedinUser.id || user_id.isEmpty{
                         NavigationLink(destination: EditProfie( userModel: $userModel )) {
                         Image("edit")
@@ -86,11 +89,25 @@ struct ProfileView: View {
                 }
                 getUserProfile()
             } 
+            .actionSheet(isPresented: $show_confirmationAlert) {
+                SwiftUI.ActionSheet(
+                        title: Text(""),
+                        message: Text("Are you certain you want to log out?"),
+                        buttons: [
+                            .destructive(Text("Logout")) {
+                                logoutButtonPressed()
+                            },
+                            .cancel(), // Adds a cancel button
+                            // You can add more buttons as needed
+                        ]
+                    )
+                }
         }
     }
     
     
     //MARK: - GetUserProfile
+    
     
     func getUserProfile(){
         UserApiCall().userProfileOf(user_id: user_id.isEmpty ?  loggedinUser.id : user_id) { _response, isSuccess in
@@ -105,6 +122,19 @@ struct ProfileView: View {
             }
         }
     }
+    
+    // Logout api call
+    func logoutButtonPressed(){
+        UserApiCall().logOut { _response, isSuccess in
+            if isSuccess{
+                UserDefaults.saveJSON(JSON(), .userDetails)
+            }else{
+                print("some issue happned")
+            }
+        }
+    }
+
+    
 }
 
 #Preview {

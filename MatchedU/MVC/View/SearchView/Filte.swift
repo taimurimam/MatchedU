@@ -114,7 +114,8 @@ struct FilterView: View {
                             .frame(height: 0.75)
                             .frame(maxWidth: .infinity)
                     }
-                    .padding(.top , 15)
+                    .padding(.top , 30)
+                    
                     .padding(.horizontal)
                 }
                 
@@ -138,7 +139,7 @@ struct FilterView: View {
                         }
                     }
             }
-            .frame(height: 430)
+            .frame(height: 450)
             .background(Color.app_white)
             .cornerRadius(12)
             .foregroundStyle(Color.app_black)
@@ -153,7 +154,7 @@ struct FilterView: View {
         collageName = ""
         gender = .notSelected
         isFilter.toggle()
-        applyFilter()
+       // applyFilter()
     }
     
 }

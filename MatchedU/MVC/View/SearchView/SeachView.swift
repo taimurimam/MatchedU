@@ -29,11 +29,18 @@ struct SeachView: View {
 
     var body: some View {
         ZStack{
-            Color.off_white
+            LinearGradient(gradient: Gradient(colors: [.app_white, .background_gradient_top]), startPoint: .bottom, endPoint: .top)
                 .ignoresSafeArea()
             VStack{
-                ZStack(alignment: .trailing) {
-                    HeaderView(title: "Search")
+                HStack {
+                    VStack(alignment:.leading , spacing: 5){
+                        Text("Let’s Explore")
+                            .font(.appFont(type: .Regular, size: 25))
+                        Text("Find the students based on your interests")
+                            .font(.app_body_Font(type: .Regular, size: 15))
+                    }
+                    .padding(.leading)
+                    .foregroundStyle(Color.black)
                     Button{
                         withAnimation{
                             isFilterOpen.toggle()
@@ -61,9 +68,9 @@ struct SeachView: View {
                         }
                     }
                 }
-                .ignoresSafeArea(edges: .bottom)
                 Spacer()
             }
+            .ignoresSafeArea(edges: .bottom)
             .navigationBarHidden(true)
             .task {
                 if users.isEmpty{ getUsers() }

@@ -122,14 +122,19 @@ struct UserApiCall{
     
     func editProfileAndprofileImage( params : Dictionary< String, Any> , images : [UIImage] , imageFileName : [String] ,  onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
         
-        APIManager.putMultipartDataWithMultipleImage(urlString:UserAPIs.profileEdit , withParams: params , imageFiles: images, arrImageNames: imageFileName) { respM in
+        if images.count>0{
+            APIManager.putMultipartDataWithMultipleImage(urlString:UserAPIs.profileEdit , withParams: params , imageFiles: images, arrImageNames: imageFileName) { respM in
+               // let isSuccess = respM.isSuccess
+               // onCompletion(respM, isSuccess)
+            }
+        }
+        showHud()
+        
+        APIManager.callWith(urlString: UserAPIs.profileEdit , withParams: params) { respM in
+            hideHud()
             let isSuccess = respM.isSuccess
             onCompletion(respM, isSuccess)
         }
-        
-//        APIManager.postMultipartData(urlString: UserAPIs.profileEdit , withParams: params, imageFile: images[0], strImageName: imageFileName[0]) { respM in
-//            
-//        }
     }
     
     

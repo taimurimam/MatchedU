@@ -23,6 +23,9 @@
     "%lld" : {
 
     },
+    "5 min ago" : {
+
+    },
     "About me" : {
 
     },
@@ -33,6 +36,9 @@
 
     },
     "Already have an account?" : {
+
+    },
+    "Are you certain you want to log out?" : {
 
     },
     "Are you sure you want to delete this post?" : {
@@ -130,6 +136,9 @@
     "Filters" : {
 
     },
+    "Find the students based on your interests" : {
+
+    },
     "Forgot Password?" : {
 
     },
@@ -204,7 +213,13 @@
     "let us know about your self." : {
 
     },
+    "Let’s Explore" : {
+
+    },
     "Login" : {
+
+    },
+    "Logout" : {
 
     },
     "Male" : {
@@ -297,6 +312,9 @@
 
     },
     "Story" : {
+
+    },
+    "Taimur liked your story." : {
 
     },
     "Terms and conditions" : {

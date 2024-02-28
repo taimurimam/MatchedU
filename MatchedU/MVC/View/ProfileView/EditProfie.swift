@@ -32,7 +32,6 @@ struct EditProfie: View {
     @State private var selectedImage: UIImage?
     @State private var isProfileEditedAlert = false
     @State private var isCollageList = false
-    
     @State private var toastMessage = ""
     @State private var isToastMessage = false
     
@@ -243,7 +242,8 @@ struct EditProfie: View {
             "about_me" : bio ,
             "qualification_year" : graduation_year ,
             "tag" : ["cricket" , "footbal" , "politics"],
-            "qualification" : school_collage
+            "qualification" : school_collage,
+            "dob" : loggedinUser.dob
         ] as [String : Any]
         var images = [UIImage]()
         var filename = [String]()
@@ -255,11 +255,15 @@ struct EditProfie: View {
             images.append(cover_photo!)
             filename.append("cover_image")
         }
+        
         UserApiCall().editProfileAndprofileImage(params:params , images: images, imageFileName: filename) { _response, isSuccess in
             if isSuccess{
                 print("Profile Updated")
+                isProfileEditedAlert.toggle()
             }else{
                 print(_response.strResMsg)
+                toastMessage = _response.strResMsg
+                isToastMessage.toggle()
             }
         }
     }

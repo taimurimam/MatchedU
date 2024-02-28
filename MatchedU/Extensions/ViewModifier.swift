@@ -40,7 +40,7 @@ struct craetFeedButtonModifier : ViewModifier{
             .foregroundStyle(Color.app_white)
             .font(.appFont(type: .Bold, size: 27))
             .padding(.trailing , 5)
-            .shadow( color: .primary_color.opacity(0.3),  radius: 15 , x:8 , y: 12)
+            .shadow( color: .black.opacity(0.7),  radius: 15 , x:8 , y: 12)
 
     }
 }

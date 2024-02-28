@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5B9769CE1D787DC53A2BDFD7 /* Pods_MatchedU_MatchedUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DDC88FC695258895F5EA63 /* Pods_MatchedU_MatchedUUITests.framework */; };
-		B51A3FF42B7CC81C00D65775 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = B51A3FF32B7CC81C00D65775 /* CachedAsyncImage */; };
+		B5153D1A2B8EE34F00439EC2 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B5153D192B8EE34F00439EC2 /* PKHUD */; };
+		B5153D1E2B8EE3AC00439EC2 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */; };
+		B5153D212B8EE7B500439EC2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D202B8EE7B500439EC2 /* Notifications.swift */; };
+		B5153D232B8EE92400439EC2 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D222B8EE92400439EC2 /* NotificationCell.swift */; };
+		B5153D252B8EF1A300439EC2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D242B8EF1A300439EC2 /* Notification.swift */; };
 		B53381292B7B0C7800BB9BCB /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381242B7B0C7800BB9BCB /* FontExtensions.swift */; };
 		B533812A2B7B0C7800BB9BCB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381252B7B0C7800BB9BCB /* ColorExtension.swift */; };
 		B533812C2B7B0C7800BB9BCB /* NavigationExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381272B7B0C7800BB9BCB /* NavigationExtention.swift */; };
@@ -96,7 +100,6 @@
 		B595C26E2B80C67E002625DD /* StoryApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C26D2B80C67E002625DD /* StoryApiCall.swift */; };
 		B595C2702B80D3CD002625DD /* FeedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C26F2B80D3CD002625DD /* FeedList.swift */; };
 		B595C2722B81E3EE002625DD /* StoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C2712B81E3EE002625DD /* StoryDetails.swift */; };
-		B595C2902B84517C002625DD /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B595C28F2B84517C002625DD /* PKHUD */; };
 		B595C2922B845904002625DD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C2912B845904002625DD /* Utilities.swift */; };
 		B595C2942B846DB0002625DD /* FeedAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C2932B846DB0002625DD /* FeedAPIs.swift */; };
 		B5A7BB3B2B8DCFC400099FA1 /* SearchProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7BB3A2B8DCFC400099FA1 /* SearchProfileCell.swift */; };
@@ -138,6 +141,9 @@
 		8CC0D807BB5D524C41478E4E /* Pods_MatchedU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchedU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF36ACA45988B94A39D4DB2 /* Pods-MatchedUTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchedUTests.debug.xcconfig"; path = "Target Support Files/Pods-MatchedUTests/Pods-MatchedUTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7AFD3A6ED32B1D24052553F /* Pods-MatchedU-MatchedUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchedU-MatchedUUITests.release.xcconfig"; path = "Target Support Files/Pods-MatchedU-MatchedUUITests/Pods-MatchedU-MatchedUUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B5153D202B8EE7B500439EC2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		B5153D222B8EE92400439EC2 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		B5153D242B8EF1A300439EC2 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B53381242B7B0C7800BB9BCB /* FontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		B53381252B7B0C7800BB9BCB /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B53381272B7B0C7800BB9BCB /* NavigationExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationExtention.swift; sourceTree = "<group>"; };
@@ -255,9 +261,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B595C2902B84517C002625DD /* PKHUD in Frameworks */,
+				B5153D1E2B8EE3AC00439EC2 /* CachedAsyncImage in Frameworks */,
 				E821BF59FA5B9F4FE7252507 /* Pods_MatchedU.framework in Frameworks */,
-				B51A3FF42B7CC81C00D65775 /* CachedAsyncImage in Frameworks */,
+				B5153D1A2B8EE34F00439EC2 /* PKHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +307,15 @@
 				791A0AF6015DAB7A3A6ABBC6 /* Pods-MatchedUTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B5153D1F2B8EE79800439EC2 /* Notifiactions */ = {
+			isa = PBXGroup;
+			children = (
+				B5153D202B8EE7B500439EC2 /* Notifications.swift */,
+				B5153D222B8EE92400439EC2 /* NotificationCell.swift */,
+			);
+			path = Notifiactions;
 			sourceTree = "<group>";
 		};
 		B53381232B7B0C7800BB9BCB /* Extensions */ = {
@@ -380,6 +395,7 @@
 				B53381562B7B116500BB9BCB /* UserModel.swift */,
 				B595C2682B807642002625DD /* StoryModel.swift */,
 				B57606562B847AFC005082A5 /* Feed_Model.swift */,
+				B5153D242B8EF1A300439EC2 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,6 +406,7 @@
 				B533815A2B7B16AA00BB9BCB /* ForgetPassword */,
 				B5FEC1432B7B052F00897E42 /* LoginView.swift */,
 				B533819A2B7B1C5E00BB9BCB /* SignUpView.swift */,
+				B5153D1F2B8EE79800439EC2 /* Notifiactions */,
 				B576065E2B84A69D005082A5 /* SearchView */,
 				B586847D2B7EFEDF00798DC3 /* ProfileView */,
 				B533819C2B7B624400BB9BCB /* FeedViews */,
@@ -686,8 +703,8 @@
 			);
 			name = MatchedU;
 			packageProductDependencies = (
-				B51A3FF32B7CC81C00D65775 /* CachedAsyncImage */,
-				B595C28F2B84517C002625DD /* PKHUD */,
+				B5153D192B8EE34F00439EC2 /* PKHUD */,
+				B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */,
 			);
 			productName = MatchedU;
 			productReference = B5FEC13E2B7B052F00897E42 /* MatchedU.app */;
@@ -765,8 +782,8 @@
 			);
 			mainGroup = B5FEC1352B7B052F00897E42;
 			packageReferences = (
-				B51A3FF22B7CC81C00D65775 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
-				B595C28E2B84517C002625DD /* XCRemoteSwiftPackageReference "PKHUD" */,
+				B5153D182B8EE34F00439EC2 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = B5FEC13F2B7B052F00897E42 /* Products */;
 			projectDirPath = "";
@@ -980,12 +997,14 @@
 				B5E7B5612B85E7F8003DC53D /* CollageSelectionView.swift in Sources */,
 				B533814B2B7B0D8A00BB9BCB /* ToastModifier.swift in Sources */,
 				B53381922B7B174400BB9BCB /* btn_white_background.swift in Sources */,
+				B5153D232B8EE92400439EC2 /* NotificationCell.swift in Sources */,
 				B53381512B7B0D8A00BB9BCB /* String.swift in Sources */,
 				B533814D2B7B0D8A00BB9BCB /* ResponseModel.swift in Sources */,
 				B533818C2B7B174400BB9BCB /* BtnDone.swift in Sources */,
 				B53381912B7B174400BB9BCB /* LargeButtonWhite.swift in Sources */,
 				B5A7BB3B2B8DCFC400099FA1 /* SearchProfileCell.swift in Sources */,
 				B533814F2B7B0D8A00BB9BCB /* APIManager.swift in Sources */,
+				B5153D212B8EE7B500439EC2 /* Notifications.swift in Sources */,
 				B53381842B7B174400BB9BCB /* HeaderView.swift in Sources */,
 				B58684972B7F59D700798DC3 /* MaskShape.swift in Sources */,
 				B53381452B7B0D8A00BB9BCB /* UsefulFunc.swift in Sources */,
@@ -1004,6 +1023,7 @@
 				B533815F2B7B16AA00BB9BCB /* ResetPassword.swift in Sources */,
 				B58EE2CF2B859FAB00DF05D8 /* CreatPost.swift in Sources */,
 				B533812A2B7B0C7800BB9BCB /* ColorExtension.swift in Sources */,
+				B5153D252B8EF1A300439EC2 /* Notification.swift in Sources */,
 				B53381432B7B0D8A00BB9BCB /* Constants.swift in Sources */,
 				B533818B2B7B174400BB9BCB /* NoticeActionButton.swift in Sources */,
 				B595C2692B807642002625DD /* StoryModel.swift in Sources */,
@@ -1358,15 +1378,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B51A3FF22B7CC81C00D65775 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/StefKors/CachedAsyncImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
-			};
-		};
-		B595C28E2B84517C002625DD /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+		B5153D182B8EE34F00439EC2 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pkluz/PKHUD.git";
 			requirement = {
@@ -1374,18 +1386,26 @@
 				minimumVersion = 5.4.0;
 			};
 		};
+		B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B51A3FF32B7CC81C00D65775 /* CachedAsyncImage */ = {
+		B5153D192B8EE34F00439EC2 /* PKHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B51A3FF22B7CC81C00D65775 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;
-			productName = CachedAsyncImage;
-		};
-		B595C28F2B84517C002625DD /* PKHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B595C28E2B84517C002625DD /* XCRemoteSwiftPackageReference "PKHUD" */;
+			package = B5153D182B8EE34F00439EC2 /* XCRemoteSwiftPackageReference "PKHUD" */;
 			productName = PKHUD;
+		};
+		B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

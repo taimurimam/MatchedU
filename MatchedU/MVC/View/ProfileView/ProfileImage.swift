@@ -12,20 +12,26 @@ struct ProfileImage: View {
     var url = ""
     var width = 0.0
     var leading_padding = 12.0
+    var isNaviagtion = false
+    var user_id = ""
+    var valid_url : String{
+        if url == mediaBaseUrl || url.isEmpty{
+            return link
+        }else{
+            return url
+        }
+    }
+    
     var body: some View {
         VStack{
-            if !url.isEmpty{
-                Asyn_profile_ImageView(url:  url == mediaBaseUrl ? link : url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
-                    .padding(.leading , leading_padding)
+            if isNaviagtion && !user_id.isEmpty{
+                NavigationLink(destination: ProfileView(user_id: user_id)){
+                    Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
+                        .padding(.leading , leading_padding)
+                }
             }else{
-                Image(systemName: "person.circle")
-                    .font(.appFont(type: .Bold, size: 36))
-                    .foregroundStyle(Color.app_white)
-                    .frame(width: width , height: width)
-                    .background(Color.primary_color)
-                    .cornerRadius(width/2)
+                Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
                     .padding(.leading , leading_padding)
-                
             }
         }
     }
@@ -33,4 +39,19 @@ struct ProfileImage: View {
 
 #Preview {
     ProfileImage()
+}
+
+
+struct demoProfileImage: View {
+    var width = 44.0
+    var leading_padding = 12.0
+    var body: some View {
+        Image(systemName: "person.circle")
+            .font(.appFont(type: .Bold, size: 36))
+            .foregroundStyle(Color.app_white)
+            .frame(width: width , height: width)
+            .background(Color.primary_color)
+            .cornerRadius(width/2)
+            .padding(.leading , leading_padding)
+    }
 }

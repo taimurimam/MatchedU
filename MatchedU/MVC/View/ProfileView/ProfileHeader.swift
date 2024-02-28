@@ -12,6 +12,8 @@ struct ProfileHeader: View {
     var userModel : UserModel
     var isBackButton = true
     var isUserList = false
+    @Binding  var show_confirmationAlert : Bool
+    
     var body: some View {
         ZStack(alignment:.bottom){
             ProfileCoverPhoto(url: userModel.cover_image)
@@ -35,6 +37,21 @@ struct ProfileHeader: View {
                         .font(.app_body_Font(type: .Bold, size: 15))
                 }
                 Spacer()
+                if userModel.isMyProfile{ // logout Button
+                    Button{
+                        show_confirmationAlert.toggle()
+                    }label: {
+                        Image("logout")
+                            .padding(.trailing)
+                    } 
+                }else{ // addd follow button for other user..
+                    Button{
+                        
+                    }label: {
+                        Image("followButton")
+                            .padding(.trailing)
+                    }
+                }
             }
             .frame(height: 72)
             .frame(maxWidth: .infinity)
@@ -43,8 +60,11 @@ struct ProfileHeader: View {
             .padding(.horizontal )
             .shadow(color: Color.black.opacity(0.08), radius: 17 , x: 4 , y: 8)
             .offset(y:36)
+            
         }
     }
+    
+    
 }
 
 #Preview {

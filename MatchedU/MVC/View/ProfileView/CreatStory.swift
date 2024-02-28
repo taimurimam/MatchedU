@@ -10,9 +10,8 @@ import AlertToast
 
 struct CreatStory: View {
     var isEditable = false
-    
+    @Environment(\.dismiss) var dismiss
     @State private var selectedImage: UIImage?
-    let img = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.mHdqFUfBVtiT5ZAYKodjzQHaF9%26pid%3DApi&f=1&ipt=a39214d0c5033ce7d8edf6bc9a653230e64e8190a8d0cb6faa452d74c8aba115&ipo=images"
     @State var showImagePickerOptions = false
     @State private var showImagePicker: Bool = false
     @State private var sourceType = UIImagePickerController.SourceType.photoLibrary

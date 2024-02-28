@@ -75,18 +75,17 @@ struct APIManager
                 }
                 if params != nil
                 {
+                    print(params)
                     for (key, value) in params! {
                         multipartFormData.append(Data("\(value)".utf8), withName: key)
                     }
                 }
-            }, to: URL(string: strUrl)!, method: .post, headers: getHttpHeader())
+            }, to: URL(string: strUrl)!, method: .post  , headers: getHttpHeader())
             .validate()
             .responseData { response in
-                self.handleResponse(response: response, urlString: strUrl, onCompletion: onCompletion)
+                self.handleResponse(response: response , urlString: strUrl , onCompletion: onCompletion)
             }
         }
-
-    
     
     static func postMultipartDataWithMultipleImage(urlString strUrl: String, withParams params:[String:Any]? = nil, imageFiles arrImages: [UIImage], arrImageNames: [String], onCompletion: @escaping (_ respM: ResponseModel) -> Void)
     {
@@ -110,7 +109,7 @@ struct APIManager
                     multipartFormData.append(Data("\(value)".utf8), withName: key)
                 }
             }
-        }, to: URL(string: strUrl)!, method: .post, headers: getHttpHeader())
+        } , to: URL(string: strUrl)!, method: .post, headers: getHttpHeader())
         .validate()
         .responseData { response in
             self.handleResponse(response: response, urlString: strUrl, onCompletion: onCompletion)
@@ -183,6 +182,7 @@ struct APIManager
         
         if responseModel.strAuth == "Failed" {
             print("Auth failure and logged out")
+            
             // Handle authentication failure
             // Clear user session and navigate to login
             // UserDefaults.standard.removeObject(forKey: userDetails)
@@ -190,6 +190,7 @@ struct APIManager
             // AppController.shared.userM = UserModel(from: JSON())
             // let vc = getVC(withSB: mainStoryBoard, andVC: "LoginVC")
             // NavigationHelper.helper.mainNavCon?.pushViewController(vc, animated: true)
+            
         }
         
         if responseModel.strResMsg.lowercased().contains("urlsessiontask") {
