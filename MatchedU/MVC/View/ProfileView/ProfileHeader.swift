@@ -16,7 +16,7 @@ struct ProfileHeader: View {
     
     var body: some View {
         ZStack(alignment:.bottom){
-            ProfileCoverPhoto(url: userModel.cover_image)
+            ProfileCoverPhoto(url: userModel.cover_image )
             if !isUserList{ 
                 VStack{
                     HeaderView(title: "Profile" , hideBackBtn: !isBackButton, isEdItButton: true , titleColor : .app_white)
@@ -27,7 +27,7 @@ struct ProfileHeader: View {
                 .frame(height: 240)
             }
             HStack(spacing: 15){
-                ProfileImage(url: userModel.profile_image , width: 56)
+                ProfileImage(url: userModel.profile_image , width: 56 )
                 VStack(alignment: .leading , spacing: 4){
                     Text(userModel.name)
                         .foregroundStyle(Color.app_black)

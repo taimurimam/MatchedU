@@ -68,9 +68,7 @@ struct SeachView: View {
                         }
                     }
                 }
-                Spacer()
             }
-            .ignoresSafeArea(edges: .bottom)
             .navigationBarHidden(true)
             .task {
                 if users.isEmpty{ getUsers() }

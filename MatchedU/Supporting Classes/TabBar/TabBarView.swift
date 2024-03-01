@@ -12,7 +12,7 @@ struct TabBarView: View {
     @ObservedObject var viewRouter: ViewRouter
 
     enum Constants {
-        static let tabIconSpacing: CGFloat = 60.0
+        static let tabIconSpacing: CGFloat = 50.0
         static let tabBarHeight: CGFloat = 80.0
         static let tabBarRadius: CGFloat = 2.0
     }
@@ -23,9 +23,9 @@ struct TabBarView: View {
 
     var body: some View {
         ZStack{
-            Image("Rectangle_tabbar")
-                .resizable()
-                .frame(height: 80)
+            Color.white
+            .frame(height: 80)
+            .shadow(radius: 10)
             HStack(spacing: Constants.tabIconSpacing) {
                 ForEach(viewRouter.tabs) { tabViewModel in
                     TabBarIcon(viewRouter: viewRouter, viewModel: tabViewModel)
@@ -35,6 +35,9 @@ struct TabBarView: View {
                    height: Constants.tabBarHeight)
             .background(Color.clear)
         }
+        .background(Color.red)
+       // .shadow(color: .black, radius: 10 )
+
     }
 }
 

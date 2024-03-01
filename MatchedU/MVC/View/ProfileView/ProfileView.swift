@@ -5,12 +5,15 @@
 
 import SwiftUI
 import SwiftyJSON
+import AlertToast
 
 struct ProfileView: View {
    @State private var userModel : UserModel = UserModel(from: JSON())
    @State var user_id = ""
    @State  var show_confirmationAlert = false
-    @State var isLoggedOut = false
+   @State var isLoggedOut = false
+   @State var toastMessage = ""
+   @State var isToastMessage = false
     
     var body: some View {
         ZStack{
@@ -28,8 +31,8 @@ struct ProfileView: View {
                             .padding(.trailing)
                             .padding(.bottom)
                             .padding(.top , 44)
-                    }
-                }
+                            }
+                      }
                 }
                 ScrollView{
                     VStack(alignment: .leading ,spacing: 12){ // About Me
@@ -57,19 +60,7 @@ struct ProfileView: View {
                         if userModel.isMyProfile{
                             ZStack(alignment:.trailing){
                                 PersonalInfoCell(icon: "linkedin" , title: "Linked In" , value: userModel.linkdin_url)
-                                Text("visit")
-                                    .padding(.horizontal)
-                                    .frame(height: 30)
-                                    .background(Color.primary_color)
-                                    .clipShape(Capsule())
-                                    .foregroundStyle(Color.app_white)
-                                    .onTapGesture { 
-                                        // go to the linked In link.
-                                        //                                    let url  = URL(string: userModel.linkdin_url)
-                                        //                                    if UIApplication.shared.canOpenURL(url!) {
-                                        //                                        UIApplication.shared.open(URL(string: userModel.linkdin_url)!, options: [:])
-                                        //                                    }
-                                    }
+                                btnVisit(link: userModel.linkdin_url)
                             }
                         }
                     }
@@ -79,7 +70,6 @@ struct ProfileView: View {
                     ProfileStoryView(userModel: $userModel)
                 }
                 .padding(.top , 40)
-                Spacer()
             }
             .ignoresSafeArea()
             .navigationBarHidden(true)
@@ -89,6 +79,9 @@ struct ProfileView: View {
                 }
                 getUserProfile()
             } 
+            .toast(isPresenting: $isToastMessage){
+                AlertToast(type: .regular, title: toastMessage)
+            }
             .actionSheet(isPresented: $show_confirmationAlert) {
                 SwiftUI.ActionSheet(
                         title: Text(""),
@@ -97,18 +90,16 @@ struct ProfileView: View {
                             .destructive(Text("Logout")) {
                                 logoutButtonPressed()
                             },
-                            .cancel(), // Adds a cancel button
-                            // You can add more buttons as needed
+                            .cancel(),
                         ]
                     )
                 }
         }
     }
     
+    //MARK: - All functions here
     
-    //MARK: - GetUserProfile
-    
-    
+    //GetUserProfile information
     func getUserProfile(){
         UserApiCall().userProfileOf(user_id: user_id.isEmpty ?  loggedinUser.id : user_id) { _response, isSuccess in
            if isSuccess{
@@ -128,12 +119,26 @@ struct ProfileView: View {
         UserApiCall().logOut { _response, isSuccess in
             if isSuccess{
                 UserDefaults.saveJSON(JSON(), .userDetails)
+                isLoggedOut.toggle()
             }else{
-                print("some issue happned")
+                toastMessage = _response.strResMsg
+                isToastMessage.toggle()
             }
         }
     }
-
+    
+    //Send connect request to liked user
+    func sendConectionRequiest(){
+        notificationApiCall().sendConectionRequest(secondParson_id: userModel.id) { _response in
+            if _response.isSuccess{
+                toastMessage = "Your conection request has been successfully send."
+                isToastMessage.toggle()
+            }else{
+                toastMessage = _response.strResMsg
+                isToastMessage.toggle() 
+            }
+        }
+    }
     
 }
 

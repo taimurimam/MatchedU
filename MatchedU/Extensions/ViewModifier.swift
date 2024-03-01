@@ -5,6 +5,35 @@
 
 import SwiftUI
 
+struct rejectButtonModifier : ViewModifier{
+    var isSelected = false
+    func body(content: Content) -> some View {
+        content
+            .padding(10)
+            .frame(maxWidth: .infinity)
+            .background(Color.clear)
+            .foregroundStyle(Color.text_red_color)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.text_red_color , lineWidth: 1)
+            )
+    }
+    
+}
+
+    struct AcceptButtonModifier : ViewModifier{
+        var isSelected = false
+        func body(content: Content) -> some View {
+            content
+                .padding(10)
+                .frame(maxWidth: .infinity)
+                .background(Color.app_blue)
+                .foregroundStyle(Color.app_white)
+                .cornerRadius(12)
+            }
+        }
+    
+    
 struct genderBtnModifier : ViewModifier{
     var isSelected = false
     func body(content: Content) -> some View {
@@ -130,6 +159,14 @@ struct inputDescriptionFieldModifier : ViewModifier{
 extension  View{
     //craetFeedButtonModifier
     
+    
+    func btnacceptStyle()->some View{
+        modifier(AcceptButtonModifier())
+    }
+    func btnRejectStyle()->some View{
+        modifier(rejectButtonModifier())
+    }
+
     func btnCreatPostStyle()->some View{
         modifier(craetFeedButtonModifier())
     }

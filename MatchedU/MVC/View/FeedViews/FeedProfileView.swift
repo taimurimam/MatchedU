@@ -22,7 +22,7 @@ struct FeedProfileView: View {
                         .padding(.top)
                 }
                 // Profile image
-                ProfileImage(url: feed_model.feed_owner.profile_img , width: 50, leading_padding: 0)
+                ProfileImage(url: feed_model.feed_owner.profile_img , width: 50, leading_padding: 0 , isNaviagtion: true , user_id: feed_model.feed_owner.user_id )
                     .overlay(
                         Circle().stroke(Color.primary_color, lineWidth: 1.0)
                     )
@@ -37,7 +37,7 @@ struct FeedProfileView: View {
                 }
                 .padding(.leading , 5) 
             }
-            .padding(.leading , isBackButton ? 5 : 25)
+            .padding(.leading , isBackButton ? 5 : 15)
             
             Spacer()
             if showOptionButton{

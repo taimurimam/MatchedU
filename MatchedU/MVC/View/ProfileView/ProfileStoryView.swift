@@ -22,7 +22,6 @@ struct ProfileStoryView: View {
                 }
             }
             .padding(.top , 20)
-            .padding(.bottom) 
             ScrollView(){
                 LazyVStack(spacing: 20){
                     ForEach(userModel.stories , id: \.id ) { story in

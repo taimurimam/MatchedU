@@ -33,30 +33,27 @@ final class ViewRouter: ObservableObject {
             TabBarIconViewModel(assignedPage: .feed,
                                 width: iconWidth,
                                 height: iconHeight,
-                                iconName: "house.fill",
+                                iconName: "home_inactive", iconName_active: "home_active",
                                 tabName: currentPage == .feed ? "Feed" : "dd"),
-            
             
             TabBarIconViewModel(assignedPage: .search,
                                 width: iconWidth,
                                 height: iconHeight,
-                                iconName: "magnifyingglass",
+                                iconName: "search-inactive", iconName_active: "search-active",
                                 tabName: "Search"),
 
             
             TabBarIconViewModel(assignedPage: .notification,
                                 width: iconWidth,
                                 height: iconHeight,
-                                iconName: "message.fill",
+                                iconName: "notification_inactive", iconName_active: "notification_active",
                                 tabName: "Notification") ,
             
             TabBarIconViewModel(assignedPage: .profile,
                                 width: iconWidth,
                                 height: iconHeight,
-                                iconName: "person.fill",
+                                iconName: "user_inactive", iconName_active: "user_active",
                                 tabName: "Profile")
-            
-
         ]
     }
 }

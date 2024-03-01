@@ -44,7 +44,7 @@ struct LoginView: View {
                 }
                 .padding(.horizontal , 5)
                 .padding(.top , 60)
-                NavigationLink(destination: FeedList() , isActive:$isLogInSucced ){}
+                NavigationLink(destination: Tabbar(logedinUser: LogedInUser()) , isActive:$isLogInSucced ){}
                 
                 Button{
                     logInButtonPressed()

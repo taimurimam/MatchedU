@@ -26,7 +26,7 @@ struct ProfileImage: View {
         VStack{
             if isNaviagtion && !user_id.isEmpty{
                 NavigationLink(destination: ProfileView(user_id: user_id)){
-                    Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
+                    Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/4)
                         .padding(.leading , leading_padding)
                 }
             }else{

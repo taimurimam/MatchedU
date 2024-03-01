@@ -17,7 +17,6 @@ struct FeedList: View {
     var feed_Model = Feed_Model(from: JSON())
     @State var feeds = [Feed_Model]()
     @State private var isCreatFeedTapped = false
-    let img = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Xm1EXmPOVQQajFrYh3F_WAHaHa%26pid%3DApi&f=1&ipt=575d8267b08e80241bbf7780a7b1e9474b97a22045f7cfea96af1ca9d5ca0bfa&ipo=images"
     
     var body: some View {
         ZStack{
@@ -35,7 +34,7 @@ struct FeedList: View {
                             }
                         }
                         Spacer()
-                    btnSearch()
+                    //btnSearch()
                 }
                 .frame(height: 64)
                 .background(Color.white )
@@ -48,7 +47,6 @@ struct FeedList: View {
                                 })
                             }
                         }
-                        .listStyle(PlainListStyle()) // Use PlainListStyle to remove default list styling
                         .background(Color.white)
                     }
                     Button{
@@ -58,7 +56,6 @@ struct FeedList: View {
                             .btnCreatPostStyle()
                     }
                 }
-                Spacer()
             }
             .ignoresSafeArea(edges: .bottom)
             .navigationBarHidden(true)

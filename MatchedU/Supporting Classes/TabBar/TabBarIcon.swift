@@ -16,6 +16,8 @@ struct TabBarIconViewModel: Identifiable {
     let width: CGFloat
     let height: CGFloat
     let iconName: String
+    let iconName_active: String
+
     let tabName: String
 }
 
@@ -36,7 +38,7 @@ struct TabBarIcon: View {
 
     var body: some View {
         VStack (spacing:10){
-            Image(systemName: viewModel.iconName)
+            Image( viewRouter.currentPage == viewModel.assignedPage ? viewModel.iconName_active : viewModel.iconName)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: viewModel.width,
                        height: viewModel.height)
@@ -47,7 +49,7 @@ struct TabBarIcon: View {
                 .font(.footnote)
             Spacer()
         }
-        .foregroundColor(viewRouter.currentPage == viewModel.assignedPage ? .primary_color : Color.black)
+        .foregroundColor(viewRouter.currentPage == viewModel.assignedPage ? .app_black : Color.text_secondary_color)
         .onTapGesture {
             viewRouter.currentPage = viewModel.assignedPage
         }
@@ -62,7 +64,7 @@ struct TabBarIcon_Previews: PreviewProvider {
             viewModel:  .init(assignedPage: .feed,
                               width: 24.0,
                               height: 24.0,
-                              iconName: "homekit",
+                              iconName: "homekit", iconName_active: "",
                               tabName: "Home")
         )
     }

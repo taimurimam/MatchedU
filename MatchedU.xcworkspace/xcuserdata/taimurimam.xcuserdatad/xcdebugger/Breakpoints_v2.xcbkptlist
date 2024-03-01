@@ -65,6 +65,21 @@
                   endingLineNumber = "63"
                   offsetFromSymbolStart = "276">
                </Location>
+               <Location
+                  uuid = "E174CB98-18DC-4C1D-BE59-31A79DB265F4 - cc9ec2880a6ae39d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MatchedU.APIManager.putMultipartDataWithMultipleImage(urlString: Swift.String, withParams: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, imageFiles: Swift.Array&lt;__C.UIImage&gt;, arrImageNames: Swift.Array&lt;Swift.String&gt;, onCompletion: (MatchedU.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/Supporting%20Classes/API%20Management/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "268">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

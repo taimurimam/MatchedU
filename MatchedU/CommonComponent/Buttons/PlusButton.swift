@@ -29,3 +29,27 @@ struct BtnCreatStory : View {
         }
     }
 }
+
+struct btnVisit : View {
+    var link : String
+    var body: some View {
+        Button{
+            openTheUrl() 
+        }label: {
+            Text("visit")
+                .padding(.horizontal)
+                .frame(height: 30)
+                .background(Color.primary_color)
+                .clipShape(Capsule())
+                .foregroundStyle(Color.app_white)
+        }
+    }
+    
+    func openTheUrl(){
+        let url  = URL(string: link)
+        if UIApplication.shared.canOpenURL(url!) {
+            UIApplication.shared.open(url!, options: [:])
+        }
+    }
+    
+}

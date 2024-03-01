@@ -31,9 +31,10 @@ struct UserAPIs {
     static let changePassword = getUrl("password-change")
     static let interestList = getUrl("interest-list")
     static let addNewInterest = getUrl("add-interes")
-    //add-customer-document
     static let userList = getUrl("all-user-list")
-    //all-user-lis
+    static let notification_list = getUrl("notification-list")
+    static let connection_request = getUrl("connect")
+    
 }
 
 struct StoryApi{
@@ -48,6 +49,6 @@ struct FeedAPIs {
     static let addFeed = getUrl("add-feed")
     static let feedList = getUrl("feed-list")
     static let deleteFeed = getUrl("feed-delete")
-    static let likeFeed = getUrl("feed-like")
+    static let likeFeed = getUrl("feed-like") //notification-list
     
 }
