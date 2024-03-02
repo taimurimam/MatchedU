@@ -32,6 +32,30 @@ struct notificationApiCall{
         }
     }
     
+    func conectionRequestResponse(secondParson_id : String , responseType : String , onCompletion: @escaping (_ _response : ResponseModel  ) -> Void){
+        showHud()
+        let params = [
+            "user_id" : loggedinUser.id ,
+            "request_id" : secondParson_id ,
+            "status" : responseType
+        ]
+        APIManager.callWith(urlString: UserAPIs.connect_status_update , withParams:params ) { respM in
+            hideHud()
+            onCompletion(respM)
+        }
+    }
+    
+    func conectionList( user_id : String  ,   onCompletion: @escaping (_ _response : ResponseModel  ) -> Void){
+        let params = [
+            "user_id" : user_id ,
+        ]
+        APIManager.callWith(urlString: UserAPIs.myConectionList , withParams:params ) { respM in
+            onCompletion(respM)
+        }
+    }
+
+    
+    
     
     
 }

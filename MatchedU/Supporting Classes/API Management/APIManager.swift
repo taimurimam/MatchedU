@@ -39,7 +39,7 @@ struct APIManager
         }
         finalHeader = headerTemp 
         AF.upload(multipartFormData: { multipartFormData in
-            if let imageData = image.jpegData(compressionQuality: 0.3) {
+            if let imageData = image.jpegData(compressionQuality: 0.4) {
                 multipartFormData.append(imageData, withName: strImageName, fileName: "\(strImageName).jpeg", mimeType: "image/png")
             }
             
@@ -55,8 +55,6 @@ struct APIManager
         }
     }
     
-    
-    
     static func putMultipartDataWithMultipleImage(urlString strUrl: String, withParams params:[String:Any]? = nil, imageFiles arrImages: [UIImage], arrImageNames: [String], onCompletion: @escaping (_ responseModel: ResponseModel) -> Void)
         {
             
@@ -68,7 +66,7 @@ struct APIManager
                         let image = arrImages[index]
                         let strFileName = strName.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
                         
-                        if let imageData = image.jpegData(compressionQuality: 0.3) {
+                        if let imageData = image.jpegData(compressionQuality: 0.4) {
                             multipartFormData.append(imageData, withName: strName, fileName: "\(strFileName).jpeg", mimeType: "image/png")
                         }
                     }

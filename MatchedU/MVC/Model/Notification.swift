@@ -7,6 +7,13 @@
 
 import Foundation
 import SwiftyJSON
+ 
+enum Conection_status : Int {
+    case conceted = 0
+    case requestPending
+    case rejected
+    case none
+}
 
 struct Notification_model{
     var sender_name : String
@@ -18,6 +25,22 @@ struct Notification_model{
     var collage : String
     var graguation_year : String
     var id : String
+    var conection_status_info : String
+    
+    var conection_status : Conection_status{
+        if conection_status_info == "1"
+        {
+            return .conceted
+        }else
+        if conection_status_info == "0" {
+            return .requestPending
+        }else
+        if conection_status_info == "2"{
+            return .rejected
+        }else{
+            return .requestPending
+        }
+    }
     
     var icon : String{
         return "love_notification"
@@ -27,7 +50,7 @@ struct Notification_model{
         if comment  == "like"{
             return .likestory
         }else
-        if comment  == "ConectionRequest"{
+        if comment  == "Want to connect with you"{
             return .connection_request
         }else{
             return .profile_updated
@@ -49,6 +72,6 @@ struct Notification_model{
         self.collage = json["qualification"].stringValue
         self.graguation_year = json["qualification_year"].stringValue
         self.id = json["id"].stringValue
+        self.conection_status_info = json["connect_status"].stringValue
     }
-    
 }

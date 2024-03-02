@@ -16,6 +16,7 @@ struct SeachView: View {
     @State var isCollageSelectionOpen = false
     @State var gender = Gender.notSelected
     @State var collageName = ""
+    var user_id  = ""
     var isFromConection = false
     var noOfFilter : Int{
         var count = 0
@@ -76,7 +77,11 @@ struct SeachView: View {
             }
             .navigationBarHidden(true)
             .task {
-                if users.isEmpty{ getUsers() }
+                if isFromConection{// If conection
+                    conectionList()
+                }else{
+                    if users.isEmpty{ getUsers() }
+                }
             }
             .toast(isPresenting: $isToastMessage){
                 AlertToast(type: .regular, title: toastMessage)
@@ -92,7 +97,6 @@ struct SeachView: View {
             }
         }
     }
-    
     
     //MARK: - All Functions are here.....
 
@@ -110,6 +114,18 @@ struct SeachView: View {
             }
         }
     }
+    
+    func conectionList(){
+        notificationApiCall().conectionList(user_id:user_id.isEmpty ? loggedinUser.id : user_id){ _response in
+            if _response.isSuccess{
+                self.users = _response.completeJsonResp["data"]["connects_list"].arrayValue.map { UserModel(from: $0 )}
+            }else{
+                toastMessage = _response.strResMsg
+                isToastMessage.toggle()
+            }
+        }
+    }
+
     //
     
 }

@@ -62,36 +62,49 @@ struct ConnectCell : View {
             }
             .padding(.top)
             VStack(alignment:.leading , spacing: 10){
-                Text("\(notification_Model.sender_name) to connect with you.")
-                    .foregroundStyle(Color.black)
-                    .font(.app_body_Font(type: .Regular, size: 17))
-                HStack(spacing:10){ //
-                    Image("teacher")
-                    Text(notification_Model.graguation_year)
-                    Image("award")
-                        .padding(.leading)
-                    Text(notification_Model.graguation_year)
-                }
-                .foregroundStyle(Color.text_secondary_color)
-                .font(.app_body_Font(type: .Regular, size: 16))
                 
-                HStack(spacing:10){
-                    Button{
-                        btnRejectPressed()
-                    }label: {
-                        Text("Reject")
-                            .btnRejectStyle()
-                    }
+                if notification_Model.conection_status == .rejected{
                     
-                    Button{
-                        btnAcceptPressed()
-                    }label: {
-                        Text("Accept")
-                            .btnacceptStyle()
-                    }
+                    Text("You have rejected conection request of  \(notification_Model.sender_name)")
+                        .foregroundStyle(Color.black)
+                        .font(.app_body_Font(type: .Regular, size: 17))
                 }
-                .font(.app_body_Font(type: .Regular, size: 18))
-                
+               if notification_Model.conection_status == .conceted{
+                   Text("You are conected with \(notification_Model.sender_name)")
+                       .foregroundStyle(Color.black)
+                       .font(.app_body_Font(type: .Regular, size: 17))
+               }else
+                if notification_Model.conection_status == .requestPending{ // IF Conection request still pending need all info and buttons
+                   Text("\(notification_Model.sender_name) want to connect with you.")
+                       .foregroundStyle(Color.black)
+                       .font(.app_body_Font(type: .Regular, size: 17))
+                   HStack(spacing:10){ //
+                       Image("teacher")
+                       Text(notification_Model.graguation_year)
+                       Image("award")
+                           .padding(.leading)
+                       Text(notification_Model.collage)
+                   }
+                   .foregroundStyle(Color.text_secondary_color)
+                   .font(.app_body_Font(type: .Regular, size: 16))
+                   
+                   HStack(spacing:10){
+                       Button{
+                           conectionRequestResponse(response: "2")
+                       }label: {
+                           Text("Reject")
+                               .btnRejectStyle()
+                       }
+                       
+                       Button{
+                           conectionRequestResponse(response: "1")
+                       }label: {
+                           Text("Accept")
+                               .btnacceptStyle()
+                       }
+                   }
+                   .font(.app_body_Font(type: .Regular, size: 18))
+               }
                 Text(notification_Model.time)
                     .foregroundStyle(Color.text_secondary_color)
                     .font(.app_body_Font(type: .Regular, size: 14))
@@ -103,12 +116,11 @@ struct ConnectCell : View {
     
     //MARK: - All function will be go here *******
     
-    func btnRejectPressed(){
-        
+    func conectionRequestResponse(response : String){
+        notificationApiCall().conectionRequestResponse(secondParson_id: notification_Model.sender_user_id, responseType: response) { _response in
+            
+        }
     }
     
-    func btnAcceptPressed(){
-        
-    }
 
 }

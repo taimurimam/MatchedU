@@ -39,7 +39,6 @@ struct FilterView: View {
                     Spacer()
                 }
                 .padding(.top , 2)
-                Spacer()
                 HStack{
                     Text("Filters")
                         .foregroundStyle(Color.app_black)
@@ -55,6 +54,7 @@ struct FilterView: View {
                     }
                 }
                 .padding(.horizontal)
+                Spacer()
                 Text("Filter out the students  on the bases of college, interests and gender")
                     .font(.app_body_Font(type: .Regular, size: 17))
                     .foregroundStyle(Color.text_secondary_color)
@@ -133,7 +133,7 @@ struct FilterView: View {
     func clearAllFilters(){
         collageName = ""
         gender = .notSelected
-        isFilter.toggle()
+       // isFilter.toggle()
        // applyFilter()
     }
     

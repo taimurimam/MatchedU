@@ -25,7 +25,7 @@ struct UserAPIs {
     static let login = getUrl("login")
     static let profileDetails = getUrl("profile-details")
     static let profileEdit = getUrl("customer-profile-update")
-    static let logOut = getUrl("logout")  //forgot-password-otp-verificationp
+    static let logOut = getUrl("logout")
     static let forgetEmailOTPSend = getUrl("forgot-password-send-mail")
     static let verifyOTP = getUrl("forgot-password-otp-verification")
     static let changePassword = getUrl("password-change")
@@ -34,6 +34,8 @@ struct UserAPIs {
     static let userList = getUrl("all-user-list")
     static let notification_list = getUrl("notification-list")
     static let connection_request = getUrl("connect")
+    static let connect_status_update = getUrl("connect-status-update")
+    static let myConectionList = getUrl("my-connection")
     
 }
 

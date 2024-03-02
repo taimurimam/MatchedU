@@ -41,7 +41,7 @@ struct btnVisit : View {
                 .frame(height: 30)
                 .background(Color.secondary_background)
                 .clipShape(Capsule())
-                .foregroundStyle(Color.app_white)
+                .foregroundStyle(Color.app_black)
         }
     }
     

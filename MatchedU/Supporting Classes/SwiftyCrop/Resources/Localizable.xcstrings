@@ -23,13 +23,10 @@
     "%@ liked your story." : {
 
     },
-    "%@ to connect with you." : {
+    "%@ want to connect with you." : {
 
     },
     "%lld" : {
-
-    },
-    "+23" : {
 
     },
     "About me" : {
@@ -345,6 +342,12 @@
 
     },
     "X Clear all" : {
+
+    },
+    "You are conected with %@" : {
+
+    },
+    "You have rejected conection request of  %@" : {
 
     },
     "You have updated your password successfully. " : {

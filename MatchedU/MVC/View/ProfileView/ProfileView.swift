@@ -15,7 +15,8 @@ struct ProfileView: View {
    @State var toastMessage = ""
    @State var isToastMessage = false
    @State var isBackButton = false
-    
+   @State private var conection_users = [UserModel]()
+
     var body: some View {
         ZStack{
             Color.white
@@ -51,7 +52,7 @@ struct ProfileView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal)
-                    Conections() 
+                    Conections(Conections: $conection_users) 
                         .padding(.top)
                     VStack(alignment: .leading,spacing: 25){ // Personal information section
                         Text("Personal Information")
@@ -108,9 +109,9 @@ struct ProfileView: View {
     
     //GetUserProfile information
     func getUserProfile(){
+        conectionList()
         UserApiCall().userProfileOf(user_id: user_id.isEmpty ?  loggedinUser.id : user_id) { _response, isSuccess in
            if isSuccess{
-               
                userModel = UserModel(from: _response.completeJsonResp["data"]["user_data"])
                if userModel.isMyProfile{
                    UserDefaults.saveJSON(_response.completeJsonResp["data"]["user_data"] , .userDetails)
@@ -120,6 +121,18 @@ struct ProfileView: View {
             }
         }
     }
+    
+    func conectionList(){
+        notificationApiCall().conectionList(user_id:user_id.isEmpty ? loggedinUser.id : user_id){ _response in
+            if _response.isSuccess{
+                self.conection_users = _response.completeJsonResp["data"]["connects_list"].arrayValue.map { UserModel(from: $0 )}
+            }else{
+                toastMessage = _response.strResMsg
+                isToastMessage.toggle()
+            }
+        }
+    }
+
     
     // Logout api call
     func logoutButtonPressed(){
@@ -133,6 +146,7 @@ struct ProfileView: View {
             }
         }
     }
+    
     
     //Send connect request to liked user
     func sendConectionRequiest(){

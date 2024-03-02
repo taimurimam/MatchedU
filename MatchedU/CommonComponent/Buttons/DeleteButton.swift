@@ -12,7 +12,7 @@ struct DeleteButton: View {
     var body: some View {
         Image(systemName: "trash")
             .padding()
-            .foregroundColor(Color.app_blue)
+            .foregroundColor(Color.text_red_color)
             .font(.appFont(type: .medium, size: 20))
             .padding()
             .frame(width: 36 , height: 38)

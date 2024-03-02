@@ -24,6 +24,7 @@ struct SignUpView: View {
     @State var waringMessage = ""
     @State var showAlert = false
     @State var showToast = false
+    @State private var gender = "Male"
     
     var formattedDate: String {
         let formatter = DateFormatter()
@@ -147,6 +148,7 @@ struct SignUpView: View {
             "password" : password,
             "name" : Name ,
             "dob" : formattedDate,
+            "gender" : gender , 
             "tag" : ["cricket" , "footbal" , "politics"]
         ] as [String : Any]
         

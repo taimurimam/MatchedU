@@ -94,6 +94,7 @@ struct CreatStory: View {
             .sheet(isPresented: $showImagePicker) {
                 ProfileImagePicker( image: $selectedImage , isShown: $showImagePicker, isProfileCropView: $showImagePicker , photo_for: .cover , sourceType: sourceType)
                     .onDisappear{
+                        
                     }
             }
             
@@ -154,6 +155,7 @@ struct CreatStory: View {
             if _response.isSuccess{
                 toastMessage = "Your story has been created."
                 isToast_Success.toggle()
+               // dismiss()
             }else{
                 toastMessage = _response.strResMsg 
                 isToast_Success.toggle()
