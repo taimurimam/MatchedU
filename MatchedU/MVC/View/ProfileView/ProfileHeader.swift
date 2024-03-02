@@ -10,10 +10,10 @@ import SwiftUI
 struct ProfileHeader: View {
     
     var userModel : UserModel
-    var isBackButton = true
+    @Binding var isBackButton : Bool 
     var isUserList = false
     @Binding  var show_confirmationAlert : Bool
-    
+    var sendConectionRequest:()-> Void
     var body: some View {
         ZStack(alignment:.bottom){
             ProfileCoverPhoto(url: userModel.cover_image )
@@ -46,7 +46,7 @@ struct ProfileHeader: View {
                     } 
                 }else{ // addd follow button for other user..
                     Button{
-                        
+                        sendConectionRequest()
                     }label: {
                         Image("followButton")
                             .padding(.trailing)

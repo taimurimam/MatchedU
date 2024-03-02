@@ -8,6 +8,7 @@ import SwiftyJSON
 
 struct ProfileStoryView: View {
     var isEditable = false
+    var sendConectionRequest:()->Void
     @Binding var  userModel : UserModel
     var body: some View {
         VStack(alignment:.leading){
@@ -25,7 +26,9 @@ struct ProfileStoryView: View {
             ScrollView(){
                 LazyVStack(spacing: 20){
                     ForEach(userModel.stories , id: \.id ) { story in
-                        StoryCard(storyModel: story, isEditable : isEditable)
+                        StoryCard(storyModel: story, isEditable : isEditable, sendConectionRequest: {
+                            sendConectionRequest()
+                        } )
                     }
                 }
             }
@@ -41,10 +44,12 @@ struct ProfileStoryView: View {
 }
 
 struct StoryCard: View {
+    
     var storyModel = StoryModel(from: JSON())
     var isEditable = false
     var isForCreatNew = false
     var creteNew = ""
+    var sendConectionRequest:()->Void
     var body: some View {
             ZStack(alignment:.bottomTrailing){
                // NavigationLink(destination: StoryDetails(storyModel: storyModel)){
@@ -55,17 +60,17 @@ struct StoryCard: View {
                         .cornerRadius(12)
                 
               //  }
-                Button{
-                    likeStory()
-                }label: {
-                    Image(systemName: (storyModel.iLiked ? "heart.fill" : "heart"))
-                        .foregroundColor(.red.opacity(storyModel.iLiked ? 1.0 : 0.5))
-                        .font(.app_body_Font(type: .lite, size: 30))
-                        .frame(width: 50 , height: 50)
-                        .background(Color.off_white)
-                        .shadow(color: .black.opacity(0.1), radius: 10 , x: 4 , y: 8)
-                        .clipShape(Circle())
-                        .padding(10)
+                if !storyModel.isMyStory{
+                    Button{
+                        sendConectionRequest()
+                    }label: {
+                        Image("followButton")
+                            .shadow(color: .black.opacity(0.1), radius: 10 , x: 4 , y: 8)
+                            .clipShape(Circle())
+                            .padding(10)
+                    }
+                }else{
+                    
                 }
             }
         

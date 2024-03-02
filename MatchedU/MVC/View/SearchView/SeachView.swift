@@ -16,6 +16,7 @@ struct SeachView: View {
     @State var isCollageSelectionOpen = false
     @State var gender = Gender.notSelected
     @State var collageName = ""
+    var isFromConection = false
     var noOfFilter : Int{
         var count = 0
         if !collageName.isEmpty{
@@ -32,29 +33,33 @@ struct SeachView: View {
             LinearGradient(gradient: Gradient(colors: [.app_white, .background_gradient_top]), startPoint: .bottom, endPoint: .top)
                 .ignoresSafeArea()
             VStack{
-                HStack {
-                    VStack(alignment:.leading , spacing: 5){
-                        Text("Let’s Explore")
-                            .font(.appFont(type: .Regular, size: 25))
-                        Text("Find the students based on your interests")
-                            .font(.app_body_Font(type: .Regular, size: 15))
-                    }
-                    .padding(.leading)
-                    .foregroundStyle(Color.black)
-                    Button{
-                        withAnimation{
-                            isFilterOpen.toggle()
+                if isFromConection{
+                    HeaderView(title: "Conections")
+                }else{
+                    HStack {
+                        VStack(alignment:.leading , spacing: 5){
+                            Text("Let’s Explore")
+                                .font(.appFont(type: .Regular, size: 25))
+                            Text("Find the students based on your interests")
+                                .font(.app_body_Font(type: .Regular, size: 15))
                         }
-                    }label: {
-                        ZStack(alignment:.top){
-                            Image("filters")
-                            if noOfFilter > 0{
-                                Text("\(noOfFilter)")
-                                    .frame(width: 25 , height: 25)
-                                    .background(Color.primary_color)
-                                    .clipShape(Circle())
-                                    .foregroundStyle(Color.app_white)
-                                    .offset(x: 15 , y: 15)
+                        .padding(.leading)
+                        .foregroundStyle(Color.black)
+                        Button{
+                            withAnimation{
+                                isFilterOpen.toggle()
+                            }
+                        }label: {
+                            ZStack(alignment:.top){
+                                Image("filters")
+                                if noOfFilter > 0{
+                                    Text("\(noOfFilter)")
+                                        .frame(width: 25 , height: 25)
+                                        .background(Color.primary_color)
+                                        .clipShape(Circle())
+                                        .foregroundStyle(Color.app_white)
+                                        .offset(x: 15 , y: 15)
+                                }
                             }
                         }
                     }

@@ -7,11 +7,13 @@
 import SwiftUI
 
 extension Color {
-  //  rgba(216, 216, 216, 1)
-   // rgba(133, 133, 133, 1)
-//rgba(255, 91, 91, 1)
+    
     public static var text_red_color: Color {
         return  Color(UIColor(red: 255/255, green: 91/255, blue: 91/255, alpha: 1.0))
+    }
+    
+    public static var secondary_background: Color {
+        return  Color(UIColor(red: 239/255, green: 243/255, blue: 249/255, alpha: 1.0))
     }
 
     public static var text_secondary_color: Color {

@@ -24,7 +24,7 @@ struct Notifications: View {
             ScrollView{
                 LazyVStack(spacing: 5){
                     ForEach(notifications , id: \.id) { notification in
-                        NotificationCell()
+                        NotificationCell(notification_Model: notification)
                         }
                     }
                 }

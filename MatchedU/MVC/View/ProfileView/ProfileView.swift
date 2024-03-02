@@ -14,6 +14,7 @@ struct ProfileView: View {
    @State var isLoggedOut = false
    @State var toastMessage = ""
    @State var isToastMessage = false
+   @State var isBackButton = false
     
     var body: some View {
         ZStack{
@@ -22,7 +23,9 @@ struct ProfileView: View {
             VStack(spacing: 25){
                 ZStack(alignment: .topTrailing){
                     NavigationLink(destination: LoginView() , isActive:$isLoggedOut ){}
-                    ProfileHeader(userModel: userModel , show_confirmationAlert: $show_confirmationAlert)
+                    ProfileHeader(userModel: userModel, isBackButton: $isBackButton , show_confirmationAlert: $show_confirmationAlert, sendConectionRequest: {
+                        sendConectionRequiest()
+                    })
                     if userModel.id == loggedinUser.id || user_id.isEmpty{
                         NavigationLink(destination: EditProfie( userModel: $userModel )) {
                         Image("edit")
@@ -48,6 +51,8 @@ struct ProfileView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal)
+                    Conections() 
+                        .padding(.top)
                     VStack(alignment: .leading,spacing: 25){ // Personal information section
                         Text("Personal Information")
                             .profileSectionTitleStyle()
@@ -67,15 +72,17 @@ struct ProfileView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal)
                     .padding(.top , 30) // End personal information section
-                    ProfileStoryView(userModel: $userModel)
+                    ProfileStoryView(sendConectionRequest: {
+                        sendConectionRequiest() 
+                    }, userModel: $userModel)
                 }
                 .padding(.top , 40)
             }
             .ignoresSafeArea()
             .navigationBarHidden(true)
             .task {
-                if user_id.isEmpty{
-                    user_id = loggedinUser.id
+                if !user_id.isEmpty{
+                    isBackButton = true
                 }
                 getUserProfile()
             } 

@@ -39,7 +39,7 @@ struct btnVisit : View {
             Text("visit")
                 .padding(.horizontal)
                 .frame(height: 30)
-                .background(Color.primary_color)
+                .background(Color.secondary_background)
                 .clipShape(Capsule())
                 .foregroundStyle(Color.app_white)
         }

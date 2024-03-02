@@ -20,13 +20,16 @@
         }
       }
     },
+    "%@ liked your story." : {
+
+    },
+    "%@ to connect with you." : {
+
+    },
     "%lld" : {
 
     },
-    "5 min ago" : {
-
-    },
-    "2022" : {
+    "+23" : {
 
     },
     "About me" : {
@@ -51,9 +54,6 @@
 
     },
     "Are you sure you want to delete this story?" : {
-
-    },
-    "Babsob Collage" : {
 
     },
     "Camera" : {
@@ -234,6 +234,9 @@
     "Male" : {
 
     },
+    "My Connections" : {
+
+    },
     "Ok" : {
 
     },
@@ -326,13 +329,10 @@
     "Story" : {
 
     },
-    "Taimur liked your story." : {
-
-    },
-    "Taimur want to connect with you." : {
-
-    },
     "Terms and conditions" : {
+
+    },
+    "View All" : {
 
     },
     "visit" : {

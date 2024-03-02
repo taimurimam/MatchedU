@@ -137,9 +137,7 @@ struct EditProfie: View {
                         }
                         InputField(text: $graduation_year , inputFieldType: .email, placeholder: "Graduation year")
                         InputField(text: $linkdin_url , inputFieldType: .text, placeholder: "Linkdin Profile link")
-                        ProfileStoryView( userModel: $userModel)
-                        
-                        
+                        ProfileStoryView( sendConectionRequest: {}, userModel: $userModel)
                     }
                     .padding(.top)
                 }
