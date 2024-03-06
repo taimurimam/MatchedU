@@ -24,6 +24,12 @@ struct Feed_UserModel{
     }
 }
 
+enum feed_response_status : Int{
+    case notResponded = 0
+    case liked
+    case rejected
+}
+
 struct Feed_Model {
     var id: String
     var user_id: String
@@ -31,7 +37,7 @@ struct Feed_Model {
     var comment_count = "34"
     var tags = [String]()
     var like_count = "24"
-    var feedText = "Ordinary design translates into applied art, architecture, and various other creative achievements. In a sentence, the word can be used as either a noun or a verb. As a verb..."
+    var feedText : String 
     
     var feed_img : String{
         return mediaBaseUrl + imgSubLink
@@ -39,7 +45,13 @@ struct Feed_Model {
     var feed_owner : Feed_UserModel
     var feed_time  =  "15 Dec 2022 at 09:42 AM"
     var imgSubLink  =  "15 Dec 2022 at 09:42 AM"
-    
+    var type : String
+    var responseStatus: feed_response_status{
+        if type == "1" { return .liked} else
+        if type == "2" { return .rejected} else{
+            return .notResponded
+        }
+    }
     var isMyStory : Bool{
         return user_id == loggedinUser.id ? true : false
     }
@@ -57,6 +69,6 @@ struct Feed_Model {
         let tag = json["tag"].stringValue
         self.tags = tag.components(separatedBy: ",")
         self.feed_owner = Feed_UserModel(from: json)
-        
+        self.type = json["type"].stringValue
     }
 }

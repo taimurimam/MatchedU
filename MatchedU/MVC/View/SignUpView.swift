@@ -24,8 +24,9 @@ struct SignUpView: View {
     @State var waringMessage = ""
     @State var showAlert = false
     @State var showToast = false
-    @State private var gender = "Male"
-    
+    @State var gender = "Male"
+    @State private var selectedGender = Gender_.male
+
     var formattedDate: String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -49,27 +50,31 @@ struct SignUpView: View {
                             InputField(text: $Name , inputFieldType: .text, placeholder: "Full Name")
                             InputField(text: $email , inputFieldType: .email, placeholder: "Email")
                             InputDate(birthDate: $dateOfBirth)
+                            GenderPicker(selectedGender: $selectedGender)
                             InputField(text: $password , inputFieldType: .password, placeholder: "Password")
                             InputField(text: $confimr_password , inputFieldType: .password, placeholder: "Confirm Password")
-                            HStack{
-                                Image(isTermsAccepted ? "terms_active" : "terms_inactive")
-                                    .onTapGesture {
-                                        isTermsAccepted.toggle()
-                                    }
-                                Text("I agree all")
-                                    .foregroundColor(.placeholder)
-                                    .font(.appFont(type: .lite, size: 16))
-                                
-                                Text("Terms and conditions")
-                                    .padding(.vertical)
-                                    .foregroundColor(.app_blue)
-                                    .font(.appFont(type: .lite, size: 16))
-                                    .underline()
-                                
-                                Spacer()
+                            VStack{
+                                HStack{
+                                    Image(isTermsAccepted ? "terms_active" : "terms_inactive")
+                                        .onTapGesture {
+                                            isTermsAccepted.toggle()
+                                        }
+                                    Text("I agree all")
+                                        .foregroundColor(.placeholder)
+                                        .font(.appFont(type: .lite, size: 16))
+                                    
+                                    Text("Terms and conditions")
+                                        .padding(.vertical)
+                                        .foregroundColor(.app_blue)
+                                        .font(.appFont(type: .lite, size: 16))
+                                        .underline()
+                                    
+                                    Spacer()
+                                }
+                                .padding(.top , 0)
+                                .padding(.horizontal)
                             }
-                            .padding(.top , 0)
-                            .padding(.horizontal)
+                           
                         }
                         .padding(.horizontal , 5)
                         .padding(.top , 20)
@@ -120,22 +125,18 @@ struct SignUpView: View {
         if Name.isEmpty{
             waringMessage = "Please enter your name"
             showToast.toggle()
-
         }else
         if !email.isStudentEmail{
             waringMessage = "Please enter your email (email has to be student email with .edu)."
             showToast.toggle()
-
         }else
         if password.isEmpty{
             waringMessage = "Please enter your password"
             showToast.toggle()
-
         }else
         if password != confimr_password{
             waringMessage = "Your password and confirm password has to be the same"
             showToast.toggle()
-
         }else{
             letsCraetNewAccount()
         }
@@ -170,6 +171,8 @@ struct SignUpView: View {
 #Preview {
     SignUpView()
 }
+
+
 
 
 

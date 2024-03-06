@@ -1,9 +1,7 @@
 //
 //  FeedItemView.swift
 //  WonderLive
-//
 //  Created by Taimur imam on 22/12/23.
-//
 
 import SwiftUI
 import SwiftyJSON
@@ -43,16 +41,18 @@ struct FeedItemView: View {
                         .foregroundStyle(Color.primary_color)
                         .font(.appFont(type: .Regular, size: 22))
                  }
-                
-                Button(action: {
-                    acceptRejectApiCall(type: "2")
-                }) {
-                    Image("reject")
-                        .foregroundStyle(Color.primary_color)
-                        .font(.appFont(type: .Regular, size: 22))
-                 }
+                if feed_model.responseStatus == .notResponded{
+                    Button(action: {
+                        acceptRejectApiCall(type: "2")
+                    }) {
+                        Image("reject")
+                            .foregroundStyle(Color.primary_color)
+                            .font(.appFont(type: .Regular, size: 22))
+                    }
+                }
             }
             .padding(.horizontal)
+            
              Divider()
                 .padding(.top)
         }

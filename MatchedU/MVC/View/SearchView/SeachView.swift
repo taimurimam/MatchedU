@@ -116,7 +116,9 @@ struct SeachView: View {
     }
     
     func conectionList(){
+        showHud()
         notificationApiCall().conectionList(user_id:user_id.isEmpty ? loggedinUser.id : user_id){ _response in
+            hideHud()
             if _response.isSuccess{
                 self.users = _response.completeJsonResp["data"]["connects_list"].arrayValue.map { UserModel(from: $0 )}
             }else{

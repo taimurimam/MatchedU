@@ -31,25 +31,22 @@ struct BtnCreatStory : View {
 }
 
 struct btnVisit : View {
-    var link : String
+   @State var link : String
     var body: some View {
         Button{
             openTheUrl() 
         }label: {
             Text("visit")
-                .padding(.horizontal)
-                .frame(height: 30)
-                .background(Color.secondary_background)
-                .clipShape(Capsule())
-                .foregroundStyle(Color.app_black)
+                .profileViewAllStyle()
         }
     }
     
     func openTheUrl(){
-        let url  = URL(string: link)
+        if !link.contains("https://"){
+            link = "https://" + link }
+        let url  = URL(string:link.lowercased())
         if UIApplication.shared.canOpenURL(url!) {
             UIApplication.shared.open(url!, options: [:])
         }
     }
-    
 }

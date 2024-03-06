@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B9769CE1D787DC53A2BDFD7 /* Pods_MatchedU_MatchedUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DDC88FC695258895F5EA63 /* Pods_MatchedU_MatchedUUITests.framework */; };
+		B50CD72D2B95879E00348778 /* GenderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50CD72C2B95879D00348778 /* GenderPicker.swift */; };
 		B5153D1A2B8EE34F00439EC2 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B5153D192B8EE34F00439EC2 /* PKHUD */; };
 		B5153D1E2B8EE3AC00439EC2 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */; };
 		B5153D212B8EE7B500439EC2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D202B8EE7B500439EC2 /* Notifications.swift */; };
@@ -147,6 +148,7 @@
 		8CC0D807BB5D524C41478E4E /* Pods_MatchedU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchedU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF36ACA45988B94A39D4DB2 /* Pods-MatchedUTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchedUTests.debug.xcconfig"; path = "Target Support Files/Pods-MatchedUTests/Pods-MatchedUTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7AFD3A6ED32B1D24052553F /* Pods-MatchedU-MatchedUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchedU-MatchedUUITests.release.xcconfig"; path = "Target Support Files/Pods-MatchedU-MatchedUUITests/Pods-MatchedU-MatchedUUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B50CD72C2B95879D00348778 /* GenderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPicker.swift; sourceTree = "<group>"; };
 		B5153D202B8EE7B500439EC2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		B5153D222B8EE92400439EC2 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		B5153D242B8EF1A300439EC2 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 				B53381732B7B173B00BB9BCB /* InputDate.swift */,
 				B533817E2B7B174300BB9BCB /* InputMobileNumber.swift */,
 				B533817F2B7B174400BB9BCB /* InputTextEditor.swift */,
+				B50CD72C2B95879D00348778 /* GenderPicker.swift */,
 				B53381802B7B174400BB9BCB /* TostAlert.swift */,
 				B53381642B7B16E900BB9BCB /* BackgroundView.swift */,
 			);
@@ -1014,6 +1017,7 @@
 				B586849B2B7F68A300798DC3 /* CreatStory.swift in Sources */,
 				B53381572B7B116500BB9BCB /* UserModel.swift in Sources */,
 				B5F964B12B92CE3A001D3505 /* Conections.swift in Sources */,
+				B50CD72D2B95879E00348778 /* GenderPicker.swift in Sources */,
 				B595C2942B846DB0002625DD /* FeedAPIs.swift in Sources */,
 				B586849D2B7F800500798DC3 /* CustomAlert.swift in Sources */,
 				B58684832B7F171B00798DC3 /* ProfileStoryView.swift in Sources */,

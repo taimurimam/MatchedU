@@ -65,16 +65,22 @@ struct FilterView: View {
                     Text("Gender")
                         .font(.app_body_Font(type: .Regular , size: 18))
                     HStack(spacing: 20){
-                        Text("Male")
-                            .genderBtnStyle(isSelected: gender == .Male ? true : false)
-                            .onTapGesture {
-                                gender = .Male
-                            }
-                        Text("Female")
-                            .genderBtnStyle(isSelected: gender == .Female ? true : false)
-                            .onTapGesture {
-                                gender = .Female
-                            }
+                        HStack(spacing:15){
+                            Image(gender == .Male ? "male_white" : "male_black")
+                            Text("Male")
+                        }
+                        .genderBtnStyle(isSelected: gender == .Male ? true : false)
+                        .onTapGesture {
+                            withAnimation{ gender = .Male}
+                        }
+                        HStack(spacing:15){
+                            Image(gender == .Female ? "female_white" : "female_black")
+                            Text("Female")
+                        }
+                        .genderBtnStyle(isSelected: gender == .Female ? true : false)
+                        .onTapGesture {
+                            withAnimation{gender = .Female}
+                        }
                     }
                 })
                 .padding(.top , 15)

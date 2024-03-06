@@ -154,12 +154,26 @@ struct inputDescriptionFieldModifier : ViewModifier{
     }
 }
 
+struct profileViewAllModifier : ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .padding(.horizontal)
+            .frame(height: 30)
+            .background(Color.secondary_background)
+            .clipShape(Capsule())
+            .foregroundStyle(Color.app_black)
+            .font(.app_body_Font(type: .Regular, size: 15))
+    }
+}
 
 
 extension  View{
     //craetFeedButtonModifier
     
-    
+    func profileViewAllStyle()->some View{
+        modifier(profileViewAllModifier())
+    }
+
     func btnacceptStyle()->some View{
         modifier(AcceptButtonModifier())
     }

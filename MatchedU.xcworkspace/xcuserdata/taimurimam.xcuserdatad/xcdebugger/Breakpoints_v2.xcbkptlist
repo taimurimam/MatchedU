@@ -80,6 +80,36 @@
                   endingLineNumber = "63"
                   offsetFromSymbolStart = "268">
                </Location>
+               <Location
+                  uuid = "E174CB98-18DC-4C1D-BE59-31A79DB265F4 - cc9ec2880a6ae3df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MatchedU.APIManager.putMultipartDataWithMultipleImage(urlString: Swift.String, withParams: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, imageFiles: Swift.Array&lt;__C.UIImage&gt;, arrImageNames: Swift.Array&lt;Swift.String&gt;, onCompletion: (MatchedU.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/Supporting%20Classes/API%20Management/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "E174CB98-18DC-4C1D-BE59-31A79DB265F4 - bfcaf1bfb2db15c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in static MatchedU.APIManager.putMultipartDataWithMultipleImage(urlString: Swift.String, withParams: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, imageFiles: Swift.Array&lt;__C.UIImage&gt;, arrImageNames: Swift.Array&lt;Swift.String&gt;, onCompletion: (MatchedU.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/Supporting%20Classes/API%20Management/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "276">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -97,6 +127,38 @@
             endingLineNumber = "98"
             landmarkName = "deleteTheStory()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "17412B72-B4C1-415E-AC2C-AE6A716D885C - 6559b04e6631f03f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MatchedU.StoryCard.deleteTheStory() -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/MVC/View/ProfileView/ProfileStoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "17412B72-B4C1-415E-AC2C-AE6A716D885C - 9be826fc70fa73da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MatchedU.ResponseModel) -&gt; () in MatchedU.StoryCard.deleteTheStory() -&gt; ()"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/MVC/View/ProfileView/ProfileStoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
