@@ -11,6 +11,12 @@ import SwiftyJSON
 
 // MARK: - UserModel
 
+enum Conection_Status : Int {
+    case notConected = 0
+    case conected
+    case rejected
+    case notSpecified
+}
 
 struct UserModel {
     var id: String
@@ -26,9 +32,23 @@ struct UserModel {
     
     var profile_subLink: String
     var cover_sublink: String
-
-    var tags: [Any]
+    var Conection_mode : String
+    var tags: [TagViewItem]
     var stories : [StoryModel]
+    
+    var conectionStatus : Conection_Status{
+        if Conection_mode == "0"
+        {
+            return .notConected
+        }else if Conection_mode ==  "1" {
+            return .conected
+        }else if Conection_mode == "2"{
+            return .rejected
+        }else{
+            return .notSpecified
+        }
+    }
+    
     var isMyProfile : Bool{
         return id == loggedinUser.id ? true : false
     }
@@ -36,8 +56,7 @@ struct UserModel {
     var birthYear : String{
         if dob.isEmpty{
             return ""
-        }else
-        {
+        }else{
             return  dob.components(separatedBy: "-").last ?? ""
         }
     }
@@ -52,15 +71,17 @@ struct UserModel {
         self.phone_number = json["phone_number"].stringValue
         self.access_token = json["api_token"].stringValue
         self.profile_subLink = json["image"].stringValue
-        self.tags = json["tag"].arrayValue
         self.dob = json["dob"].stringValue
         self.bio = json["about_me"].stringValue
         self.collage = json["qualification"].stringValue
         self.graduation_year = json["qualification_year"].stringValue
         self.linkdin_url = json["linkedin_url"].stringValue
         self.gender = json["gender"].stringValue
-        self.cover_sublink = json["cover_image"].stringValue
+        self.cover_sublink = json["cover_image"].stringValue //connect_status
         self.stories = json["user_document"].arrayValue.map { StoryModel(from: $0 )}
+        self.tags = json["tag"].arrayValue.map { TagViewItem(from: $0 )}
+        self.Conection_mode = json["connect_status"].stringValue //connect_status
+
     }
 }
 

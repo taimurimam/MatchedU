@@ -20,7 +20,7 @@ extension Color {
         return  Color(UIColor(red: 133/255, green: 133/255, blue: 133/255, alpha: 1.0))
     }
     public static var filterBackGround: Color {
-        return  Color(UIColor(red: 43/255, green: 55/255, blue: 71/255, alpha: 0.3))
+        return  Color(UIColor(red: 43/255, green: 55/255, blue: 71/255, alpha: 0.1))
     }
 
 

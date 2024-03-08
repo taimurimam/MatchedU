@@ -16,7 +16,7 @@ struct ProfileView: View {
    @State var isToastMessage = false
    @State var isBackButton = false
    @State private var conection_users = [UserModel]()
-
+    @State var tags = [TagViewItem]()
     var body: some View {
         ZStack{
             Color.white
@@ -52,7 +52,24 @@ struct ProfileView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal)
-                    Conections(Conections: $conection_users) 
+                    VStack(alignment: .leading ,spacing: 12){
+                        HStack{
+                            Text("My Interests")
+                                .profileSectionTitleStyle()
+                            Spacer()
+                            if userModel.isMyProfile{
+                                NavigationLink(destination: Interests()){
+                                    PlusButton(width: 30 , fontSize: 19)
+                                }
+                            }
+                        }
+                        TagView(tags: $tags )
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
+                    .padding(.top)
+
+                    Conections(Conections: $conection_users)
                         .padding(.top)
                     VStack(alignment: .leading,spacing: 25){ // Personal information section
                         Text("Personal Information")
@@ -113,6 +130,7 @@ struct ProfileView: View {
         UserApiCall().userProfileOf(user_id: user_id.isEmpty ?  loggedinUser.id : user_id) { _response, isSuccess in
            if isSuccess{
                userModel = UserModel(from: _response.completeJsonResp["data"]["user_data"])
+               tags = userModel.tags
                if userModel.isMyProfile{
                    UserDefaults.saveJSON(_response.completeJsonResp["data"]["user_data"] , .userDetails)
                }

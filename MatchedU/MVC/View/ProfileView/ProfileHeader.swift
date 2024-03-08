@@ -19,7 +19,7 @@ struct ProfileHeader: View {
             ProfileCoverPhoto(url: userModel.cover_image )
             if !isUserList{ 
                 VStack{
-                    HeaderView(title: "Profile" , hideBackBtn: !isBackButton, isEdItButton: true , titleColor : .app_white)
+                    HeaderView(title: "" , hideBackBtn: !isBackButton, isEdItButton: true , titleColor : .app_white)
                         .padding(.top , 54)
                         .foregroundStyle(Color.app_white)
                     Spacer()
@@ -27,7 +27,7 @@ struct ProfileHeader: View {
                 .frame(height: 240)
             }
             HStack(spacing: 15){
-                ProfileImage(url: userModel.profile_image , width: 56 )
+                ProfileImage(url: userModel.profile_image , width: 56 , leading_padding : 10)
                 VStack(alignment: .leading , spacing: 4){
                     Text(userModel.name)
                         .foregroundStyle(Color.app_black)
@@ -45,11 +45,13 @@ struct ProfileHeader: View {
                             .padding(.trailing)
                     } 
                 }else{ // addd follow button for other user..
-                    Button{
-                        sendConectionRequest()
-                    }label: {
-                        Image("followButton")
-                            .padding(.trailing)
+                    if userModel.conectionStatus == .notConected{
+                        Button{
+                            sendConectionRequest()
+                        }label: {
+                            Image("followButton")
+                                .padding(.trailing)
+                        }
                     }
                 }
             }

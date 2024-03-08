@@ -84,6 +84,9 @@
 		B576065D2B8488CE005082A5 /* FeedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576065C2B8488CE005082A5 /* FeedDetails.swift */; };
 		B57606602B84A6AB005082A5 /* SeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576065F2B84A6AB005082A5 /* SeachView.swift */; };
 		B57606622B84A763005082A5 /* btnSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57606612B84A763005082A5 /* btnSearch.swift */; };
+		B57B28262B99634600D2C97F /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = B57B28252B99634600D2C97F /* PopupView */; };
+		B57B28282B9974CD00D2C97F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B28272B9974CD00D2C97F /* TagView.swift */; };
+		B57B282A2B99850200D2C97F /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B28292B99850200D2C97F /* Interests.swift */; };
 		B586847F2B7EFEF300798DC3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586847E2B7EFEF300798DC3 /* ProfileView.swift */; };
 		B58684812B7F07A000798DC3 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58684802B7F07A000798DC3 /* ProfileHeader.swift */; };
 		B58684832B7F171B00798DC3 /* ProfileStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58684822B7F171B00798DC3 /* ProfileStoryView.swift */; };
@@ -227,6 +230,8 @@
 		B576065C2B8488CE005082A5 /* FeedDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetails.swift; sourceTree = "<group>"; };
 		B576065F2B84A6AB005082A5 /* SeachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachView.swift; sourceTree = "<group>"; };
 		B57606612B84A763005082A5 /* btnSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = btnSearch.swift; sourceTree = "<group>"; };
+		B57B28272B9974CD00D2C97F /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		B57B28292B99850200D2C97F /* Interests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
 		B58519212B7C935F00A40B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B586847E2B7EFEF300798DC3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B58684802B7F07A000798DC3 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
@@ -275,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57B28262B99634600D2C97F /* PopupView in Frameworks */,
 				B5153D1E2B8EE3AC00439EC2 /* CachedAsyncImage in Frameworks */,
 				E821BF59FA5B9F4FE7252507 /* Pods_MatchedU.framework in Frameworks */,
 				B5153D1A2B8EE34F00439EC2 /* PKHUD in Frameworks */,
@@ -597,6 +603,8 @@
 				B58684882B7F4D5700798DC3 /* ProfileCoverPhoto.swift */,
 				B586849A2B7F68A300798DC3 /* CreatStory.swift */,
 				B5E7B5602B85E7F8003DC53D /* CollageSelectionView.swift */,
+				B57B28272B9974CD00D2C97F /* TagView.swift */,
+				B57B28292B99850200D2C97F /* Interests.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -734,6 +742,7 @@
 			packageProductDependencies = (
 				B5153D192B8EE34F00439EC2 /* PKHUD */,
 				B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */,
+				B57B28252B99634600D2C97F /* PopupView */,
 			);
 			productName = MatchedU;
 			productReference = B5FEC13E2B7B052F00897E42 /* MatchedU.app */;
@@ -813,6 +822,7 @@
 			packageReferences = (
 				B5153D182B8EE34F00439EC2 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				B57B28242B99634600D2C97F /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = B5FEC13F2B7B052F00897E42 /* Products */;
 			projectDirPath = "";
@@ -980,6 +990,7 @@
 				B53381952B7B174400BB9BCB /* InputTextEditor.swift in Sources */,
 				B595C2702B80D3CD002625DD /* FeedList.swift in Sources */,
 				B5153D2E2B8F2F2100439EC2 /* ViewRouter.swift in Sources */,
+				B57B282A2B99850200D2C97F /* Interests.swift in Sources */,
 				B595C2722B81E3EE002625DD /* StoryDetails.swift in Sources */,
 				B53381482B7B0D8A00BB9BCB /* TextModifier.swift in Sources */,
 				B53381872B7B174400BB9BCB /* CountryModel.swift in Sources */,
@@ -1003,6 +1014,7 @@
 				B533814A2B7B0D8A00BB9BCB /* ToastView.swift in Sources */,
 				B57606572B847AFC005082A5 /* Feed_Model.swift in Sources */,
 				B533814E2B7B0D8A00BB9BCB /* APIs.swift in Sources */,
+				B57B28282B9974CD00D2C97F /* TagView.swift in Sources */,
 				B58684892B7F4D5700798DC3 /* ProfileCoverPhoto.swift in Sources */,
 				B53381652B7B16E900BB9BCB /* BackgroundView.swift in Sources */,
 				B53381442B7B0D8A00BB9BCB /* AppState.swift in Sources */,
@@ -1430,6 +1442,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		B57B28242B99634600D2C97F /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1442,6 +1462,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
+		};
+		B57B28252B99634600D2C97F /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B57B28242B99634600D2C97F /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

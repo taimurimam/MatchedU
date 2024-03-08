@@ -29,8 +29,8 @@ struct SearchProfileCell: View {
                     .clipped()
                     .cornerRadius(12)
                     .shadow(color: .black.opacity(0.15), radius: 10 , x: 4 , y: 8)
-                Image("followButton")
-                    .padding()
+               // Image("followButton")
+                 //   .padding()
             })
 
         }

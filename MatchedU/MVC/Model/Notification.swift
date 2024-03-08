@@ -28,6 +28,9 @@ struct Notification_model{
     var conection_status_info : String
     
     var conection_status : Conection_status{
+        if comment == "Accept your connections"{
+            return .conceted
+        }else
         if conection_status_info == "1"
         {
             return .conceted
@@ -42,13 +45,18 @@ struct Notification_model{
         }
     }
     
+    
     var icon : String{
-        return "love_notification"
+        if notificationType == .likestory{
+            return "love_notification"
+        }else{
+            return "notification_nonection_request"
+        }
     }
 
     var notificationType : Notification_Type{
-        if comment  == "like"{
-            return .likestory
+        if comment  == "Accept your connections"{
+            return .conection_requestAccepted
         }else
         if comment  == "Want to connect with you"{
             return .connection_request

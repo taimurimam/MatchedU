@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AlertToast
+import PopupView
 
 struct SeachView: View {
     @State private var toastMessage = ""
@@ -90,10 +91,16 @@ struct SeachView: View {
             .fullScreenCover(isPresented: $isCollageSelectionOpen, content: {
                 CollageSelectionView( selectedCollage: $collageName)
             })
-            if isFilterOpen{
+            
+            .popup(isPresented: $isFilterOpen) {
                 FilterView(isSchoolSelected: $isCollageSelectionOpen, isFilter: $isFilterOpen, collageName: $collageName, gender: $gender, applyFilter: {
                     getUsers()
                 })
+            } customize: {
+                $0
+                    .type (.floater()) 
+                    .dragToDismiss(true)
+                    .position(.bottom)
             }
         }
     }

@@ -10,12 +10,12 @@ import SwiftUI
 struct NotificationCell: View {
     var notification_Model : Notification_model
     var body: some View {
-        if notification_Model.notificationType == .connection_request{
+        if notification_Model.notificationType == .connection_request || notification_Model.notificationType == .conection_requestAccepted{
             ConnectCell(notification_Model: notification_Model)
         }else
         if notification_Model.notificationType == .likestory{
             NotificationCellLike(notification_Model: notification_Model)
-        }else{
+        }else {
             NotificationCellLike(notification_Model: notification_Model)
         }
     }
@@ -64,12 +64,11 @@ struct ConnectCell : View {
             VStack(alignment:.leading , spacing: 10){
                 
                 if notification_Model.conection_status == .rejected{
-                    
                     Text("You have rejected conection request of  \(notification_Model.sender_name)")
                         .foregroundStyle(Color.black)
                         .font(.app_body_Font(type: .Regular, size: 17))
                 }
-               if notification_Model.conection_status == .conceted{
+                if notification_Model.conection_status == .conceted{
                    Text("You are conected with \(notification_Model.sender_name)")
                        .foregroundStyle(Color.black)
                        .font(.app_body_Font(type: .Regular, size: 17))

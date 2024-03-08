@@ -10,6 +10,7 @@ import SwiftUI
 enum Notification_Type : Int{
     case likestory
     case connection_request
+    case conection_requestAccepted 
     case profile_updated
 }
 

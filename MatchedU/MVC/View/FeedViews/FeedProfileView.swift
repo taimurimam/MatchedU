@@ -12,7 +12,8 @@ struct FeedProfileView: View {
     var feed_model : Feed_Model
     var showOptionButton = true
     var isBackButton = false
-    
+    @State private var isShowingActionSheet = false
+
     var body: some View {
         HStack {
             // Left side: Profile details
@@ -31,9 +32,12 @@ struct FeedProfileView: View {
                     Text(feed_model.feed_owner.name)
                         .font(.appFont(type: .medium, size: 18))
                         .foregroundStyle(Color.primary_color)
-                    Text(feed_model.feed_time )
-                        .font(.app_body_Font(type: .lite, size: 11))
-                        .foregroundColor(.black)
+                    HStack{
+                        Image("clock") 
+                        Text(feed_model.feed_time )
+                            .font(.app_body_Font(type: .lite, size: 11))
+                            .foregroundColor(.black)
+                    }
                 }
                 .padding(.leading , 5) 
             }
@@ -44,6 +48,7 @@ struct FeedProfileView: View {
                 // Right side: More button
                 Button(action: {
                     // Handle more button action
+                    isShowingActionSheet.toggle()
                 }) {
                     Image(systemName: "ellipsis")
                         .padding(.vertical)
@@ -56,7 +61,27 @@ struct FeedProfileView: View {
         }
         .background(.clear)
         .padding(.vertical , 7)
+        .actionSheet(isPresented: $isShowingActionSheet) {
+            SwiftUI.ActionSheet(title: Text("Select option"), buttons: [
+                        .destructive(Text("Report this post"), action: {
+                            reportFeed()
+                        }),
+                        .destructive(Text("Block \(feed_model.feed_owner.name)"), action: {
+                            bloackUser()
+                        }),
+                        .cancel()
+                    ])
+                }
     }
+    
+    
+    func reportFeed(){
+        
+    }
+    func bloackUser(){
+        
+    }
+    
 }
 
 #Preview {

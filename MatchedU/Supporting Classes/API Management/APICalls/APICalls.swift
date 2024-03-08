@@ -80,28 +80,28 @@ struct UserApiCall{
             onCompletion(responseModel, isSuccess)
         }
     }
-
     
     // Add New Interest *******
     
     func addNewInterest( interest : String ,  onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
         showHud()
         let params = [
-            "interest_name" : interest
+            "interest_name" : interest,
+            "user_id" : loggedinUser.id
         ]
-        APIManager.callWith(  method: .post , urlString: UserAPIs.profileDetails , withParams: params) { responseModel in
+        APIManager.callWith(  method: .post , urlString: UserAPIs.addNewInterest , withParams: params) { responseModel in
             hideHud()
             let isSuccess = responseModel.isSuccess
             onCompletion(responseModel, isSuccess)
         }
     }
     
-    
     // User Profile Detials
     func userProfileOf( user_id : String ,  onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
         showHud()
         let params = [
-            "user_id" : user_id
+            "profile_details_id" : user_id,
+            "user_id" : loggedinUser.id
         ]
         APIManager.callWith(  method: .post , urlString: UserAPIs.profileDetails , withParams: params) { responseModel in
             hideHud()

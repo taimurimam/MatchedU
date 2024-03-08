@@ -16,7 +16,6 @@ struct FeedDetails: View {
     @State private var toastMessage = ""
     @State private var showAlert = false
     @State private var deleteConfirmAlert = false
-    
     let feedDeleted: (_ deletedFeed: Feed_Model ) -> Void
     
     var body: some View {

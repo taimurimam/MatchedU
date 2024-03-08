@@ -12,6 +12,7 @@ struct CollageSelectionView: View {
     @State private var searchText = ""
     @Environment(\.dismiss) var dismiss
     @Binding var selectedCollage : String
+    
     var filtertedCollage: [String] {
         if searchText.isEmpty {
             return arrCollages

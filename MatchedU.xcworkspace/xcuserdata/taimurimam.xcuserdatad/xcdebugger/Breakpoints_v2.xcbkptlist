@@ -161,5 +161,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26605F2D-3C2A-4D76-9B19-53CC31D6061E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MatchedU/MVC/Model/Notification.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "conection_status"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "26605F2D-3C2A-4D76-9B19-53CC31D6061E - a187965f3adaff16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MatchedU.Notification_model.conection_status.getter : MatchedU.Conection_status"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/MVC/Model/Notification.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "26605F2D-3C2A-4D76-9B19-53CC31D6061E - a187965f3adaff35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MatchedU.Notification_model.conection_status.getter : MatchedU.Conection_status"
+                  moduleName = "MatchedU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taimurimam/Documents/GitHub/MatchedU/MatchedU/MVC/Model/Notification.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

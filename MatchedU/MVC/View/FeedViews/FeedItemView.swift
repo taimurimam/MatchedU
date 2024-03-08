@@ -16,45 +16,43 @@ struct FeedItemView: View {
             FeedProfileView(feed_model: feed_model) 
             NavigationLink(destination: FeedDetails(feed_Model: feed_model, feedDeleted: { deletedFeed in
                 self.feedDeleted(deletedFeed)
-                
             })){
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .center, spacing: 12) {
                     if feed_model.isImage{ // if feed image contain on feed.
-                        Asyn_ImageView_demo(url: feed_model.feed_img , height: 225 , cornerRedious: 0)
+                        Asyn_ImageView_demo(url: feed_model.feed_img , height: 275 , cornerRedious: 0)
                             .scaledToFill()
                             .clipped()
                     }
-                    Text(feed_model.feedText)
-                        .padding(.horizontal)
-                        .multilineTextAlignment(.leading)
-                        .foregroundStyle(Color.app_black)
-                        .lineSpacing(6)
-                        .font(.app_body_Font(type: .lite, size: 17))
+                    if !feed_model.feedText.isEmpty{
+                        Text(feed_model.feedText)
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(Color.app_black)
+                            .lineSpacing(6)
+                            .font(.app_body_Font(type: .lite, size: 17))
+                    }
                 }
             }
             
-            HStack (spacing: 20){
+            HStack ( spacing: 20){
+                Spacer()
                 Button(action: {
                     acceptRejectApiCall(type: "1")
                 }) {
                     Image("accept")
-                        .foregroundStyle(Color.primary_color)
-                        .font(.appFont(type: .Regular, size: 22))
                  }
                 if feed_model.responseStatus == .notResponded{
                     Button(action: {
                         acceptRejectApiCall(type: "2")
                     }) {
                         Image("reject")
-                            .foregroundStyle(Color.primary_color)
-                            .font(.appFont(type: .Regular, size: 22))
                     }
                 }
+                Spacer()
             }
             .padding(.horizontal)
-            
              Divider()
-                .padding(.top)
+                .padding(.top , 5)
         }
     }
  

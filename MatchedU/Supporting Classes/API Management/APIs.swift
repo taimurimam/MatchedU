@@ -30,7 +30,7 @@ struct UserAPIs {
     static let verifyOTP = getUrl("forgot-password-otp-verification")
     static let changePassword = getUrl("password-change")
     static let interestList = getUrl("interest-list")
-    static let addNewInterest = getUrl("add-interes")
+    static let addNewInterest = getUrl("add-interest")
     static let userList = getUrl("all-user-list")
     static let notification_list = getUrl("notification-list")
     static let connection_request = getUrl("connect")
