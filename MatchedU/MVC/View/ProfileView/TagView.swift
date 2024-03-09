@@ -9,27 +9,6 @@
 import SwiftUI
 import SwiftyJSON
 
-struct TagViewItem: Hashable {
-    
-    var title: String
-    var isSelected: Bool
-    var id = ""
-    init(from json: JSON)
-    {
-        self.title = json["interest_name"].stringValue
-        self.isSelected = json["status"].boolValue
-        self.id = json["id"].stringValue
-
-    }
-    static func == (lhs: TagViewItem, rhs: TagViewItem) -> Bool {
-        return lhs.isSelected == rhs.isSelected
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
-        hasher.combine(isSelected)
-    }
-}
 
 struct TagView: View {
     @Binding var tags: [TagViewItem]
@@ -74,6 +53,8 @@ struct TagView: View {
                         }
                         return result
                     }).onTapGesture {
+                        print("tag selected...\(tag.title) ")
+                        
                        // tag.isSelected.toggle()
                     }
             }
@@ -85,10 +66,10 @@ struct TagView: View {
             .foregroundColor(isSelected ? Color.black : Color.black)
             .padding()
             .lineLimit(1)
-            .background(isSelected ? Color.white : Color.white)
+            .background(isSelected ? Color.primary_color : Color.white)
             .frame(height: 36)
             .cornerRadius(18)
-            .overlay(Capsule().stroke(Color.inactive_border, lineWidth: 1))
+            .overlay(Capsule().stroke(isSelected ? .white : Color.inactive_border, lineWidth: 1))
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {

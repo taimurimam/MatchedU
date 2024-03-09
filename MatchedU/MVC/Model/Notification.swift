@@ -1,9 +1,7 @@
 //
 //  Notification.swift
 //  MatchedU
-//
 //  Created by Taimur imam on 28/02/24.
-//
 
 import Foundation
 import SwiftyJSON
@@ -26,6 +24,7 @@ struct Notification_model{
     var graguation_year : String
     var id : String
     var conection_status_info : String
+    var feed_id : String
     
     var conection_status : Conection_status{
         if comment == "Accept your connections"{
@@ -45,7 +44,6 @@ struct Notification_model{
         }
     }
     
-    
     var icon : String{
         if notificationType == .likestory{
             return "love_notification"
@@ -55,6 +53,9 @@ struct Notification_model{
     }
 
     var notificationType : Notification_Type{
+        if comment == "Like your feed"{
+            return .likestory
+        }else
         if comment  == "Accept your connections"{
             return .conection_requestAccepted
         }else
@@ -81,5 +82,6 @@ struct Notification_model{
         self.graguation_year = json["qualification_year"].stringValue
         self.id = json["id"].stringValue
         self.conection_status_info = json["connect_status"].stringValue
+        self.feed_id = json["feed_id"].stringValue
     }
 }

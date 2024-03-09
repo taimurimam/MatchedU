@@ -14,6 +14,8 @@ struct ProfileImage: View {
     var leading_padding = 12.0
     var isNaviagtion = false
     var user_id = ""
+    var isfullScreenDisplay = false
+    @State var isFullScreen = false
     var valid_url : String{
         if url == mediaBaseUrl || url.isEmpty{
             return link
@@ -24,14 +26,24 @@ struct ProfileImage: View {
     
     var body: some View {
         VStack{
-            if isNaviagtion && !user_id.isEmpty{
-                NavigationLink(destination: ProfileView(user_id: user_id)){
-                    Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/4)
+            VStack{
+                if isNaviagtion && !user_id.isEmpty{
+                    NavigationLink(destination: ProfileView(user_id: user_id)){
+                        Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/4)
+                            .padding(.leading , leading_padding)
+                    }
+                }else{
+                    Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
                         .padding(.leading , leading_padding)
+                        .onTapGesture {
+                            if isfullScreenDisplay{
+                                isFullScreen.toggle()
+                            }
+                        }
                 }
-            }else{
-                Asyn_profile_ImageView(url:  valid_url , width: Int(width) , height: Int(width) , cornerRedious: Int(width)/2)
-                    .padding(.leading , leading_padding)
+            }
+            .sheet(isPresented: $isFullScreen) {
+                Asyn_profile_ImageView(url:  valid_url , width: Int(UIScreen.main.bounds.width) , height: Int(UIScreen.main.bounds.height  ) , cornerRedious: 12 , contentMode : .fit)
             }
         }
     }

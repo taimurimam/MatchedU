@@ -36,7 +36,8 @@ struct UserAPIs {
     static let connection_request = getUrl("connect")
     static let connect_status_update = getUrl("connect-status-update")
     static let myConectionList = getUrl("my-connection")
-    
+    static let blockUser = getUrl("block-user")
+
 }
 
 struct StoryApi{
@@ -51,6 +52,7 @@ struct FeedAPIs {
     static let addFeed = getUrl("add-feed")
     static let feedList = getUrl("feed-list")
     static let deleteFeed = getUrl("feed-delete")
-    static let likeFeed = getUrl("feed-like") //notification-list
-    
+    static let likeFeed = getUrl("feed-like")
+    static let reportFeed = getUrl("report-feed")
+    static let feedDetails = getUrl("feed-details") 
 }

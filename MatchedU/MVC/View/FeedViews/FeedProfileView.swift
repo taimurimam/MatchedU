@@ -12,6 +12,8 @@ struct FeedProfileView: View {
     var feed_model : Feed_Model
     var showOptionButton = true
     var isBackButton = false
+    @State private var toastMessage = ""
+    @State private var isToastMessage = false
     @State private var isShowingActionSheet = false
 
     var body: some View {
@@ -76,10 +78,27 @@ struct FeedProfileView: View {
     
     
     func reportFeed(){
-        
+        FeedApiCall().reportFeed(feed_id: feed_model.id) { _response in
+            if _response.isSuccess{
+                toastMessage = "We have received your report regarding this post"
+                isToastMessage.toggle()
+            }else{
+                toastMessage = _response.strResMsg
+                isToastMessage.toggle()
+            }
+        }
     }
+    
     func bloackUser(){
-        
+        UserApiCall().blockUser(blocked_user_id: feed_model.feed_owner.user_id) { _response, isSuccess in
+            if isSuccess{
+                toastMessage = "You have successfully blocked \(feed_model.feed_owner.name)"
+                isToastMessage.toggle()
+            }else{
+                toastMessage = _response.strResMsg
+                isToastMessage.toggle()
+            }
+        }
     }
     
 }

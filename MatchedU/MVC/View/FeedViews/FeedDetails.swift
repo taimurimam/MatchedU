@@ -11,11 +11,12 @@ import AlertToast
 
 struct FeedDetails: View {
     
-    var feed_Model = Feed_Model(from: JSON())
+    @State  var feed_Model = Feed_Model(from: JSON())
     @State private var isAlertToast = false
     @State private var toastMessage = ""
     @State private var showAlert = false
     @State private var deleteConfirmAlert = false
+    var feed_id = ""
     let feedDeleted: (_ deletedFeed: Feed_Model ) -> Void
     
     var body: some View {
@@ -69,22 +70,35 @@ struct FeedDetails: View {
                 Alert(
                     title: Text("Confirmation"),
                     message: Text("Are you sure you want to delete this post?"),
-                    primaryButton: .default(Text("Delete")) {
+                    primaryButton: .destructive (Text("Delete")) {
                         // Perform deletion action here
                         letsDeleteThepost()
                     },
                     secondaryButton: .cancel()
                 )
             }
-            
+            .task {
+                getFeedDetails()
+            }
             if deleteConfirmAlert{
                 CustomAlert(isHide: $deleteConfirmAlert , message: "Your post has been deleted", title: "Deleted", alerttype: .storyDeleted)
             }
         } 
     }
     
-    
     //MARK: - All Functions will be here
+    
+    func getFeedDetails(){
+        if !feed_id.isEmpty{
+            FeedApiCall().feedDetails(feed_id: feed_id) { _response in
+                if _response.isSuccess{
+                    feed_Model = _response.completeJsonResp["data"]["feed_list"].arrayValue.map { Feed_Model(from: $0 )}[0]
+                }else{
+                    
+                }
+            }
+        }
+    }
     
     func letsDeleteThepost(){
         FeedApiCall().deleteFeed(feed_id: feed_Model.id) { _response in

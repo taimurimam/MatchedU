@@ -62,12 +62,13 @@ struct Asyn_profile_ImageView: View {
     var width = 0
     var height = 0
     var cornerRedious = 0
+    var contentMode = ContentMode.fill
     var body: some View {
           //  GeometryReader {  geo in
                 CachedAsyncImage(url: URL(string: url ) , urlCache: .imageCache ) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: contentMode)
                         .frame(height: CGFloat( height))
                         .frame(width: CGFloat( width))
                         .cornerRadius(CGFloat(width/2))

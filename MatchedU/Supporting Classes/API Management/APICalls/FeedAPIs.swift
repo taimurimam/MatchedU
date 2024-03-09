@@ -60,5 +60,30 @@ struct FeedApiCall{
         }
     }
     
+    // report any feed
+    func reportFeed(feed_id: String , onCompletion: @escaping (_ _response : ResponseModel ) -> Void) {
+        showHud()
+        let params = [
+            "feed_id" : feed_id ,
+            "user_id" : loggedinUser.id,
+        ]
+        APIManager.callWith(urlString: FeedAPIs.reportFeed , withParams: params) { respM in
+            hideHud()
+            onCompletion(respM)
+        }
+    }
     
+    // feed details from notification page ....
+    
+    func feedDetails(feed_id: String , onCompletion: @escaping (_ _response : ResponseModel ) -> Void) {
+        showHud()
+        let params = [
+            "feed_id" : feed_id ,
+            "user_id" : loggedinUser.id,
+        ]
+        APIManager.callWith(urlString: FeedAPIs.feedDetails , withParams: params) { respM in
+            hideHud()
+            onCompletion(respM)
+        }
+    }
 }

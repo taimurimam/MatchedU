@@ -27,7 +27,7 @@ struct ProfileHeader: View {
                 .frame(height: 240)
             }
             HStack(spacing: 15){
-                ProfileImage(url: userModel.profile_image , width: 56 , leading_padding : 10)
+                ProfileImage(url: userModel.profile_image , width: 56 , leading_padding : 10 , isfullScreenDisplay : true)
                 VStack(alignment: .leading , spacing: 4){
                     Text(userModel.name)
                         .foregroundStyle(Color.app_black)

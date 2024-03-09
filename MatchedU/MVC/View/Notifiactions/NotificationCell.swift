@@ -14,7 +14,9 @@ struct NotificationCell: View {
             ConnectCell(notification_Model: notification_Model)
         }else
         if notification_Model.notificationType == .likestory{
-            NotificationCellLike(notification_Model: notification_Model)
+            NavigationLink(destination: FeedDetails( feed_id: notification_Model.feed_id, feedDeleted: {deletedFeed in })){
+                NotificationCellLike(notification_Model: notification_Model)
+            }
         }else {
             NotificationCellLike(notification_Model: notification_Model)
         }

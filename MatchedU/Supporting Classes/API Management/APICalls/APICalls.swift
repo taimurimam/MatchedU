@@ -191,6 +191,23 @@ struct UserApiCall{
             onCompletion(responseModel, isSuccess)
         }
     }
+     
+    // Block user id.... .. ..
+    
+    func blockUser(  blocked_user_id : String ,   onCompletion: @escaping ( _ _response : ResponseModel ,  _ isSuccess: Bool) -> Void) {
+        showHud()
+        let params = [
+            "user_id" : loggedinUser.id ,
+            "blocked_user_id" : blocked_user_id ,
+        ]
+        APIManager.callWith(  method: .post , urlString: UserAPIs.blockUser , withParams: params) { responseModel in
+            hideHud()
+            let isSuccess = responseModel.isSuccess
+            onCompletion(responseModel, isSuccess)
+        }
+    }
+    
+    //
     
 }
 
