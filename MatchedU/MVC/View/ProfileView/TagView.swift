@@ -12,6 +12,7 @@ import SwiftyJSON
 
 struct TagView: View {
     @Binding var tags: [TagViewItem]
+   // var tagStatusChanges:(TagViewItem)-> Void
     @State private var totalHeight = CGFloat.zero       // << variant for ScrollView/List //    = CGFloat.infinity   // << variant for VStack
     var body: some View {
         VStack {
@@ -55,11 +56,12 @@ struct TagView: View {
                     }).onTapGesture {
                        // tag.isSelected.toggle()
                         UserApiCall().addNewInterest(interest: tag.title) { _response, isSuccess in
+                            tags[0].title = "kamurdiar" 
                             if isSuccess{
-                                //tag.is_interest = tag.is_interest == "1" ? "0" : "1"
                             }else{
                                 print("some bad happned!!! ")
                             }
+                         //   tagStatusChanges(tag)
                         }
                     }
             }

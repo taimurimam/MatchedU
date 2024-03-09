@@ -18,7 +18,7 @@ struct FeedList: View {
     @State var feeds = [Feed_Model]()
     @State private var isCreatFeedTapped = false
     @State private var isLoading = false
-    @State private var page = 0
+    @State private var page = 1
 
     var body: some View {
         ZStack{
@@ -73,13 +73,13 @@ struct FeedList: View {
             .navigationBarHidden(true)
             .fullScreenCover(isPresented: $isCreatFeedTapped, content: {
                 CreatPost {
+                    page = 1
                     getFeeds(isLoader: false)
                 }
             })
             .task {
                 if feeds.isEmpty{
                     getFeeds(isLoader: true)
-                    page = 0
                 }
             }
         }
@@ -90,11 +90,13 @@ struct FeedList: View {
         if isLoader{
             showHud()
         }
-        page = page + 1
-        
         FeedApiCall().getFeedList(page: "\(page)") { _response in
             if _response.isSuccess{ // data feed_list
-                self.feeds += _response.completeJsonResp["data"]["feed_list"].arrayValue.map { Feed_Model(from: $0 )}
+                let newfeeds = _response.completeJsonResp["data"]["feed_list"].arrayValue.map { Feed_Model(from: $0 )}
+                if newfeeds.count>0{
+                    page = page + 1
+                }
+                self.feeds += newfeeds
             }else{
                 print("Some Bad Happned...")
             }

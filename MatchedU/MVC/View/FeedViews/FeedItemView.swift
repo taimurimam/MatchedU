@@ -34,24 +34,25 @@ struct FeedItemView: View {
                     }
                 }
             }
-            
-            HStack ( spacing: 20){
-                Spacer()
-                Button(action: {
-                    acceptRejectApiCall(type: "1")
-                }) {
-                    Image("accept")
-                 }
-                if feed_model.responseStatus == .notResponded{
+            if !feed_model.isMyStory{ // if this is my story then action button dont need to display... 
+                HStack ( spacing: 20){
+                    Spacer()
                     Button(action: {
-                        acceptRejectApiCall(type: "2")
+                        acceptRejectApiCall(type: "1")
                     }) {
-                        Image("reject")
+                        Image("accept")
                     }
+                    if feed_model.responseStatus == .notResponded{
+                        Button(action: {
+                            acceptRejectApiCall(type: "2")
+                        }) {
+                            Image("reject")
+                        }
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
              Divider()
                 .padding(.top , 5)
         }

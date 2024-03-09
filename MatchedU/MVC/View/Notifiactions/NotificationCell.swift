@@ -28,6 +28,9 @@ struct NotificationCell: View {
 }
 
 struct NotificationCellLike: View {
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    @State var time = ""
+
     var notification_Model : Notification_model
     var body: some View {
         HStack(spacing: 15){
@@ -40,9 +43,7 @@ struct NotificationCellLike: View {
                 Text("\(notification_Model.sender_name) liked your story.")
                     .foregroundStyle(Color.black)
                     .font(.app_body_Font(type: .Regular, size: 17))
-                Text(notification_Model.time)
-                    .foregroundStyle(Color.text_secondary_color)
-                    .font(.app_body_Font(type: .Regular, size: 14))
+                TimerText(timeString: notification_Model.time)
             }
             Spacer()
         }
@@ -50,6 +51,7 @@ struct NotificationCellLike: View {
        // .background(Color.app_blue.opacity(0.4))
     }
 }
+
 
 
 struct ConnectCell : View {
@@ -61,9 +63,7 @@ struct ConnectCell : View {
                 Image(notification_Model.icon)
                     .offset(x: 5  ,y: 12)
             }
-            .padding(.top)
             VStack(alignment:.leading , spacing: 10){
-                
                 if notification_Model.conection_status == .rejected{
                     Text("You have rejected conection request of  \(notification_Model.sender_name)")
                         .foregroundStyle(Color.black)
@@ -95,7 +95,6 @@ struct ConnectCell : View {
                            Text("Reject")
                                .btnRejectStyle()
                        }
-                       
                        Button{
                            conectionRequestResponse(response: "1")
                        }label: {
@@ -105,9 +104,7 @@ struct ConnectCell : View {
                    }
                    .font(.app_body_Font(type: .Regular, size: 18))
                }
-                Text(notification_Model.time)
-                    .foregroundStyle(Color.text_secondary_color)
-                    .font(.app_body_Font(type: .Regular, size: 14))
+                TimerText(timeString: notification_Model.time)
             }
             Spacer()
         }
@@ -118,7 +115,6 @@ struct ConnectCell : View {
     
     func conectionRequestResponse(response : String){
         notificationApiCall().conectionRequestResponse(secondParson_id: notification_Model.sender_user_id, responseType: response) { _response in
-            
         }
     }
     

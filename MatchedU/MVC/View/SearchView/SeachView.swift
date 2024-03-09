@@ -20,7 +20,7 @@ struct SeachView: View {
     var user_id  = ""
     var isFromConection = false
     @State private var isLoading = false
-    @State private var page = 0
+    @State private var page = 1
 
     var noOfFilter : Int{
         var count = 0
@@ -123,17 +123,16 @@ struct SeachView: View {
         if !isLoading{
             showHud()
         }
-        page = page + 1
         let params = [
             "user_id" : loggedinUser.id ,
             "qualification" : collageName,
             "page" : "\(page)"
         ]
-        print(params)
         UserApiCall().getUserList(params: params) { _response in
             if _response.isSuccess{
-                self.users += _response.completeJsonResp["data"]["user_list"].arrayValue.map { UserModel(from: $0 )}
-                
+                let newProfiles = _response.completeJsonResp["data"]["user_list"].arrayValue.map { UserModel(from: $0 )}
+                if newProfiles.count>0{page += 1}
+                self.users += newProfiles
             }else{
                 toastMessage = _response.strResMsg
                 isToastMessage.toggle()
@@ -144,11 +143,12 @@ struct SeachView: View {
     
     func conectionList(){
         showHud()
-        page = page + 1
         notificationApiCall().conectionList(user_id:user_id.isEmpty ? loggedinUser.id : user_id){ _response in
             hideHud()
             if _response.isSuccess{
-                self.users += _response.completeJsonResp["data"]["connects_list"].arrayValue.map { UserModel(from: $0 )}
+                let newProfiles =  _response.completeJsonResp["data"]["connects_list"].arrayValue.map { UserModel(from: $0 )}
+                if newProfiles.count>0{page += 1}
+                self.users += newProfiles
             }else{
                 toastMessage = _response.strResMsg
                 isToastMessage.toggle()

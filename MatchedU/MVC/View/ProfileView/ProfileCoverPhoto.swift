@@ -17,7 +17,7 @@ struct ProfileCoverPhoto: View {
                     .frame( height: 240)
                     .frame(maxWidth: .infinity)
                     .clipped()
-                LinearGradient(gradient: Gradient(colors: [.app_black.opacity(0.5), .app_white.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [.app_black.opacity(0.1), .app_white.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
                     .frame( height: height)
             }
         }else{ // if user does not have cover photo.....

@@ -112,6 +112,7 @@
 		B595C2942B846DB0002625DD /* FeedAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595C2932B846DB0002625DD /* FeedAPIs.swift */; };
 		B5A7BB3B2B8DCFC400099FA1 /* SearchProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7BB3A2B8DCFC400099FA1 /* SearchProfileCell.swift */; };
 		B5C6CB652B9C2089004A5F8B /* TagViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6CB642B9C2089004A5F8B /* TagViewItem.swift */; };
+		B5C6CB672B9C8FBD004A5F8B /* TimerText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C6CB662B9C8FBD004A5F8B /* TimerText.swift */; };
 		B5E7B5612B85E7F8003DC53D /* CollageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7B5602B85E7F8003DC53D /* CollageSelectionView.swift */; };
 		B5E7B5652B85F2EC003DC53D /* CollageList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5E7B5642B85F2EC003DC53D /* CollageList.plist */; };
 		B5F942322B918BEB001D3505 /* Notification_api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F942312B918BEB001D3505 /* Notification_api.swift */; };
@@ -259,6 +260,7 @@
 		B595C2932B846DB0002625DD /* FeedAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIs.swift; sourceTree = "<group>"; };
 		B5A7BB3A2B8DCFC400099FA1 /* SearchProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProfileCell.swift; sourceTree = "<group>"; };
 		B5C6CB642B9C2089004A5F8B /* TagViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewItem.swift; sourceTree = "<group>"; };
+		B5C6CB662B9C8FBD004A5F8B /* TimerText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerText.swift; sourceTree = "<group>"; };
 		B5E7B5602B85E7F8003DC53D /* CollageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageSelectionView.swift; sourceTree = "<group>"; };
 		B5E7B5642B85F2EC003DC53D /* CollageList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CollageList.plist; sourceTree = "<group>"; };
 		B5F942312B918BEB001D3505 /* Notification_api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification_api.swift; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				B586849C2B7F800500798DC3 /* CustomAlert.swift */,
+				B5C6CB662B9C8FBD004A5F8B /* TimerText.swift */,
 				B53381662B7B171600BB9BCB /* InputField.swift */,
 				B55ED7562B7C760E00B6BD96 /* Interests */,
 				B533816B2B7B173900BB9BCB /* ActionSheet+Modifier.swift */,
@@ -1045,6 +1048,7 @@
 				B53381902B7B174400BB9BCB /* BackButton.swift in Sources */,
 				B5E7B5612B85E7F8003DC53D /* CollageSelectionView.swift in Sources */,
 				B533814B2B7B0D8A00BB9BCB /* ToastModifier.swift in Sources */,
+				B5C6CB672B9C8FBD004A5F8B /* TimerText.swift in Sources */,
 				B53381922B7B174400BB9BCB /* btn_white_background.swift in Sources */,
 				B5153D232B8EE92400439EC2 /* NotificationCell.swift in Sources */,
 				B53381512B7B0D8A00BB9BCB /* String.swift in Sources */,

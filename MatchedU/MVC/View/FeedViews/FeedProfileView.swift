@@ -15,7 +15,6 @@ struct FeedProfileView: View {
     @State private var toastMessage = ""
     @State private var isToastMessage = false
     @State private var isShowingActionSheet = false
-
     var body: some View {
         HStack {
             // Left side: Profile details
@@ -34,12 +33,7 @@ struct FeedProfileView: View {
                     Text(feed_model.feed_owner.name)
                         .font(.appFont(type: .medium, size: 18))
                         .foregroundStyle(Color.primary_color)
-                    HStack{
-                        Image("clock") 
-                        Text(feed_model.feed_time )
-                            .font(.app_body_Font(type: .lite, size: 11))
-                            .foregroundColor(.black)
-                    }
+                    TimerText(timeString: feed_model.feed_time)
                 }
                 .padding(.leading , 5) 
             }

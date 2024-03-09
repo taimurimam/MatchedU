@@ -34,24 +34,29 @@ struct Feed_Model {
     var id: String
     var user_id: String
     var isLiked = false
-    var comment_count = "34"
+    var comment_count = ""
     var tags = [String]()
-    var like_count = "24"
+    var like_count = ""
     var feedText : String 
     
     var feed_img : String{
         return mediaBaseUrl + imgSubLink
     }
     var feed_owner : Feed_UserModel
-    var feed_time  =  "15 Dec 2022 at 09:42 AM"
-    var imgSubLink  =  "15 Dec 2022 at 09:42 AM"
+    var feed_time  =  ""
+    var imgSubLink  =  ""
     var type : String
+   
     var responseStatus: feed_response_status{
-        if type == "1" { return .liked} else
-        if type == "2" { return .rejected} else{
+        if type == "1" {
+            return .liked
+        } else
+        if type == "2" { return .rejected
+        } else{
             return .notResponded
         }
     }
+    
     var isMyStory : Bool{
         return user_id == loggedinUser.id ? true : false
     }
