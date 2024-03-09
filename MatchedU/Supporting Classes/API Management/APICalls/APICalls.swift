@@ -63,7 +63,6 @@ struct UserApiCall{
     
     // Creat New Account
     func getUserList( params : Dictionary< String, Any>,  onCompletion: @escaping ( _ _response : ResponseModel ) -> Void) {
-        showHud()
         APIManager.callWith(  method: .post , urlString: UserAPIs.userList , withParams: params) { responseModel in
             hideHud()
             onCompletion(responseModel)

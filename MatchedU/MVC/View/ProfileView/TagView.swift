@@ -53,12 +53,29 @@ struct TagView: View {
                         }
                         return result
                     }).onTapGesture {
-                        print("tag selected...\(tag.title) ")
-                        
                        // tag.isSelected.toggle()
+                        UserApiCall().addNewInterest(interest: tag.title) { _response, isSuccess in
+                            if isSuccess{
+                                //tag.is_interest = tag.is_interest == "1" ? "0" : "1"
+                            }else{
+                                print("some bad happned!!! ")
+                            }
+                        }
                     }
             }
         }.background(viewHeightReader($totalHeight))
+        
+        
+        func addNewInterest(tag : String){
+            UserApiCall().addNewInterest(interest: tag) { _response, isSuccess in
+                if isSuccess{
+                    
+                }else{
+                    print("some bad happned!!! ")
+                }
+            }
+        }
+        
     }
 
     private func item(for text: String, isSelected: Bool) -> some View {

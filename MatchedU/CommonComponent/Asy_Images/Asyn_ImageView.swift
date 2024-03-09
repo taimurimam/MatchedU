@@ -8,25 +8,31 @@
 import SwiftUI
 import CachedAsyncImage
 
-
 struct Asyn_ImageView_demo: View {
     var url = ""
     var width = 0
     var height = 0
     var cornerRedious = 0
+    var contentMode = ContentMode.fill
+
     var body: some View {
           //  GeometryReader {  geo in
                 CachedAsyncImage(url: URL(string: url ) , urlCache: .imageCache ) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: contentMode)
                         .frame(maxHeight: CGFloat( height))
                         .frame(width: UIScreen.main.bounds.width)
                         .frame(maxWidth: UIScreen.main.bounds.width)
                         .clipped()
                         .cornerRadius(CGFloat(cornerRedious))
                 } placeholder: {
+                    ZStack(alignment:.center){
+                    Color.app_white
+                        .frame(width: CGFloat(width)  , height: CGFloat(height))
+                        .padding()
                     ProgressView()
+                }
                 }
           //  }
         }
@@ -38,12 +44,14 @@ struct Asyn_ImageView: View {
     var width = 0
     var height = 0
     var cornerRedious = 0
+    var contentMode = ContentMode.fill
+
     var body: some View {
           //  GeometryReader {  geo in
                 CachedAsyncImage(url: URL(string: url ) , urlCache: .imageCache ) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill) 
+                        .aspectRatio(contentMode: contentMode)
                         .frame(height: CGFloat( height))
                         .frame(width: UIScreen.main.bounds.width)
                         .clipped()

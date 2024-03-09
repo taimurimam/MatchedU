@@ -10,7 +10,6 @@ struct notificationApiCall{
     // Notification List
     
     func notificationList(   onCompletion: @escaping (_ _response : ResponseModel  ) -> Void) {
-        showHud()
         let params = [
             "user_id" : loggedinUser.id ,
         ]

@@ -36,7 +36,6 @@ struct NotificationCellLike: View {
                 Image(notification_Model.icon)
                     .offset(x: 5  ,y: 12)
             }
-            .padding(.top)
             VStack(alignment:.leading , spacing: 7){
                 Text("\(notification_Model.sender_name) liked your story.")
                     .foregroundStyle(Color.black)

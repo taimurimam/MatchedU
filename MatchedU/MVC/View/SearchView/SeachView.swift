@@ -19,6 +19,9 @@ struct SeachView: View {
     @State var collageName = ""
     var user_id  = ""
     var isFromConection = false
+    @State private var isLoading = false
+    @State private var page = 0
+
     var noOfFilter : Int{
         var count = 0
         if !collageName.isEmpty{
@@ -71,7 +74,16 @@ struct SeachView: View {
                         ForEach(users , id: \.id) { user in
                             NavigationLink(destination: ProfileView(user_id: user.id)){
                                 SearchProfileCell(user: user)
+                                    .onAppear(){
+                                        if user.id == self.users.last?.id && !isLoading {
+                                            isLoading = true
+                                            getUsers()
+                                        }
+                                    }
                             }
+                        }
+                        if isLoading{
+                            Text("Loading... ")
                         }
                     }
                 }
@@ -108,33 +120,41 @@ struct SeachView: View {
     //MARK: - All Functions are here.....
 
     func getUsers(){
+        if !isLoading{
+            showHud()
+        }
+        page = page + 1
         let params = [
             "user_id" : loggedinUser.id ,
-            "qualification" : collageName
+            "qualification" : collageName,
+            "page" : "\(page)"
         ]
+        print(params)
         UserApiCall().getUserList(params: params) { _response in
             if _response.isSuccess{
-                self.users = _response.completeJsonResp["data"]["user_list"].arrayValue.map { UserModel(from: $0 )}
+                self.users += _response.completeJsonResp["data"]["user_list"].arrayValue.map { UserModel(from: $0 )}
+                
             }else{
                 toastMessage = _response.strResMsg
                 isToastMessage.toggle()
             }
+            isLoading = false
         }
     }
     
     func conectionList(){
         showHud()
+        page = page + 1
         notificationApiCall().conectionList(user_id:user_id.isEmpty ? loggedinUser.id : user_id){ _response in
             hideHud()
             if _response.isSuccess{
-                self.users = _response.completeJsonResp["data"]["connects_list"].arrayValue.map { UserModel(from: $0 )}
+                self.users += _response.completeJsonResp["data"]["connects_list"].arrayValue.map { UserModel(from: $0 )}
             }else{
                 toastMessage = _response.strResMsg
                 isToastMessage.toggle()
             }
         }
     }
-
     //
     
 }

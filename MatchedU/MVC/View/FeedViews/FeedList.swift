@@ -17,7 +17,9 @@ struct FeedList: View {
     var feed_Model = Feed_Model(from: JSON())
     @State var feeds = [Feed_Model]()
     @State private var isCreatFeedTapped = false
-    
+    @State private var isLoading = false
+    @State private var page = 0
+
     var body: some View {
         ZStack{
             Color.white
@@ -45,6 +47,16 @@ struct FeedList: View {
                                 FeedItemView(feed_model: feed, feedDeleted: { deletedFeed in
                                     feeds = feeds.filter{ $0.id !=  deletedFeed.id}
                                 })
+                                .onAppear(){
+                                    if feed.id == self.feeds.last?.id && !isLoading {
+                                        isLoading = true
+                                        getFeeds(isLoader: false )
+                                    }
+                                }
+                            }
+                            if isLoading{
+                                Text("Loading.....")
+                                    .foregroundStyle(Color.app_black)
                             }
                         }
                         .background(Color.white)
@@ -67,6 +79,7 @@ struct FeedList: View {
             .task {
                 if feeds.isEmpty{
                     getFeeds(isLoader: true)
+                    page = 0
                 }
             }
         }
@@ -77,12 +90,15 @@ struct FeedList: View {
         if isLoader{
             showHud()
         }
-        FeedApiCall().getFeedList(page: "1") { _response in
+        page = page + 1
+        
+        FeedApiCall().getFeedList(page: "\(page)") { _response in
             if _response.isSuccess{ // data feed_list
-                self.feeds = _response.completeJsonResp["data"]["feed_list"].arrayValue.map { Feed_Model(from: $0 )}
+                self.feeds += _response.completeJsonResp["data"]["feed_list"].arrayValue.map { Feed_Model(from: $0 )}
             }else{
                 print("Some Bad Happned...")
             }
+            isLoading = false
         }
     }
 }

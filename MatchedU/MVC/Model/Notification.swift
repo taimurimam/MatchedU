@@ -13,7 +13,7 @@ enum Conection_status : Int {
     case none
 }
 
-struct Notification_model{
+struct Notification_model { 
     var sender_name : String
     var sender_user_id: String
     var img_sublink: String

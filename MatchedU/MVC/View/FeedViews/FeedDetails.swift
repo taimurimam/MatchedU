@@ -25,7 +25,7 @@ struct FeedDetails: View {
                 .ignoresSafeArea()
             ZStack{
                 if feed_Model.isImage{
-                    Asyn_ImageView(url: feed_Model.feed_img , width: 270 , height: 480 , cornerRedious: 0)
+                    Asyn_ImageView(url: feed_Model.feed_img , width: 270 , height: 650 , cornerRedious: 0 , contentMode: .fit)
                         .frame( height: 480)
                         .frame(maxWidth: .infinity)
                         .clipped()

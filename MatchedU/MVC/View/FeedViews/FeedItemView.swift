@@ -20,6 +20,7 @@ struct FeedItemView: View {
                 VStack(alignment: .center, spacing: 12) {
                     if feed_model.isImage{ // if feed image contain on feed.
                         Asyn_ImageView_demo(url: feed_model.feed_img , height: 275 , cornerRedious: 0)
+                            .frame(width: UIScreen.main.bounds.width  , height:275 )
                             .scaledToFill()
                             .clipped()
                     }
