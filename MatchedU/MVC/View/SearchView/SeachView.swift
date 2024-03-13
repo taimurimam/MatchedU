@@ -8,6 +8,7 @@
 import SwiftUI
 import AlertToast
 import PopupView
+import SwiftyJSON
 
 struct SeachView: View {
     @State private var toastMessage = ""
@@ -21,7 +22,15 @@ struct SeachView: View {
     var isFromConection = false
     @State private var isLoading = false
     @State private var page = 1
-
+    @State private var userIndex = 0
+    var user : UserModel{
+        if users.isEmpty{
+            return UserModel(from: JSON())
+        }else{
+            return users[userIndex]
+        }
+    }
+    
     var noOfFilter : Int{
         var count = 0
         if !collageName.isEmpty{
@@ -69,24 +78,30 @@ struct SeachView: View {
                         }
                     }
                 }
+                
                 ScrollView{
-                    LazyVStack(spacing: 30){
-                        ForEach(users , id: \.id) { user in
-                            NavigationLink(destination: ProfileView(user_id: user.id)){
-                                SearchProfileCell(user: user)
-                                    .onAppear(){
-                                        if user.id == self.users.last?.id && !isLoading {
-                                            isLoading = true
-                                            getUsers()
-                                        }
-                                    }
-                            }
-                        }
-                        if isLoading{
-                            Text("Loading... ")
-                        }
-                    }
+                    SearchProfileCell(userIndex: $userIndex, user: user)
+                    Spacer(minLength: 0.01) 
                 }
+
+//                ScrollView{
+//                    LazyVStack(spacing: 30){
+//                       // ForEach(users , id: \.id) { user in
+//                           // NavigationLink(destination: ProfileView(user_id: user.id)){
+////                                SearchProfileCell(user: user)
+////                                    .onAppear(){
+////                                        if user.id == self.users.last?.id && !isLoading {
+////                                            isLoading = true
+////                                            getUsers()
+////                                        }
+////                                    }
+//                           // }
+//                       // }
+//                        if isLoading{
+//                            Text("Loading... ")
+//                        }
+//                    }
+//                }
             }
             .navigationBarHidden(true)
             .task {

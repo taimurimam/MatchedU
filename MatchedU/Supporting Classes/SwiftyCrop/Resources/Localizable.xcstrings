@@ -29,6 +29,9 @@
     "%lld" : {
 
     },
+    "About %@" : {
+
+    },
     "About me" : {
 
     },
@@ -157,6 +160,9 @@
     "Gender" : {
 
     },
+    "Graduation %@" : {
+
+    },
     "Hi! %@" : {
 
     },
@@ -226,9 +232,6 @@
 
     },
     "Let’s Explore" : {
-
-    },
-    "Loading... " : {
 
     },
     "Loading....." : {
