@@ -9,7 +9,8 @@ import SwiftUI
 import SwiftyJSON
 struct SearchProfileCell: View {
     @Binding var userIndex : Int
-    var user = UserModel(from: JSON())
+    @Binding var user : UserModel
+    var isFromConection = false
     let link = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Q-ZRtH2jCAePPB7VN76XqQHaHa%26pid%3DApi&f=1&ipt=0da107b1a30a35654e2ee85c98a4415b5e0651ea459e67d31294eec788da3c9a&ipo=images"
     var body: some View {
         VStack(alignment:.leading ,  spacing: 10){ 
@@ -17,8 +18,6 @@ struct SearchProfileCell: View {
                 .foregroundStyle(Color.app_black)
                 .font(.appFont(type: .Bold , size: 25))
             HStack(spacing:10){
-//                Image("teacher")
-//                Text(user.collage)
                 Image("award")
                 Text("Graduation \(user.graduation_year)")
             }
@@ -30,53 +29,61 @@ struct SearchProfileCell: View {
                     .clipped()
                     .cornerRadius(12)
                     .shadow(color: .black.opacity(0.05), radius: 10 , x: 4 , y: 8)
-               
             })
-            
-            HStack{
-                VStack(alignment:.leading , spacing: 10, content: {
-                    Text("About \(user.name)")
-                        .padding(.leading)
-                        .padding(.top)
-                        .font(.app_body_Font(type: .Regular, size: 13))
-                    Text(user.bio)
-                        .padding(.leading)
-                        .padding(.bottom)
-                        .font(.app_body_Font(type: .Regular, size: 18))
-                })
-                Spacer(minLength: 1)
-            }
-            .foregroundStyle(Color.app_black)
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .cornerRadius(12.0)
-            .shadow(color: .black.opacity(0.05), radius: 10 , x: 4 , y: 8)
-            .padding(.top , 10)
-
-            
-            HStack ( spacing: 20){
-                Spacer()
-                Button(action: {
-                    withAnimation{
-                        userIndex += 1
+             
+            if !isFromConection{ // if from explore then this part will apear.....
+                HStack{
+                    VStack(alignment:.leading , spacing: 10, content: {
+                        Text("About \(user.name)")
+                            .padding(.leading)
+                            .padding(.top)
+                            .font(.app_body_Font(type: .Regular, size: 13))
+                        Text(user.bio)
+                            .padding(.leading)
+                            .padding(.bottom)
+                            .font(.app_body_Font(type: .Regular, size: 18))
+                    })
+                    Spacer(minLength: 1)
+                }
+                .foregroundStyle(Color.app_black)
+                .frame(maxWidth: .infinity)
+                .background(Color.secondary_background)
+                .cornerRadius(12.0)
+                .padding(.top , 10)
+                if !user.stories.isEmpty{
+                    ProfileStoryView(sendConectionRequest: {
+                        sendConectionRequiest()
+                    }, userModel: $user)
+                }
+                HStack ( spacing: 20){
+                    Spacer()
+                    Button(action: {
+                        withAnimation{
+                            userIndex += 1
+                        }
+                    }) {
+                        Image("accept")
                     }
-                }) {
-                    Image("accept")
-                }
-                
-                Button(action: {
                     
-                }) {
-                    Image("reject")
+                    Button(action: {
+                        userIndex += 1
+                    }) {
+                        Image("reject")
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .padding(.horizontal)
+                .padding(.bottom)
             }
-            .padding(.horizontal)
         }
         .padding(.horizontal)
+    }
+    
+    func sendConectionRequiest(){
+        
     }
 }
 
 #Preview {
-    SearchProfileCell(userIndex: .constant(0))
+    SeachView()
 }

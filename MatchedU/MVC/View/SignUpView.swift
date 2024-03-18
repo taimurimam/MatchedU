@@ -150,7 +150,7 @@ struct SignUpView: View {
             "name" : Name ,
             "dob" : formattedDate,
             "gender" : gender , 
-            "tag" : ["cricket" , "footbal" , "politics"]
+            "tag" : ["Learning"]
         ] as [String : Any]
         
         UserApiCall().registerNewAccount(params: params)  { _response , isSuccess   in

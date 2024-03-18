@@ -48,7 +48,7 @@ struct CollageSelectionView: View {
             Color.off_white
                 .ignoresSafeArea()
             VStack{
-                HeaderView(title: "Select Collage", isDownBackBtn: true)
+                HeaderView(title: "Select College", isDownBackBtn: true)
                 ZStack(alignment:.trailing){
                     InputField(text: $searchText, placeholder: "Search Collage ...")
                     if !searchText.isEmpty{

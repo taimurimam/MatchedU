@@ -80,9 +80,9 @@ struct ProfileView: View {
                         PersonalInfoCell(icon: "profile_collage" , title: "College/School" , value: userModel.collage)
                         PersonalInfoCell(icon: "profile_graguation_year" , title: "Graduation Year" , value: userModel.graduation_year)
                         PersonalInfoCell(icon: "profile_dob" , title: "Year of birth" , value: userModel.birthYear)
-                        if userModel.isMyProfile{
+                        if userModel.isMyProfile || userModel.conectionStatus == .conected{
                             ZStack(alignment:.trailing){
-                                PersonalInfoCell(icon: "linkedin" , title: "Linked In" , value: userModel.linkdin_url)
+                                PersonalInfoCell(icon: "linkedin" , title: "LinkedIn" , value: userModel.linkdin_url)
                                 btnVisit(link: userModel.linkdin_url)
                             }
                         }

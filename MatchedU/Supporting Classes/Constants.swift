@@ -29,7 +29,7 @@ var screenHeight = UIScreen.main.bounds.size.height
 
 let strErrorCodeMsg = "Error code"
 let strFailedToLoad = "Please check your network connection and try again later."
-let strPleaseWait = "Please wait..."
+let strPleaseWait = ""
 let strCancel = "Cancel"
 let failedToLoad = "Please check your network connection and try again later."
 

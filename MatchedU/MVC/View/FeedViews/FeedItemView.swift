@@ -63,8 +63,10 @@ struct FeedItemView: View {
     func acceptRejectApiCall(type: String){
         FeedApiCall().likeFeed(feed_id: feed_model.id, type: type) { _response in
             if _response.isSuccess {
-                if type == "2"{
+                if type == "2"{ // Feed deleted ....
                     self.feedDeleted(feed_model)
+                }else if type == "1"{
+                   // feed_model.isLiked = true
                 }
             }else{
                 print("some issue happned")

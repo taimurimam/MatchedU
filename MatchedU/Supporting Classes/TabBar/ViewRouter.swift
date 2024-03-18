@@ -40,7 +40,7 @@ final class ViewRouter: ObservableObject {
                                 width: iconWidth,
                                 height: iconHeight,
                                 iconName: "search-inactive", iconName_active: "search-active",
-                                tabName: "Search"),
+                                tabName: "Explore"),
 
             
             TabBarIconViewModel(assignedPage: .notification,

@@ -21,7 +21,7 @@ struct FilterView: View {
     @Binding var collageName : String
     @Binding var gender : Gender
     var collage : String{
-        return collageName.isEmpty ? "School / Collage" : collageName
+        return collageName.isEmpty ? "School / College" : collageName
     }
     
     let applyFilter: () -> Void

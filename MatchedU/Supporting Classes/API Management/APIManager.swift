@@ -234,7 +234,7 @@ func getHeader() -> [String : String]
 
 func showHud(_ strMsg: String = strPleaseWait)
 {
-    HUD.show(HUDContentType.label(strMsg))
+    HUD.show(HUDContentType.systemActivity)
 }
 
 func hideHud()

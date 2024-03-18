@@ -34,7 +34,9 @@ struct btnVisit : View {
    @State var link : String
     var body: some View {
         Button{
-            openTheUrl() 
+            if !link.isEmpty{
+                openTheUrl()
+            }
         }label: {
             Text("visit")
                 .profileViewAllStyle()

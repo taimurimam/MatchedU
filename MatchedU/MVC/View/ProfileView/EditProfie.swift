@@ -126,7 +126,7 @@ struct EditProfie: View {
                             .allowsHitTesting(false) 
                         //  InputDate(birthDate: $dateOfBirth)
                         ZStack{
-                            InputField(text: $school_collage , inputFieldType: .email, placeholder: "School/Collage")
+                            InputField(text: $school_collage , inputFieldType: .email, placeholder: "School/College")
                                 .allowsTightening(false)
                             HStack{
                                 Color.white.opacity(0.01)

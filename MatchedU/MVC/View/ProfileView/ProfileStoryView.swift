@@ -58,27 +58,20 @@ struct StoryCard: View {
     var storyDeleted:()->Void
 
     var body: some View {
-            ZStack(alignment:.bottomTrailing){
-               // NavigationLink(destination: StoryDetails(storyModel: storyModel)){
-                Asyn_ImageView(url: storyModel.imgUrl , width: Int(UIScreen.main.bounds.width-20) , height: Int(UIScreen.main.bounds.width + 40) , cornerRedious: 12)
-                        .frame(width: UIScreen.main.bounds.width - 20  , height:UIScreen.main.bounds.width + 40 )
-                        .clipped()
-                        .shadow(color: .black.opacity(0.5), radius: 10 , x: 4 , y: 8)
-                        .cornerRadius(12)
-              //  }
-                if !storyModel.isMyStory{
-                    Button{
-                        sendConectionRequest()
-                    }label: {
-                        Image("followButton")
-                            .shadow(color: .black.opacity(0.1), radius: 10 , x: 4 , y: 8)
-                            .clipShape(Circle())
-                            .padding(10)
-                    }
-                }else{
-                    DeleteButton(isDelete:$isDeleteStory)
-                        .padding(.bottom)
-                   }
+        ZStack(alignment:.bottomTrailing){
+            // NavigationLink(destination: StoryDetails(storyModel: storyModel)){
+            
+            Asyn_ImageView_demo(url:storyModel.imgUrl , width:  Int(UIScreen.main.bounds.width) - 30 , height: Int(UIScreen.main.bounds.width) + 40 , cornerRedious: 12)
+                .frame(width: UIScreen.main.bounds.width - 30  , height:UIScreen.main.bounds.width + 40 )
+                .clipped()
+                .cornerRadius(12)
+                .shadow(color: .black.opacity(0.05), radius: 10 , x: 4 , y: 8)
+            
+            
+            if storyModel.isMyStory{
+                DeleteButton(isDelete:$isDeleteStory)
+                    .padding(.bottom)
+                }
             }
             .alert(isPresented: $isDeleteStory) {
                 Alert(
