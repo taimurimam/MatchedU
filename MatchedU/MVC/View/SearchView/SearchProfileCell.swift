@@ -58,9 +58,8 @@ struct SearchProfileCell: View {
                 HStack ( spacing: 20){
                     Spacer()
                     Button(action: {
-                        withAnimation{
-                            userIndex += 1
-                        }
+                        sendConectionRequiest()
+                       
                     }) {
                         Image("accept")
                     }
@@ -80,7 +79,13 @@ struct SearchProfileCell: View {
     }
     
     func sendConectionRequiest(){
-        
+        notificationApiCall().sendConectionRequest(secondParson_id: user.id) { _response in
+            if _response.isSuccess{
+                withAnimation{
+                    userIndex += 1
+                }
+            }
+        }
     }
 }
 

@@ -205,7 +205,6 @@ struct UserApiCall{
             onCompletion(responseModel, isSuccess)
         }
     }
-    
     //
     
 }

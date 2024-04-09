@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5B9769CE1D787DC53A2BDFD7 /* Pods_MatchedU_MatchedUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DDC88FC695258895F5EA63 /* Pods_MatchedU_MatchedUUITests.framework */; };
 		B50CD72D2B95879E00348778 /* GenderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50CD72C2B95879D00348778 /* GenderPicker.swift */; };
-		B5153D1A2B8EE34F00439EC2 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B5153D192B8EE34F00439EC2 /* PKHUD */; };
-		B5153D1E2B8EE3AC00439EC2 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */; };
 		B5153D212B8EE7B500439EC2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D202B8EE7B500439EC2 /* Notifications.swift */; };
 		B5153D232B8EE92400439EC2 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D222B8EE92400439EC2 /* NotificationCell.swift */; };
 		B5153D252B8EF1A300439EC2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153D242B8EF1A300439EC2 /* Notification.swift */; };
@@ -68,6 +66,9 @@
 		B53381952B7B174400BB9BCB /* InputTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533817F2B7B174400BB9BCB /* InputTextEditor.swift */; };
 		B53381962B7B174400BB9BCB /* TostAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53381802B7B174400BB9BCB /* TostAlert.swift */; };
 		B533819B2B7B1C5E00BB9BCB /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533819A2B7B1C5E00BB9BCB /* SignUpView.swift */; };
+		B55D0D242BAC00E40083E890 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = B55D0D232BAC00E40083E890 /* CachedAsyncImage */; };
+		B55D0D262BAC00EA0083E890 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = B55D0D252BAC00EA0083E890 /* PopupView */; };
+		B55D0D292BAC01490083E890 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B55D0D282BAC01490083E890 /* PKHUD */; };
 		B55ED7462B7B841600B6BD96 /* LeagueSpartan-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B55ED73D2B7B841600B6BD96 /* LeagueSpartan-Medium.ttf */; };
 		B55ED7472B7B841600B6BD96 /* LeagueSpartan-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B55ED73E2B7B841600B6BD96 /* LeagueSpartan-ExtraBold.ttf */; };
 		B55ED7482B7B841600B6BD96 /* LeagueSpartan-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B55ED73F2B7B841600B6BD96 /* LeagueSpartan-Black.ttf */; };
@@ -84,7 +85,6 @@
 		B576065D2B8488CE005082A5 /* FeedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576065C2B8488CE005082A5 /* FeedDetails.swift */; };
 		B57606602B84A6AB005082A5 /* SeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576065F2B84A6AB005082A5 /* SeachView.swift */; };
 		B57606622B84A763005082A5 /* btnSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57606612B84A763005082A5 /* btnSearch.swift */; };
-		B57B28262B99634600D2C97F /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = B57B28252B99634600D2C97F /* PopupView */; };
 		B57B28282B9974CD00D2C97F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B28272B9974CD00D2C97F /* TagView.swift */; };
 		B57B282A2B99850200D2C97F /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B28292B99850200D2C97F /* Interests.swift */; };
 		B586847F2B7EFEF300798DC3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586847E2B7EFEF300798DC3 /* ProfileView.swift */; };
@@ -284,10 +284,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B57B28262B99634600D2C97F /* PopupView in Frameworks */,
-				B5153D1E2B8EE3AC00439EC2 /* CachedAsyncImage in Frameworks */,
+				B55D0D262BAC00EA0083E890 /* PopupView in Frameworks */,
+				B55D0D292BAC01490083E890 /* PKHUD in Frameworks */,
 				E821BF59FA5B9F4FE7252507 /* Pods_MatchedU.framework in Frameworks */,
-				B5153D1A2B8EE34F00439EC2 /* PKHUD in Frameworks */,
+				B55D0D242BAC00E40083E890 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,9 +746,9 @@
 			);
 			name = MatchedU;
 			packageProductDependencies = (
-				B5153D192B8EE34F00439EC2 /* PKHUD */,
-				B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */,
-				B57B28252B99634600D2C97F /* PopupView */,
+				B55D0D232BAC00E40083E890 /* CachedAsyncImage */,
+				B55D0D252BAC00EA0083E890 /* PopupView */,
+				B55D0D282BAC01490083E890 /* PKHUD */,
 			);
 			productName = MatchedU;
 			productReference = B5FEC13E2B7B052F00897E42 /* MatchedU.app */;
@@ -826,9 +826,10 @@
 			);
 			mainGroup = B5FEC1352B7B052F00897E42;
 			packageReferences = (
-				B5153D182B8EE34F00439EC2 /* XCRemoteSwiftPackageReference "PKHUD" */,
-				B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
-				B57B28242B99634600D2C97F /* XCRemoteSwiftPackageReference "PopupView" */,
+				B545E7CE2BAB228F00C49FCB /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				B545E7CF2BAB245800C49FCB /* XCRemoteSwiftPackageReference "PopupView" */,
+				B545E7D02BAB246900C49FCB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B55D0D272BAC013A0083E890 /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = B5FEC13F2B7B052F00897E42 /* Products */;
 			projectDirPath = "";
@@ -1434,15 +1435,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B5153D182B8EE34F00439EC2 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pkluz/PKHUD.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.0;
-			};
-		};
-		B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+		B545E7CE2BAB228F00C49FCB /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
 			requirement = {
@@ -1450,31 +1443,47 @@
 				minimumVersion = 2.1.1;
 			};
 		};
-		B57B28242B99634600D2C97F /* XCRemoteSwiftPackageReference "PopupView" */ = {
+		B545E7CF2BAB245800C49FCB /* XCRemoteSwiftPackageReference "PopupView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/PopupView.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.0;
+				minimumVersion = 2.9.1;
+			};
+		};
+		B545E7D02BAB246900C49FCB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+		B55D0D272BAC013A0083E890 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B5153D192B8EE34F00439EC2 /* PKHUD */ = {
+		B55D0D232BAC00E40083E890 /* CachedAsyncImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B5153D182B8EE34F00439EC2 /* XCRemoteSwiftPackageReference "PKHUD" */;
-			productName = PKHUD;
-		};
-		B5153D1D2B8EE3AC00439EC2 /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B5153D1C2B8EE3AC00439EC2 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			package = B545E7CE2BAB228F00C49FCB /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
 		};
-		B57B28252B99634600D2C97F /* PopupView */ = {
+		B55D0D252BAC00EA0083E890 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B57B28242B99634600D2C97F /* XCRemoteSwiftPackageReference "PopupView" */;
+			package = B545E7CF2BAB245800C49FCB /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		B55D0D282BAC01490083E890 /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B55D0D272BAC013A0083E890 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

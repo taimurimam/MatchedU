@@ -93,10 +93,14 @@ struct FeedList: View {
         FeedApiCall().getFeedList(page: "\(page)") { _response in
             if _response.isSuccess{ // data feed_list
                 let newfeeds = _response.completeJsonResp["data"]["feed_list"].arrayValue.map { Feed_Model(from: $0 )}
+                if page == 1{ // if page 1 get fresh list
+                    self.feeds = newfeeds
+                }else{
+                    self.feeds += newfeeds
+                }
                 if newfeeds.count>0{
                     page = page + 1
                 }
-                self.feeds += newfeeds
             }else{
                 print("Some Bad Happned...")
             }
