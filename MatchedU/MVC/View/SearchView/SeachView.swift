@@ -187,10 +187,8 @@ struct SeachView: View {
                 }
             }
         }
-        
-        
-    
 }
+
 #Preview {
     SeachView()
 }

@@ -82,7 +82,7 @@ class Utilities{
         } else if let minute = components.minute, minute >= 1 {
             return numericDates ? "1 minute ago" : "A minute ago"
         } else {
-            return "Just now"
+            return "Just now" // the end 
         }
     }
 
