@@ -16,7 +16,6 @@ struct BackgroundView: View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [.app_white, .background_gradient_top]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
-            
         }
     }
 }

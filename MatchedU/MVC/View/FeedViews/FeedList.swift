@@ -61,6 +61,7 @@ struct FeedList: View {
                         }
                         .background(Color.white)
                     }
+                    
                     Button{
                         isCreatFeedTapped.toggle()
                     }label: {
